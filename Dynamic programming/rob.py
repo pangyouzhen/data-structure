@@ -1,12 +1,24 @@
 # 实际问题转化为数学递归问题
 # 现在假设现在是最大值，增加新的元素应该怎么得到最大值
 
-def rob(n, ls):
-    if n == 1:
+def rob_n(n, ls):
+    if n == 0:
         res = ls[0]
+    elif n == 1:
+        res = ls[1]
     else:
-        res = max(rob(n - 1, ls) + ls[n], rob(n - 1, ls))
+        print(n)
+        res = max(rob_n(n - 2, ls) + ls[n], rob_n(n - 1, ls))
+        # 4 element  index from 0
+        # 1 + 3 | 2
+        #
+        print("-------------")
     return res
+
+
+def rob(ls):
+    n = len(ls) - 1
+    return rob_n(n, ls)
 
 
 # 大问题转化为小问题，如何将大问题与小问题关联
@@ -25,5 +37,5 @@ def rob(n, ls):
 
 if __name__ == '__main__':
     # assert rob([1, 2, 3, 1]) == [1, 3]
-    # assert rob([2, 7, 9, 3, 1]) == 12
-    assert rob(1, [2, 1, 1, 2]) == [2]
+    assert rob([2, 3, 8, 6, 7]) == 17
+    assert rob([2, 1, 1, 2]) == 4
