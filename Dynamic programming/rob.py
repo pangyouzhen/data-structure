@@ -9,8 +9,8 @@ def rob_n(n, ls):
     else:
         print(n)
         res = max(rob_n(n - 2, ls) + ls[n], rob_n(n - 1, ls))
-        # 4 element  index from 0
-        # 1 + 3 | 2
+        # 4 element n=3 index from 0
+        # ls[1] + ls[3] | ls[2]
         #
         print("-------------")
     return res
