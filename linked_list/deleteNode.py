@@ -4,18 +4,12 @@
 #         self.val = x
 #         self.next = None
 
-
+# TODO
 class Solution:
     def deleteNode(self, node):
         """
         :type node: ListNode
         :rtype: void Do not return anything, modify node in-place instead.
         """
-        if node.next == "null":
-            pass
-        else:
-            pass
-
-
-if __name__ == '__main__':
-    pass
+        node.val = node.next.val
+        node.next = node.next.next
