@@ -1,6 +1,6 @@
 class Solution:
     # TODO  check !!! this is tree & time is n^2
-    def lis(self, ls):
+    def lis_(self, ls):
         res = []
         for i in range(0, len(ls)):
             if i == 0:
@@ -15,6 +15,21 @@ class Solution:
             res = sorted(res, key=len)
         return len(res[-1])
 
+    def lis(self, ls):
+        if len(ls) == 1:
+            return 1
+        min_ = ls[0]
+        max_ = ls[0]
+        len_ = 1
+        for i in ls[1:]:
+            if i < min_:
+                min_ = i
+                max_ = i
+            elif i > max_:
+                maxi = i
+                len_ = len_ + 1
+        return len_
+
 
 if __name__ == '__main__':
     sol = Solution()
@@ -28,7 +43,6 @@ if __name__ == '__main__':
     assert sol.lis([3, 10, 2, 1]) == 2
     # [3, 10, 2, 1, 20] = [3, 10, 20]
     assert sol.lis([3, 10, 2, 1, 20]) == 3
-    #    M[i+1] =  M[i] + if(m[i] > m[i-1])
     # [4,] = [4,]
     assert sol.lis([4]) == 1
     # [4, 5] = [4, 5,]

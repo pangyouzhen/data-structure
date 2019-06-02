@@ -1,5 +1,5 @@
 class Solution:
-    def maxProfit(self, prices):
+    def maxProfit_(self, prices):
         if len(prices) == 0:
             return 0
         res = []
@@ -18,6 +18,21 @@ class Solution:
             return 0
         minus = list(map(lambda x: x[-1] - x[0], _))
         return max(minus)
+
+    def maxProfit(self, prices):
+        if len(prices) < 2:
+            return 0
+        mini = prices[0]
+        maxi = prices[0]
+        profit = 0
+        for n in prices[1:]:
+            if n < mini:
+                mini = n
+                maxi = n
+            elif n > maxi:
+                maxi = n
+                profit = max(profit, maxi - mini)
+        return profit
 
 
 if __name__ == '__main__':
