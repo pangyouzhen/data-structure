@@ -1,7 +1,6 @@
 class Solution:
-# TODO  check !!! this is tree & time is n^2
+    # TODO  check !!! this is tree & time is n^2
     def lis(self, ls):
-        # this is a tree
         res = []
         for i in range(0, len(ls)):
             if i == 0:
@@ -10,19 +9,11 @@ class Solution:
                 res.append([ls[i]])
             else:
                 len_res = len(res)
-                # print(len_res)
-                # print("--------")
                 for t in range(1, len_res + 1):
                     if ls[i] > res[-t][-1]:
                         res[-t].append(ls[i])
-                # [len_res.items()]
-                # pass
             res = sorted(res, key=len)
         return len(res[-1])
-        # return max(list(map(len, res)))
-
-
-#     sorted(b,key=len)
 
 
 if __name__ == '__main__':

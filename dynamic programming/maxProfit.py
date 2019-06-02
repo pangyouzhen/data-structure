@@ -1,6 +1,5 @@
 class Solution:
     def maxProfit(self, prices):
-        # !!!!!  timeout !!!!!
         if len(prices) == 0:
             return 0
         res = []
