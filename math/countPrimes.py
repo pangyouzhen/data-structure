@@ -1,14 +1,19 @@
 # time out
 class Solution:
     def countprimes(self, n):
-        ls = [2, ]
-        if n < 3:
-            return 0
-        else:
-            for i in range(3, n):
-                if self.is_primes(i, ls):
-                    ls.append(i)
-            return len(ls)
+        t = len(n)
+        memo = [True] * (t + 1)
+        memo[0], memo[1], memo[2] = False, False, False
+        init = 2
+        pass
+        # ls = [2, ]
+        # if n < 3:
+        #     return 0
+        # else:
+        #     for i in range(3, n):
+        #         if self.is_primes(i, ls):
+        #             ls.append(i)
+        return len(ls)
 
     def is_primes(self, n, ls):
         a = 0
@@ -18,22 +23,6 @@ class Solution:
                 return False
             a = a + 1
         return True
-
-    #     this way ----time out------
-    #     ls = [self.isPrimes(i) for i in range(1, n)]
-    #     isPrimes = list(filter(lambda x: x is True, ls))
-    #     return len(isPrimes)
-    #
-    # def isPrimes(self, n):
-    #     if n == 1:
-    #         return False
-    #     else:
-    #         a = 2
-    #         while a < n:
-    #             if n % a == 0:
-    #                 return False
-    #             a = a + 1
-    #         return True
 
 
 if __name__ == '__main__':
