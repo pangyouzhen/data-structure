@@ -8,3 +8,4 @@ if __name__ == '__main__':
     assert sol("abcabcbb") == 3
     assert sol("bbbbb") == 1
     assert sol("pwwkew") == 3
+    assert sol("pwwkewc") == 4
