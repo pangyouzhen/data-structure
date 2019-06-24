@@ -17,16 +17,19 @@ class Solution:
             return True
         if left is None or right is None or left.val != right.val:
             return False
-        return self.isSymmetricRec(left.right, right.left) and self.isSymmetricRec(left.left, right.left)
+        return self.isSymmetricRec(left.right, right.left) and self.isSymmetricRec(left.left, right.right)
 
 
 if __name__ == '__main__':
-    root = TreeNode(1)
-    root.left = TreeNode(2)
-    root.right = TreeNode(2)
-    root.left.left = TreeNode(3)
-    root.left.right = TreeNode(4)
-    root.right.left = TreeNode(4)
-    root.right.right = TreeNode(3)
+    root = TreeNode(2)
+    root.left = TreeNode(3)
+    root.right = TreeNode(3)
+    root.left.left = TreeNode(4)
+    root.left.right = TreeNode(5)
+    root.right.left = TreeNode(5)
+    # root.right.right = TreeNode(3)
     sol = Solution()
-    print("1" if sol.isSymmetric(root) == True else "0")
+    if sol.isSymmetric(root) == True:
+        print("1")
+    else:
+        print("0")
