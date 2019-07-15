@@ -9,28 +9,22 @@ class TreeNode:
 class Solution:
     def isSameTree(self, p: TreeNode, q: TreeNode):
         # 一个成熟的coder必须考虑到各种异常的情况.和如何进行扩展
-        # self.isSame(p, q)
-        # left_bool, right_bool = True, True
-        # output_bool = False
-        # while (left_bool and right_bool):
-        #     if p.left is not None and q.left is not None:
-        #         p, q = p.left, q.left
-        #         left_bool = self.isSame(p, q)
-        #     else:
-        #         return False
-        #     if q.right is not None and q.right is not None:
-        #         p_right, q_right = p.right, q.right
-        #         right_bool = self.isSame(p_right, q_right)
-        # return output_bool
-        pass
+        whole_bool = True
+        while whole_bool:
+            p_left, q_left = p.left, q.left
+            p_right, q_right = p.right, q.right
+            left_bool = self.isSame(p_left, q_left)
+            right_bool = self.isSame(p_right, q_right)
+            whole_bool = left_bool and right_bool
+        return whole_bool
 
     def isSame(self, p, q):
+        output = False
         if p is None and q is None:
-            return True
-        if p.val == q.val:
-            return True
-        else:
-            return False
+            output = True
+        if p is not None and q is not None and p.val == q.val:
+            output = True
+        return output
 
 
 if __name__ == '__main__':
@@ -39,6 +33,7 @@ if __name__ == '__main__':
     p.right = TreeNode(3)
 
     q = TreeNode(1)
+    q.left = TreeNode
     q.right = TreeNode(3)
     sol = Solution()
     res = sol.isSameTree(p, q)
