@@ -8,17 +8,13 @@ class TreeNode:
 
 class Solution:
     def isSameTree(self, p: TreeNode, q: TreeNode):
+        if p is None and q is None:
+            return True
+        else:
+            return self.isSameTreeRec(p,q)
         # 一个成熟的coder必须考虑到各种异常的情况.和如何进行扩展
-        whole_bool = True
-        while whole_bool:
-            p_left, q_left = p.left, q.left
-            p_right, q_right = p.right, q.right
-            left_bool = self.isSame(p_left, q_left)
-            right_bool = self.isSame(p_right, q_right)
-            whole_bool = left_bool and right_bool
-        return whole_bool
 
-    def isSame(self, p, q):
+    def isSameTreeRec(self, p, q):
         output = False
         if p is None and q is None:
             output = True

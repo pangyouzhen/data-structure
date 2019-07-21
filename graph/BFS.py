@@ -7,6 +7,7 @@ graph = {'A': set(['B', 'C']),
 
 
 def dfs(graph, start):
+    # depth first search
     visited, stack = set(), [start]
     while stack:
         vertex = stack.pop()

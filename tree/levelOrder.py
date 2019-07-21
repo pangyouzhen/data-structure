@@ -7,24 +7,21 @@ class TreeNode:
 
 class Solution:
     def levelOrder(self, root: TreeNode):
+        # not used rec
         if root is None:
             return []
-        memo = []
-        memo.append([root.val])
-        return self.levelOrderRec(root.left, root.right, memo)
-
-    def levelOrderRec(self, left, right, memo):
-        level = []
-        if left is None and right is None:
-            return memo
-        if left:
-            level.append(left.val)
-        if right:
-            level.append(right.val)
-        memo.append(level)
-        left_value = self.levelOrderRec(left.left, left.right, memo)
-        right_value = self.levelOrderRec(right.left, right.right, memo)
-        return
+        result, current = [], [root]
+        while current:
+            next_level, vals = [], []
+            for node in current:
+                vals.append(node.val)
+                if node.left:
+                    next_level.append(node.left)
+                if node.right:
+                    next_level.append(node.right)
+            current = next_level
+            result.append(vals)
+        return result
 
 
 if __name__ == '__main__':
@@ -35,5 +32,5 @@ if __name__ == '__main__':
     tee.right.right = TreeNode(7)
 
     sol = Solution()
-    # assert sol.levelOrder(tee) == [[3], [9, 20], [15, 7]]
-    print(sol.levelOrder(tee))
+    assert sol.levelOrder(tee) == [[3], [9, 20], [15, 7]]
+    # print(sol.levelOrder(tee))

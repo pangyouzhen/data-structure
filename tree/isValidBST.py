@@ -13,13 +13,18 @@ class Solution:
         return self.isValidBSTRec(root)
 
     def isValidBSTRec(self, root: TreeNode):
+        # 3 step:
+        #  Tree problem -> travserd -> two parts -> the second part need some element
+        # 1. None ->  True
+        # 2. False
+        # 3. travserd the  until True or Flase
+        # ptr is ALL
         if root is None:
             return True
-        if root is not None and root.left is None and root.right is not None:
-            if root.left.val < root.val < root.right.val:
-                return True
-            if root.val < root.left.val or root.val > root.right.val:
-                return False
+        if root.left is not None and root.val <= root.left.val:
+            return False
+        if root.right is not None and root.val >= root.right.val:
+            return False
         return self.isValidBSTRec(root.left) and self.isValidBSTRec(root.right)
 
 
@@ -36,7 +41,6 @@ if __name__ == '__main__':
     tree2.right.left = TreeNode(3)
     tree2.right.right = TreeNode(6)
     assert sol.isValidBSTRec(tree2) == False
-
 
     tree3 = TreeNode(1)
     tree3.left = TreeNode(1)
