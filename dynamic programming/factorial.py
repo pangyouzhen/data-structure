@@ -1,6 +1,5 @@
 # http://blog.moertel.com/posts/2013-05-11-recursive-to-iterative.html
 # recursive
-# TODO
 def factorial_rec(n):
     if n == 1:
         return 1

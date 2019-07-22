@@ -1,5 +1,4 @@
 class Solution:
-    # TODO  check !!! this is tree & time is n^2
     def lis_(self, ls):
         res = []
         for i in range(0, len(ls)):

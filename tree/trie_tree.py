@@ -42,9 +42,6 @@ class Trie(object):
             p = p[c]
         return p
 
-    def findPrefix(self,word):
-        pass
-
 
 if __name__ == '__main__':
     sol = Trie()
@@ -54,5 +51,3 @@ if __name__ == '__main__':
     sol.insert("www")
     sol.search("www")
     sol.search("wwl")
-
-    sol.findPrefix("w")

@@ -4,7 +4,6 @@
 #         self.val = x
 #         self.next = None
 
-# TODO
 class Solution:
     def deleteNode(self, node):
         """

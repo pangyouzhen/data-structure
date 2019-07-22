@@ -1,4 +1,3 @@
-# TODO
 # 匹配的问题一般用stack
 class Solution:
     def isValid(self, s):
