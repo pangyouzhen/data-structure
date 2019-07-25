@@ -1,4 +1,5 @@
-# TODO 2019-07-23  -> convert to java  time analysis
+# https://www.geeksforgeeks.org/merge-sort/
+# https://visualgo.net/en/sorting
 class Solution:
     def merge(self, nums1, m, nums2, n):
         """
