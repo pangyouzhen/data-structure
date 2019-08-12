@@ -1,4 +1,6 @@
-# Definition for a binary tree node.
+# Definition for a binary tree node
+# https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -34,7 +36,7 @@ class TreeInOrder:
 
 
 if __name__ == '__main__':
-    treeNode = TreeNode(8)
+    treeNode = TreeNode(25)
     treeNode.left = TreeNode(3)
     treeNode.right = TreeNode(4)
     treeNode.left.left = TreeNode(5)
