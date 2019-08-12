@@ -1,4 +1,6 @@
-# TODO  2019
+# finished
+# https://www.geeksforgeeks.org/merge-sort/
+# https://visualgo.net/en/sorting
 def mergeSort(arr):
     if len(arr) > 1:
         # divide
