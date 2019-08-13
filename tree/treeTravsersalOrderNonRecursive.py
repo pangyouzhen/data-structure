@@ -6,7 +6,7 @@ class TreeNode:
 
 class TreeNonRecursive:
 
-    def travse_tree(self,root):
+    def travse_tree(self, root):
         stack = []
         stack.append(root)
         while (len(stack)):
@@ -16,6 +16,7 @@ class TreeNonRecursive:
             print(curr.key, end=" ")
             for it in range(len(curr.child) - 1, -1, -1):
                 stack.insert(0, curr.child[it])
+
 
 if __name__ == '__main__':
     root = TreeNode("A")
