@@ -15,3 +15,16 @@ class Solution:
         right_depth = self.maxDepth(root.right)
 
         return max(left_depth, right_depth) + 1
+
+
+if __name__ == '__main__':
+    treeNode = TreeNode(3)
+    treeNode.left = TreeNode(9)
+    treeNode.right = TreeNode(20)
+    treeNode.left.left = None
+    treeNode.left.right = None
+    treeNode.right.left = TreeNode(15)
+    treeNode.right.right = TreeNode(7)
+
+    sol = Solution()
+    assert sol.maxDepth(treeNode) == 3
