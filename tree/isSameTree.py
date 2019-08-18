@@ -8,19 +8,15 @@ class TreeNode:
 
 class Solution:
     def isSameTree(self, p: TreeNode, q: TreeNode):
-        if p is None and q is None:
+        # both None
+        if not p and not q:
             return True
-        else:
-            return self.isSameTreeRec(p,q)
-        # 一个成熟的coder必须考虑到各种异常的情况.和如何进行扩展
-
-    def isSameTreeRec(self, p, q):
-        output = False
-        if p is None and q is None:
-            output = True
-        if p is not None and q is not None and p.val == q.val:
-            output = True
-        return output
+        # any None
+        if not q or not p:
+            return False
+        if p.val != q.val:
+            return False
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
 
 if __name__ == '__main__':
@@ -29,8 +25,7 @@ if __name__ == '__main__':
     p.right = TreeNode(3)
 
     q = TreeNode(1)
-    q.left = TreeNode
+    q.left = TreeNode(4)
     q.right = TreeNode(3)
     sol = Solution()
-    res = sol.isSameTree(p, q)
-    assert res == False
+    assert sol.isSameTree(p, q) == False
