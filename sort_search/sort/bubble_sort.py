@@ -1,8 +1,8 @@
 def bubble_sort(alist):
-    for j in range(len(alist)-1,0,-1):
-        for i in range(j):
-            if alist[i] > alist[i+1]:
-                alist[i],alist[i+1] = alist[i+1],alist[i]
+    for i  in range(1,len(alist)):
+        for j in range(0,len(alist)-i):
+            if alist[j] > alist[j+1]:
+                alist[j],alist[j+1] = alist[j+1],alist[j]
         print(alist)
         print("_________")
 
