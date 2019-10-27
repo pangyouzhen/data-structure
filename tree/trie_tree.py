@@ -49,5 +49,5 @@ if __name__ == '__main__':
     sol.insert("world")
     sol.insert("wow")
     sol.insert("www")
-    sol.search("www")
+    sol.search("w")
     sol.search("wwl")

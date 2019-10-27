@@ -95,9 +95,9 @@ if __name__ == '__main__':
     # with open('./dict.txt', 'r+') as dictionary:
     #     for entry in dictionary.readlines():
     #         tst.insert(entry.rstrip())
-    tst.insert("sea")
-    tst.insert("sall")
-    tst.insert("sss")
-    tst.insert("safe")
-    for item in tst.common_prefix('sa'):
+    tst.insert("中文")
+    tst.insert("中国历史本")
+    tst.insert("中国地理")
+    tst.insert("中门")
+    for item in tst.common_prefix('中国'):
         print(item)
