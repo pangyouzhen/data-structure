@@ -6,7 +6,6 @@ class Solution:
             s.insert(i, s[0])
             s.pop(0)
             i = i - 1
-        print(s)
 
 
 if __name__ == '__main__':
