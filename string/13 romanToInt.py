@@ -16,22 +16,22 @@ class Solution:
             "M": 1000,
         }
         a = []
-        i = 0
-        while (i < len(s)):
-            if (s[i] == "I" or s[i] == "X" or s[i] == "C") and (s[i:i + 2] in roman_.keys()):
-                value = roman_.get("%s" % s[i:i + 2])
-                i = i + 2
+        t = 0
+        while t < len(s):
+            if t + 1 < len(s) and roman_[s[t]] < roman_[s[t + 1]]:
+                a.append(s[t:t + 2])
+                t = t + 1
             else:
-                value = roman_.get("%s" % s[i])
-                i = i + 1
-            a.append(value)
-        return a
+                a.append(s[t])
+            t = t + 1
+        ls = list(map(lambda x: roman_[x], a))
+        return sum(ls)
 
 
 # problem：切分之后，匹配之后如何跳过这个索引,跳过这个索引用while
 # while  即在某条件下，循环执行某段程序，以处理需要重复处理的相同任务。其基本形式为, for 是对所有的进行循环
 if __name__ == '__main__':
     sol = Solution()
-    res = sol.romanToInt("MCMXCIV")
-    print(res)
-    print(sum(res))
+    # assert sol.romanToInt("III") == 3
+    assert sol.romanToInt("MCMXCIV") == 1994
+    assert sol.romanToInt("III") == 3
