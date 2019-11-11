@@ -1,24 +1,4 @@
 class Solution:
-    def maxProfit_(self, prices):
-        if len(prices) == 0:
-            return 0
-        res = []
-        for i in range(0, len(prices)):
-            if i == 0:
-                res.append([prices[0]])
-            elif prices[i] <= prices[i - 1]:
-                res.append([prices[i]])
-            else:
-                len_res = len(res)
-                for t in range(1, len_res + 1):
-                    if prices[i] > res[-t][-1]:
-                        res[-t].append(prices[i])
-        _ = list(filter(lambda x: len(x) >= 2, res))
-        if len(_) == 0:
-            return 0
-        minus = list(map(lambda x: x[-1] - x[0], _))
-        return max(minus)
-
     def maxProfit(self, prices):
         if len(prices) < 2:
             return 0
