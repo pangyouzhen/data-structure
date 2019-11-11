@@ -9,7 +9,7 @@ class Solution:
         i, next_seq = 0, ""
         while i < len(seq):
             count = 1
-            while i < len(seq + 1) and seq[i] == seq[i + 1]:
+            while i < len(seq) - 1 and seq[i] == seq[i + 1]:
                 count += 1
                 i += 1
             next_seq += str(count) + seq[i]
@@ -18,4 +18,5 @@ class Solution:
 
 
 if __name__ == '__main__':
-    pass
+    sol = Solution()
+    sol.countAndSay(4)
