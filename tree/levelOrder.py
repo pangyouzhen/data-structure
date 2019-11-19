@@ -32,5 +32,6 @@ if __name__ == '__main__':
     tee.right.right = TreeNode(7)
 
     sol = Solution()
-    assert sol.levelOrder(tee) == [[3], [9, 20], [15, 7]]
-    # print(sol.levelOrder(tee))
+    sol.levelOrder(tee)
+    # assert sol.levelOrder(tee) == [[3], [9, 20], [15, 7]]
+    # print(sol.levelOrder(teeleft))
