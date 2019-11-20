@@ -9,12 +9,24 @@ class TreeNode:
 
 
 class Solution:
-    def binaryTreePaths(self, root: TreeNode) -> List[str]:
-        visited, stack = [], [root]
+    # dfs + stack
+    def binaryTreePaths1(self, root: TreeNode) -> List[str]:
+        if not root:
+            return []
+        res, stack = [], [(root, "")]
         while stack:
-            ver = stack.pop()
-            if ver:
-                pass
+            node, ls = stack.pop()
+            if not node.left and not node.right:
+                res.append(ls + str(node.val))
+            if node.right:
+                stack.append((node.right, ls + str(node.val) + "->"))
+            if node.left:
+                stack.append((node.left, ls + str(node.val) + "->"))
+        return res
+
+    #         bfs + queue
+    def binaryTreePaths2(self,root):
+        pass
 
 
 if __name__ == '__main__':
@@ -24,3 +36,7 @@ if __name__ == '__main__':
     treeNode.right = TreeNode(3)
     sol = Solution()
     print(sol.binaryTreePaths(treeNode))
+
+
+ls = ["dev"]
+
