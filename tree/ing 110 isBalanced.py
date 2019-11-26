@@ -7,21 +7,20 @@ class TreeNode:
 
 class Solution:
 
-    def isBalanced(self, root):
+    def isBalanced(self, root: TreeNode):
         if root is None:
             return True
-        left = self.isBalanced_(root.left)
-        right = self.isBalanced_(root.right)
-        if (left - 1 == right) or (right - 1 == left) or left == right:
-            return True
-        return False
 
-    def isBalanced_(self, root: TreeNode) -> bool:
-        if root is None:
-            return 0
-        left_height = self.isBalanced_(root.left)
-        right_height = self.isBalanced_(root.right)
-        return max(left_height, right_height) + 1
+        def get_height(root):
+            if root is None:
+                return 0
+            left_height, right_height = get_height(root.left), get_height(root.right)
+            return max(left_height, right_height) + 1
+        left = root.left
+        right = root.right
+        if abs(get_height(left) - get_height(right)) > 1:
+            return False
+        return True
 
 
 if __name__ == '__main__':
