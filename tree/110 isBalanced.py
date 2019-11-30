@@ -8,19 +8,16 @@ class TreeNode:
 class Solution:
 
     def isBalanced(self, root: TreeNode):
-        if root is None:
-            return True
-
-        def get_height(root):
+        def check(root):
             if root is None:
                 return 0
-            left_height, right_height = get_height(root.left), get_height(root.right)
-            return max(left_height, right_height) + 1
-        left = root.left
-        right = root.right
-        if abs(get_height(left) - get_height(right)) > 1:
-            return False
-        return True
+            left = check(root.left)
+            right = check(root.right)
+            if left == -1 or right == -1 or abs(left - right) > 1:
+                return -1
+            return 1 + max(left, right)
+
+        return check(root) != -1
 
 
 if __name__ == '__main__':
@@ -52,3 +49,9 @@ if __name__ == '__main__':
     p3.left.right.right = TreeNode(4)
 
     assert sol.isBalanced(p3) == False
+
+    p4 = TreeNode(1)
+    p4.right = TreeNode(2)
+    p4.right.right = TreeNode(3)
+
+    assert sol.isBalanced(p4) == False
