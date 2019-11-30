@@ -9,11 +9,13 @@ class TreeNode:
 
 class Solution:
     def maxDepth(self, root):
+        #  is None
         if root is None:
             return 0
+        #  left Rec and Rec
         left_depth = self.maxDepth(root.left)
         right_depth = self.maxDepth(root.right)
-
+        # when left node is None and right is None, back to root
         return max(left_depth, right_depth) + 1
 
 
