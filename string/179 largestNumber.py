@@ -17,3 +17,6 @@ if __name__ == '__main__':
     assert sol.largestNumber([10, 2]) == "210"
     print(sol.largestNumber([3, 30, 34, 5, 9]))
     assert sol.largestNumber([3, 30, 34, 5, 9]) == "9534330"
+
+
+sorted(map(str, [3, 30, 34, 5, 9]), key=LargerNumKey)
