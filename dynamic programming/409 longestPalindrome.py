@@ -28,5 +28,6 @@ if __name__ == '__main__':
     assert sol.longestPalindrome("cbba") == "bb"
     assert sol.longestPalindrome("ccc") == "ccc"
     assert sol.longestPalindrome("") == ""
+    assert sol.longestPalindrome("abccccdd") == '7'
 # 中心对称，轴对称
 # DP
