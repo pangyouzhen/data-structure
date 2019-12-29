@@ -7,23 +7,10 @@ class TreeNode:
         self.val = x
         self.left = None
         self.right = None
-
+# 前序，后续，中序 的不同指出和名称的意思 在于打印root value的位置不同
 
 class Solution:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
-        # out = []
-        # 这里是投机取巧的方式，闭包里面使用了递归方法
-        # def inorder(root):
-        #     if not root:
-        #         return
-        #     else:
-        #         inorder(root.left)
-        #         out.append(root.val)
-        #         inorder(root.right)
-        #
-        # inorder(root)
-        #
-        # return out
         stack, res = [], []
 
         while True:
@@ -42,15 +29,15 @@ class Solution:
             print(root.val)
             self.simpleInorder(root.right)
 
-    def inorderRecursive(self, root: TreeNode):
-        return self.inorder(root, [])
+    def inorderRec(self, root):
+        return self.inorder3(root, [])
 
-    def inorder(self, root, vals):
+    def inorder3(self, root, vals):
         if root:
-            vals = self.inorder(root.left, vals)
+            vals = self.inorder3(root.left, vals)
             if root.val:
                 vals.append(root.val)
-            vals = self.inorder(root.right, vals)
+            vals = self.inorder3(root.right, vals)
         return vals
 
 
@@ -59,6 +46,7 @@ if __name__ == '__main__':
     treenode = TreeNode(1)
     treenode.right = TreeNode(2)
     treenode.right.left = TreeNode(3)
-    print(sol.simpleInorder(treenode))
-    print(sol.inorderRecursive(treenode))
+    # print(sol.simpleInorder(treenode))
+    # print(sol.inorderRecursive(treenode))
     print(sol.inorderTraversal(treenode))
+    print(sol.inorderRec(treenode))
