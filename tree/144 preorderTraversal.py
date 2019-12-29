@@ -12,15 +12,16 @@ class TreeNode:
 class Solution:
     def preorderTraversal(self, root: TreeNode) -> List[int]:
         stack = [root]
-        vals = []
+        res = []
         while stack:
-            node = stack.pop()
-            if node:
-                if node.val:
-                    vals.append(node.val)
-                stack.append(node.right)
-                stack.append(node.left)
-        return vals
+            temp = stack.pop()
+            if temp:
+                if temp.right:
+                    stack.append(temp.right)
+                if temp.left:
+                    stack.append(temp.left)
+                res.append(temp.val)
+        return res
 
     def simplePreOrder(self, root: TreeNode):
         if root:
@@ -41,13 +42,13 @@ class Solution:
 
 
 if __name__ == '__main__':
-    treeNode = TreeNode(25)
-    treeNode.left = TreeNode(3)
-    treeNode.right = TreeNode(4)
-    treeNode.left.left = TreeNode(5)
-    treeNode.left.right = TreeNode(6)
+    treenode = TreeNode(10)
+    treenode.right = TreeNode(5)
+    treenode.left = TreeNode(11)
+    treenode.right.left = TreeNode(6)
+    treenode.right.right = TreeNode(3)
 
     sol = Solution()
-    sol.simplePreOrder(treeNode)
-    print(sol.preorderRecursive(treeNode))
-    print(sol.preorderTraversal(treeNode))
+    # sol.simplePreOrder(treeNode)
+    # print(sol.preorderRecursive(treeNode))
+    print(sol.preorderTraversal(treenode))
