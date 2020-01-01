@@ -21,18 +21,6 @@ def bfs(root: TreeNode):
         print(temp.val, end=" ")
 
 
-def dfs(root: TreeNode):
-    stack = [root]
-    while stack:
-        temp = stack.pop()
-        left = temp.left
-        right = temp.right
-        if right:
-            stack.append(right)
-        if left:
-            stack.append(left)
-        print(temp.val, end=" ")
-
 
 def dfsPreorder(root: TreeNode):
     stack = [root]
