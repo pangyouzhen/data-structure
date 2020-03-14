@@ -7,7 +7,6 @@ class TreeNode(object):
         self.left = left
         self.right = right
 
-
 def bfs(root: TreeNode):
     queue = [root]
     while queue:

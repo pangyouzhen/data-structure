@@ -1,25 +1,31 @@
 class Solution:
-    # def twoSum(self, nums, target):
-    # t = target / 2
-    # print(t)
-    # for i, v in enumerate(nums):
-    #     if ((v == t) and (t in nums[i + 1:])):
-    #         if (i != (nums[i + 1:].index(v) + i + 1)):
-    #             return [i, nums[i + 1:].index(v) + i + 1]
-    #     elif ((v != t) and ((target - v) in nums)):
-    #         return [i, nums.index(target - v)]
-
     def twoSum(self, nums, target):
         for i, n in enumerate(nums):
             if ((target - n) in nums) and (nums.index(target - n) != i):
                 print(nums.index(target - n))
                 return sorted([i, nums.index(target - n)])
 
+    def two_sum_two_pointers(self, nums, target):
+        # nums.sort()
+        nums1 = sorted(nums)
+        # 错误的，主要点在下面
+        # 1. 因为返回的是原先的索引，排序后的索引是不一样的,
+        # 2. 另外重复项的问题如何解决，单纯的nums.index 是解决不了的
+        i, j = 0, len(nums1) - 1
+        while i < j:
+            sum = nums1[i] + nums1[j]
+            if sum < target:
+                i = i + 1
+            elif sum > target:
+                j = j - 1
+            else:
+                return [nums.index(nums1[i]), nums.index(nums1[j])]
+        return None
+
 
 if __name__ == "__main__":
     solution = Solution()
-    res = solution.twoSum([3,3], 6
-                          )
+    res = solution.two_sum_two_pointers([3, 2, 4], 6)
     print(res)
 
 # 1. 才开始没有使用enumerate 函数，得到索引,使用enumerate  函数，其实时使用了hash table
