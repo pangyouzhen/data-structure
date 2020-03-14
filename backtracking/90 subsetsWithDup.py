@@ -9,6 +9,7 @@ class Solution:
         def dfs(lst, nums, pos):
             print(f'lst is {lst},nums is {nums}, pos is {pos}')
             res1 = lst[:]
+            res1.sort()
             if res1 not in result:
                 result.append(res1)
             for i in range(pos, len(nums)):
