@@ -25,4 +25,4 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    print(sol.generateParenthesis(3))
+    print(sol.generateParenthesis(4))
