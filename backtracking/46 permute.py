@@ -3,17 +3,17 @@ class Solution:
         curr = []
         ans = []
 
-        def dfs(nums, d, n, used, curr, ans):
+        def dfs(nums, d, n, used, one_ans, all_ans):
             if d == n:
-                ans.append(curr[:])
+                all_ans.append(one_ans[:])
                 return
             for i in range(0, len(nums)):
                 if used[i]:
                     continue
                 used[i] = True
-                curr.append(nums[i])
-                dfs(nums, d + 1, n, used, curr, ans)
-                curr.pop()
+                one_ans.append(nums[i])
+                dfs(nums, d + 1, n, used, one_ans, all_ans)
+                one_ans.pop()
                 used[i] = False
 
         dfs(nums, 0, len(nums), [False] * len(nums), curr, ans)

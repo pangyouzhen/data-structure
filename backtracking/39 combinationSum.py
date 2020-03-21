@@ -3,16 +3,16 @@ from typing import List
 
 class Solution(object):
     def combinationSum(self, candidates, target):
-        def dfs(candidates, target, s, curr, ans):
+        def dfs(candidates, target, s, one_ans, all_ans):
             if target == 0:
-                ans.append(curr[:])
+                all_ans.append(one_ans[:])
                 return
 
             for i in range(s, len(candidates)):
                 if candidates[i] > target: return
-                curr.append(candidates[i])
-                dfs(candidates, target - candidates[i], i, curr, ans)
-                curr.pop()
+                one_ans.append(candidates[i])
+                dfs(candidates, target - candidates[i], i, one_ans, all_ans)
+                one_ans.pop()
 
         ans = []
         candidates.sort()
