@@ -1,8 +1,5 @@
 from typing import List
 
-
-# 双指针问题是从两边开始计算吗？，这个是个双指针问题
-
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         left = 0
