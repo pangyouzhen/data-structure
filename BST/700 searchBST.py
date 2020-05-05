@@ -1,3 +1,6 @@
+from typing import Optional
+
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -5,7 +8,7 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def searchBST(self, root: TreeNode, val: int) -> TreeNode:
+    def searchBST(self, root: TreeNode, val: int) -> Optional[TreeNode]:
         if root:
             if root.val == val:
                 return root

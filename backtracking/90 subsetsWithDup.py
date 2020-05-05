@@ -6,8 +6,8 @@ class Solution:
         result = []
 
         # backtracking
-        def dfs(lst, nums, pos):
-            print(f'lst is {lst},nums is {nums}, pos is {pos}')
+        def dfs(lst: List, nums: List, pos: int) -> None:
+            # print(f'lst is {lst},nums is {nums}, pos is {pos}')
             res1 = lst[:]
             res1.sort()
             if res1 not in result:
@@ -25,3 +25,4 @@ if __name__ == '__main__':
     subsets = [1, 2, 2]
     sol = Solution()
     print(sol.subsetsWithDup(subsets))
+    assert sol.subsetsWithDup(subsets) == [[], [1], [1, 2], [1, 2, 2], [2], [2, 2]]
