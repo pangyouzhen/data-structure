@@ -16,6 +16,7 @@ class Solution:
             return i
 
         index(head)
+        # 链表递归的思想
         return head.next
 
 

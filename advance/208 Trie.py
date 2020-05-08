@@ -37,3 +37,4 @@ if __name__ == '__main__':
     print(trie.find("a"))
     print(trie.search("ap"))
     print(trie.startsWith("ap"))
+    print(trie.search("affff"))
