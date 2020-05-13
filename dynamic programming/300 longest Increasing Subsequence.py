@@ -8,7 +8,8 @@ class Solution:
             for y in range(x):
                 if nums[x] > nums[y]:
                     dp[x] = max(dp[x], dp[y] + 1)
-                    print(dp)
+                    if x == 5:
+                        print(dp)
         return max(dp) if dp else 0
 
 
@@ -37,4 +38,5 @@ class Solution2(object):
 
 if __name__ == '__main__':
     sol = Solution()
-    sol.lengthOfLIS([50, 3, 10, 7, 40, 80])
+    print("---------------------")
+    print(sol.lengthOfLIS([50, 3, 10, 7, 40, 80]))

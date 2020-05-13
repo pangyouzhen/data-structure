@@ -26,4 +26,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     sol = Solution()
-    print(sol.longestWord(["w", "wo", "wor", "worl", "world"]))
+    print(sol.longestWord(["w", "wo", "wor", "worl", "world", "wolf"]))

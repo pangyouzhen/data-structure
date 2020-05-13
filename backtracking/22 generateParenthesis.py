@@ -12,7 +12,7 @@ class Solution:
         nums = []
 
         def dfs(lst, nums, pos):
-            print(f'lst is {lst},nums is {nums}, pos is {pos}')
+            # print(f'lst is {lst},nums is {nums}, pos is {pos}')
             result.append(lst[:])
             for i in range(pos, len(nums)):
                 lst.append(nums[i])
@@ -26,3 +26,4 @@ class Solution:
 if __name__ == '__main__':
     sol = Solution()
     print(sol.generateParenthesis(4))
+    print(sol.generateParenthesis(6))

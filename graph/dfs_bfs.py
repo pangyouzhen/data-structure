@@ -24,7 +24,8 @@ graph = {'A': set(['B', 'C']),
          'F': set(['C', 'E'])}
 
 
-def dfs(graph, start, visited=None):
+# dfs  three element : graph,start,visited
+def dfs2(graph, start, visited=None):
     if visited is None:
         visited = set()
     visited.add(start)
@@ -46,6 +47,8 @@ def bfs(graph, root):
                 visited.add(neightbour)
                 queue.append(neightbour)
 
+
 if __name__ == '__main__':
     print(dfs(graph, "A"))
     print(bfs(graph, 'A'))
+    print(dfs2(graph,"A"))
