@@ -7,9 +7,10 @@ class Solution:
         for x in range(size):
             for y in range(x):
                 if nums[x] > nums[y]:
+                    print(x,y)
+                    print(nums[x],nums[y])
+                    print("-----------")
                     dp[x] = max(dp[x], dp[y] + 1)
-                    if x == 5:
-                        print(dp)
         return max(dp) if dp else 0
 
 
