@@ -34,7 +34,7 @@ def factorial_n(n, memo, acc):
     memo[n] = res
     return res
 
-
+#  备忘录的方法
 def factorial_memo(n):
     memo = [None] * (n + 1)
     return factorial_n(n, memo, acc=1)

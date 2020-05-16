@@ -1,30 +1,32 @@
-from scipy import optimize
+from typing import List
 
-# knapsack is a linear programming, the difference of linear programming and dp ?
-
-c = [-1, 4]
-A = [[-3, 1], [1, 2]]
-b = [6, 4]
-
-x0_bonus = (None, None)
-x1_bonus = (-3, None)
-
-res = optimize.linprog(c, A_ub=A, b_ub=b, bounds=[x0_bonus, x1_bonus], method='revised simplex')
-
-print(res)
-
-# the scipy  is not supported integer linear programming, integer linear programing is MLP so we used cvxopt
-
-c = [-3000, -2000, -1500]
-A = [[4, 3, 1]]
-b = [4]
-
-x0_bonus = (0, 1)
-x1_bonus = (0, 1)
-x2_bonus = (0, 1)
-
-res = optimize.linprog(c, A_ub=A, b_ub=b, bounds=[x0_bonus, x1_bonus, x2_bonus], method="revised simplex")
-print(res)
+#  需要修改，有些问题
+class Solution:
+    def knapsack(self, N: int, W: int, wt: List[int], val: List[int]) -> int:
+        # dp = [[] for i in range(N) for j in range(W)]
+        dp = [[0] * W for i in range(N)]
+        print(dp)
+        for i in range(N):
+            for w in range(W):
+                if w - wt[i - 1] < 0:
+                    dp[i][w] = dp[i - 1][w]
+                else:
+                    dp[i][w] = max(
+                        dp[i - 1][w],
+                        val[i - 1] + dp[i - 1][w - wt[i - 1]])
+        print(dp)
+        return dp[N][W]
 
 
-from cvxopt import glpk
+if __name__ == '__main__':
+    N = 3
+    # N 个物品
+    W = 4[[0, 0, 0, 3], [0, 0, 4, 4], [0, 2, 4, 6]]
+
+    #  书包总重量
+    wt = [2, 1, 3]
+    #  每个物品的重量
+    val = [4, 2, 3]
+    #  每个物品的价值'
+    sol = Solution()
+    print(sol.knapsack(N, W, wt, val))
