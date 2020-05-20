@@ -35,7 +35,11 @@ def dfs2(graph, start, visited=None):
 
 
 from collections import deque
-
+#  bfs 模板，dfs就是 while stack
+# for 找head
+#    while queue：
+#       for 找邻居
+#            if 没有重复：处理，标记，入队
 
 def bfs(graph, root):
     visited, queue = set(), deque([root])
