@@ -1,5 +1,5 @@
 # # https://blog.csdn.net/qq_38595487/article/details/79686081
-# class Solution:
+class Solution:
 #     def climbStairs_memo(self, n, ls):
 #         if ls[n] is not None:
 #             return ls[n]
@@ -15,17 +15,18 @@
 #         ls = [None] * (n + 1)
 #         return self.climbStairs_memo(n, ls)
 #
-#     def no_loop_climbStairs(self, n):
-#         if n == 1:
-#             return 1
-#         elif n == 2:
-#             return 2
-#         ls = [None] * (n + 1)
-#         ls[1] = 1
-#         ls[2] = 2
-#         for i in range(3, n + 1):
-#             ls[i] = ls[i - 1] + ls[i - 2]
-#         return ls[n]
+    #
+    def no_loop_climbStairs(self, n):
+        if n == 1:
+            return 1
+        elif n == 2:
+            return 2
+        ls = [None] * (n + 1)
+        ls[1] = 1
+        ls[2] = 2
+        for i in range(3, n + 1):
+            ls[i] = ls[i - 1] + ls[i - 2]
+        return ls[n]
 #
 #
 from functools import lru_cache
