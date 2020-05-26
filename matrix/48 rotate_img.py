@@ -15,9 +15,10 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-
-    sol.rotate([
+    a = [
         [1, 2, 3],
         [4, 5, 6],
         [7, 8, 9]
-    ])
+    ]
+    sol.rotate(a)
+    print(a)

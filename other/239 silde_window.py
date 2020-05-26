@@ -1,3 +1,4 @@
+from functools import reduce
 from typing import List
 from collections import deque
 from array import array
