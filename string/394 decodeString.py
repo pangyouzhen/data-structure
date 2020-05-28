@@ -1,21 +1,16 @@
+import re
+
+
 class Solution:
     def decodeString(self, s: str) -> str:
-        t = []
-        for i in s:
-            if i == "]":
-                start = t[::-1].index("[")
-                char_ = t[::-1][0:start]
-                print(f"{char_ = }")
-                num = t[::-1][start+1]
-                print(f"{num = }")
-                m = int(num) * char_
-                print(f"{t = }")
-                print(f"{m = }")
-##                t.remove()
-                t.extend(m[::-1])
-            else:
-                t.append(i)
-        return "".join(t)
+        pattern = re.compile("(\d+)\[(\w+)\]")
+        m = pattern.findall(s)
+        while m:
+            for num, char in m:
+                s = s.replace(f"{num}[{char}", char * int(num))
+                m = pattern.findall(s)
+        return s
+
 
 if __name__ == "__main__":
     sol = Solution()
