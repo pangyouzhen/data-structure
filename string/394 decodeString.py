@@ -7,7 +7,7 @@ class Solution:
         m = pattern.findall(s)
         while m:
             for num, char in m:
-                s = s.replace(f"{num}[{char}", char * int(num))
+                s = s.replace(f"{num}[{char}]", char * int(num))
                 m = pattern.findall(s)
         return s
 
