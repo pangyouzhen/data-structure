@@ -30,7 +30,7 @@ def dfs2(graph, start, visited=None):
         visited = set()
     visited.add(start)
     for next in graph[start] - visited:
-        dfs(graph, next, visited)
+        dfs2(graph, next, visited)
     return visited
 
 
