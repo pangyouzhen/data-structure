@@ -1,5 +1,6 @@
 class Solution:
     #  主要疑问点是，双指针只能指向两个数字，另外一个数字是怎样获取的
+    #  关键是为什么使用双指针，两数之和用的是双指针，所以
     def threeSum(self, nums):
         n = len(nums)
         res = []
