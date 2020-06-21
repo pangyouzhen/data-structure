@@ -7,28 +7,29 @@ class TreeNode:
 
 
 class Solution:
-    res = -float('inf')
+    def __init__(self):
+        self.maxSum = float('-inf')
 
-    def maxPathSum(self, root):
+    def maxPathSum(self, root: TreeNode) -> int:
         """
         :type root: TreeNode
         :rtype: int
         """
-        if root == None:
-            return 0
-        self.helper(root)
-        return self.res
 
-    def helper(self, root):
-        if root == None:
-            return 0
-        leftMax = self.helper(root.left)
-        rightMax = self.helper(root.right)
-        # TODO ???
-        # tempPath = root.val + leftMax + rightMax
-        # sum = root.val + max(leftMax, rightMax, 0)
-        # self.res = max(sum, tempPath, self.res)
-        return sum
+        def maxGain(node):
+            if not node:
+                return 0
+            leftGain = max(maxGain(node.left), 0)
+            rightGain = max(maxGain(node.right), 0)
+
+            priceNewpath = node.val + leftGain + rightGain
+
+            self.maxSum = max(self.maxSum, priceNewpath)
+
+            return node.val + max(leftGain, rightGain)
+
+        maxGain(root)
+        return self.maxSum
 
 
 if __name__ == '__main__':
