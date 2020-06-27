@@ -1,14 +1,20 @@
 from tree.bfs_dfs import TreeNode
+from collections import deque
 
 
+# dfs
 class Solution:
     def sumOfLeftLeaves(self, root: TreeNode) -> int:
-        res = []
-        if root is None:
-            pass
-        #      get 上一个元素
-        left = self.sumOfLeftLeaves(root.left)
-        right = self.sumOfLeftLeaves(root.right)
+        def dfs(root):
+            visited, stack = [], [root]
+            while stack:
+                fst = stack.pop()
+                visited.append(fst.val)
+                if fst.right:
+                    stack.append(fst.right)
+                if fst.left:
+                    stack.append(fst.left)
+            return visited
 
 
 if __name__ == '__main__':

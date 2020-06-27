@@ -21,3 +21,14 @@ class Solution:
             return right
         else:
             return left
+
+
+if __name__ == '__main__':
+    tree = TreeNode(1)
+    tree.left = TreeNode(3)
+    tree.right = TreeNode(4)
+    tree.left.left = TreeNode(5)
+    tree.left.right = TreeNode(6)
+
+    sol = Solution()
+    # print(sol.lowestCommonAncestor(tree, 5, 6))
