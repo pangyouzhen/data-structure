@@ -18,13 +18,17 @@ class LinkedList2:
                 node.next = Node(element)
                 node = node.next
 
+    def __repr__(self):
+        node = self.head
+        nodes = []
+        while node is not None:
+            nodes.append(str(node.data))
+            node = node.next
+        nodes.append("None")
+        return "->".join(nodes)
+
 
 if __name__ == '__main__':
-    fst_node = Node("a")
-    sed_node = Node("b")
-    third_node = Node("c")
-    fst_node.next = sed_node
-    sed_node.next = third_node
-
-    nodes = [fst_node, sed_node, third_node]
-    linked_lst2 = LinkedList2(nodes)
+    nums = [1, 2, 3, 4, 5]
+    linked_lst2 = LinkedList2(nums)
+    print(linked_lst2)
