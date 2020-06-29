@@ -30,6 +30,7 @@ class LinkedList2:
         if nodes is not None:
             # node = Node(data=nodes.pop(0))
             node = Node(nodes.pop(0))
+            #  链表不同的是 一定要记住首要位置，指针不要跟着链表移动,最后返回头部就好
             self.head = node
             for element in nodes:
                 # node.next = Node(data=element)

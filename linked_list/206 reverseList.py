@@ -1,5 +1,4 @@
 # Definition for singly-linked list.
-from ListNode import create_listNode
 
 
 class ListNode:
@@ -30,6 +29,12 @@ class Solution:
 
 if __name__ == '__main__':
     nums = [1, 2, 3, 4, 5]
-    listNode = create_listNode(nums)
+    listNode = ListNode(1)
+    listNode.next = ListNode(2)
+    listNode.next.next = ListNode(3)
+    listNode.next.next.next = ListNode(4)
+    listNode.next.next.next.next = ListNode(5)
     sol = Solution()
-    print(sol.reverseList(listNode))
+    a = sol.reverseList(listNode)
+    # b = sol.reverseList2(listNode)
+    print("finished")

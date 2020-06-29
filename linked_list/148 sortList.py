@@ -7,7 +7,20 @@ class ListNode:
 
 class Solution:
     def sortList(self, head: ListNode) -> ListNode:
-        pass
+        res_ls = []
+        while head:
+            res_ls.append(head.val)
+            head = head.next
+        if len(res_ls) == 0:
+            return
+        res_ls.sort()
+        node = ListNode(res_ls[0])
+        new_head = node
+        for i in res_ls[1:]:
+            node.next = ListNode(i)
+            node = node.next
+        return new_head
+
 
 if __name__ == '__main__':
     sol = Solution()
@@ -15,4 +28,5 @@ if __name__ == '__main__':
     a.next = ListNode(2)
     a.next.next = ListNode(1)
     a.next.next.next = ListNode(3)
-    print(sol.sortList(a))
+    b = sol.sortList(a)
+    print(b)
