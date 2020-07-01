@@ -9,6 +9,8 @@ class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
         pass
 
+    def reverseListNode(self, head: ListNode) -> ListNode:
+        pass
 
 if __name__ == '__main__':
     headA = ListNode(8)
