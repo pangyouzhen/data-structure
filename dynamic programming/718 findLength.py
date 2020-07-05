@@ -5,15 +5,17 @@ class Solution(object):
         :type B: List[int]
         :rtype: int
         """
-        m = len(A)
-        n = len(B)
-        dp = [0] * min(m, n)
-        for i in range(m):
-            for j in range(n):
+        n, m = len(A), len(B)
+        dp = [[0] * (m + 1) for _ in range(n + 1)]
+        ans = 0
+        for i in range(n - 1, -1, -1):
+            for j in range(m - 1, -1, -1):
                 if A[i] == B[j]:
-                    dp[i] = max(dp[i - 1], dp[i - 1] + 1)
-        print(dp)
-        return dp[- 1]
+                    dp[i][j] = dp[i + 1][j + 1] + 1
+                else:
+                    dp[i][j] = 0
+                ans = max(ans, dp[i][j])
+        return ans
 
 
 if __name__ == '__main__':
