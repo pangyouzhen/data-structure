@@ -14,6 +14,26 @@ class Solution:
         else:
             return self.hasPathSum(root.left, sum - root.val) or self.hasPathSum(root.right, sum - root.val)
 
+    def hasPathSum2(self, root: TreeNode, sum: int) -> bool:
+        if not root:
+            return False
+        queue = [root]
+        que_val = [root.val]
+        while queue:
+            head = queue.pop(0)
+            head_val = que_val.pop(0)
+            if not head.left and not head.right:
+                if head_val == sum:
+                    return True
+                continue
+            if head.right:
+                queue.append(head.right)
+                que_val.append(head_val + head.right.val)
+            if head.left:
+                queue.append(head.left)
+                que_val.append(head_val + head.left.val)
+        return False
+
 
 if __name__ == '__main__':
     tree = TreeNode(5)
@@ -26,4 +46,4 @@ if __name__ == '__main__':
     tree.right.right = TreeNode(4)
     tree.right.right.right = TreeNode(1)
     sol = Solution()
-    print(sol.hasPathSum(tree, 22))
+    print(sol.hasPathSum2(tree, 22))
