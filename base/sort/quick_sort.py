@@ -12,3 +12,5 @@ def quick_sort(array):
 if __name__ == '__main__':
     a = [5, 3, 1, 7, 7]
     print(quick_sort(a))
+
+#  注意快速排序和merge排序一定要熟

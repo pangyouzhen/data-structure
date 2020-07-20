@@ -49,9 +49,11 @@ from heapq import merge
 def merge_sort(lst):
     if len(lst) <= 1:
         return lst
+    # divide
     mid = len(lst) // 2
     left = merge_sort(lst[:mid])
     right = merge_sort(lst[mid:])
+    #  merge
     return list(merge(left, right))
 
 

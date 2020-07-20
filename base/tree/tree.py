@@ -92,7 +92,7 @@ if __name__ == '__main__':
     # tree.right.right = TreeNode(3)
     print(bfs(tree))
     print("---------")
-    print(dfs(tree))
+    # print(dfs(tree))
     print('---------')
     print(f'inorder is {inorderTraversal(tree)}')
     print(f'dfs preorder is {dfsPreorder(tree)}')
