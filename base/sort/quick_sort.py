@@ -7,7 +7,7 @@ def quick_sort(array):
     return quick_sort(lesser) + [privot] + quick_sort(greater)
 
 
-# O(nlogn)
+# O(nlogn) 最坏的情况下
 # 快速排序的算法思想，分而治之+递归
 if __name__ == '__main__':
     a = [5, 3, 1, 7, 7]

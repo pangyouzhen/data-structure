@@ -42,10 +42,25 @@ def printList(arr):
     print()
 
 
+#  使用heaqp进行merge
+from heapq import merge
+
+
+def merge_sort(lst):
+    if len(lst) <= 1:
+        return lst
+    mid = len(lst) // 2
+    left = merge_sort(lst[:mid])
+    right = merge_sort(lst[mid:])
+    return list(merge(left, right))
+
+
+#  merge排序的时间复杂度是 nlog(n), 最坏情况下也是nlog(n)
 if __name__ == '__main__':
-    arr = [12, 11, 13, 5, 6, 7,78,3]
+    arr = [12, 11, 13, 5, 6, 7, 78, 3]
     print("given array is ", end="\n")
     printList(arr)
     mergeSort(arr)
     print("Sorted array is ", end="\n")
     printList(arr)
+    print(merge_sort(arr))
