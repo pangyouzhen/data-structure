@@ -7,6 +7,7 @@ def bubble_sort(alist):
 
 
 # 冒泡排序的主要思想是交换相邻的两个顺序
+# 冒泡排序的时间复杂度是？
 if __name__ == '__main__':
     li = [5, 9, 3, 1, 2, 8, 4, 7, 6]
     bubble_sort(li)
