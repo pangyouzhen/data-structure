@@ -1,3 +1,6 @@
+from pprint import pprint
+
+
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         m = len(text1)
@@ -14,8 +17,18 @@ class Solution:
                     ans = max(dp[i][j], ans)
                 else:
                     dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+        pprint(dp)
         return ans
 
+
+# dp = [
+#     [0, 0, 0, 0],
+#     [0, 1, 1, 1],
+#     [0, 1, 1, 1],
+#     [0, 1, 2, 2],
+#     [0, 1, 2, 2],
+#     [0, 1, 2, 3]
+# ]
 
 if __name__ == '__main__':
     text1 = "abcde"

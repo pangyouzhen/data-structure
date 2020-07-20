@@ -1,3 +1,4 @@
+from pprint import pprint
 class Solution:
     def editDistance(self, word1: str, word2: str):
         n = len(word1)
@@ -6,7 +7,6 @@ class Solution:
             return n + m
         D = [[0] * (m + 1) for i in range(n + 1)]
         #  初始状态
-        print(D)
         for i in range(n + 1):
             D[i][0] = i
         for j in range(m + 1):
@@ -19,9 +19,16 @@ class Solution:
                 if word1[i - 1] != word2[j - 1]:
                     left_down += 1
                 D[i][j] = min(left, down, left_down)
-        print(D)
+        pprint(D)
         return D[n][m]
-
+# dp = [
+#  [0, 1, 2, 3],
+#  [1, 1, 2, 3],
+#  [2, 2, 1, 2],
+#  [3, 2, 2, 2],
+#  [4, 3, 3, 2],
+#  [5, 4, 4, 3]
+# ]
 
 if __name__ == '__main__':
     sol = Solution()

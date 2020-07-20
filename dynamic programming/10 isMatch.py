@@ -1,3 +1,6 @@
+from pprint import pprint
+
+
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         m, n = len(s), len(p)
@@ -20,8 +23,15 @@ class Solution:
                 else:
                     if matches(i, j):
                         f[i][j] |= f[i - 1][j - 1]
+        pprint(f)
         return f[m][n]
 
+
+# f = [
+# [True, False, True],
+# [False, True, True],
+# [False, False, True]
+# ]
 
 if __name__ == '__main__':
     s = "aa"

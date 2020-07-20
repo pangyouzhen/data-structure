@@ -1,3 +1,6 @@
+from pprint import pprint
+
+
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         rows = len(p) + 1
@@ -18,8 +21,15 @@ class Solution:
                         table[m][n] = True
                 elif p[m - 1] == "?" or p[m - 1] == s[n - 1]:
                     table[m][n] = table[m - 1][n - 1]
+        pprint(table)
         return table[rows - 1][cols - 1]
 
+
+# dp = [
+#  [True, False, False, False, False, False],
+#  [False, True, False, False, False, False],
+#  [False, True, True, True, True, True],
+#  [False, False, False, False, False, True]
 
 if __name__ == '__main__':
     s = "adceb"
