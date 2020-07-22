@@ -11,6 +11,8 @@ class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
         pre = None
         curr = head
+        #  这段代码的核心是 while curr: temp = curr.next, curr.next = pre,
+        #  最后一行代码进行反转,再后面对curr和next pre进行移动
         while curr:
             temp = curr.next
             curr.next = pre

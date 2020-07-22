@@ -81,6 +81,26 @@ def inorderTraversal(root: TreeNode) -> List[int]:
 #                 stack.append(temp.right)
 #             res.append(temp.val)
 #     return res
+def simplePreOrder(root: TreeNode):
+    if root:
+        print(root.val)
+        simplePreOrder(root.left)
+        simplePreOrder(root.right)
+
+
+def simpleInorder(root: TreeNode):
+    if root:
+        simpleInorder(root.left)
+        print(root.val)
+        simpleInorder(root.right)
+
+
+def simplePostOrder(root: TreeNode):
+    if root:
+        simpleInorder(root.left)
+        print(root.val)
+        simpleInorder(root.right)
+
 
 if __name__ == '__main__':
     tree = TreeNode(6)
