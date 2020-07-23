@@ -2,6 +2,7 @@ def quick_sort(array):
     if len(array) < 2:
         return array
     privot = array[0]
+    # 快排最后采用的递归，而merge 在切分的时候就在递归
     lesser = [i for i in array[1:] if i <= privot]
     greater = [i for i in array[1:] if i > privot]
     return quick_sort(lesser) + [privot] + quick_sort(greater)
