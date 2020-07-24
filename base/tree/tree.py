@@ -102,6 +102,16 @@ def simplePostOrder(root: TreeNode):
         simpleInorder(root.right)
 
 
+def getTreeHight(root: TreeNode):
+    if root is None:
+        return 0
+    #  left Rec and Rec
+    left_depth = getTreeHight(root.left)
+    right_depth = getTreeHight(root.right)
+    # when left node is None and right is None, back to root
+    return max(left_depth, right_depth) + 1
+
+
 if __name__ == '__main__':
     tree = TreeNode(6)
     tree.left = TreeNode(8)

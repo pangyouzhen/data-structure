@@ -1,3 +1,4 @@
+#  这个题目的考点是滑动窗口
 class Solution:
     def lengthOfLongestSubstring(self, s):
         if not s:
@@ -11,6 +12,19 @@ class Solution:
                 max_legth = max(max_legth, i - start + 1)
             used[c] = i
         return max_legth
+
+    def lengthOfLongestSubstring2(self, s):
+        occ = set()
+        n = len(s)
+        rk, ans = -1, 0
+        for i in range(n):
+            if i != 0:
+                occ.remove(s[i - 1])
+            while rk + 1 < n and s[rk + 1] not in occ:
+                occ.add(s[rk + 1])
+                rk += 1
+            ans = max(ans, rk - i + 1)
+        return ans
 
 
 if __name__ == '__main__':
