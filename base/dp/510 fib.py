@@ -8,9 +8,6 @@ def fib_recursive(n):
         return fib_recursive(n - 1) + fib_recursive(n - 2)
 
 
-# add memory
-
-
 def fib_n(n, memo):
     if memo[n] is not None:
         return memo[n]
