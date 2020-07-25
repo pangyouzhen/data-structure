@@ -16,12 +16,19 @@ class Solution:
         for j in range(1, n):
             dp[0][j] = dp[0][j - 1] + grid[0][j]
         pprint(dp)
+        # dp = [
+        # [1, 4, 5],
+        # [2, 0, 0],
+        # [6, 0, 0]]
         for i in range(1, m):
             for j in range(1, n):
                 dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]
         pprint(dp)
         return dp[m - 1][n - 1]
-
+# dp = [
+# [1, 4, 5],
+# [2, 7, 6],
+# [6, 8, 7]]
 
 if __name__ == '__main__':
     ls = [

@@ -7,7 +7,7 @@ class Solution:
         n = len(text2)
         ans = 0
         dp = [[0] * (n + 1) for _ in range(m + 1)]
-        #  这里构建的dp是内先n，外层是m
+        #  这里构建的dp是最外层的都是m 最里层的都是n
         #  这里构建的dp究竟用m,n 还是m+1,n+1?
         for i in range(1, m + 1):
             for j in range(1, n + 1):
