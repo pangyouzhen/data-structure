@@ -33,6 +33,7 @@ class BST:
         result = self.simpleInorder(self.root, res)
         return ",".join(result)
 
+    #  二叉搜索树的中序遍历是有序的
     def simpleInorder(self, root: TreeNode, res: List) -> List:
         if root:
             self.simpleInorder(root.left, res)
