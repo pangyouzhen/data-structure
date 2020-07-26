@@ -7,7 +7,7 @@ class TreeNode(object):
         self.left = left
         self.right = right
 
-
+# 广度优先遍历
 def bfs(root: TreeNode):
     queue = [root]
     while queue:
@@ -117,10 +117,10 @@ if __name__ == '__main__':
     tree = TreeNode(6)
     tree.left = TreeNode(8)
     tree.right = TreeNode(4)
-    # tree.left.left = TreeNode(9)
-    # tree.left.right = TreeNode(7)
-    # tree.right.left = TreeNode(5)
-    # tree.right.right = TreeNode(3)
+    tree.left.left = TreeNode(9)
+    tree.left.right = TreeNode(7)
+    tree.right.left = TreeNode(5)
+    tree.right.right = TreeNode(3)
     print(bfs(tree))
     print("---------")
     # print(dfs(tree))
