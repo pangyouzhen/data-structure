@@ -3,17 +3,16 @@ from typing import List
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
+        # 这种 写法算是dp了毕竟是从下面往上推导，没有使用递归的公式
         n = len(nums)
-        if 0 < n <= 2:
-            return max(nums)
-        elif n == 0:
-            return 0
-        dp = [0] * n
-        dp[0], dp[1] = nums[0], nums[1]
+        memo = [-1] * n
+        memo[0] = nums[0]
+        memo[1] = max(nums[0], nums[1])
         for i in range(2, n):
-            dp[i] = max(dp[i - 1], max(dp[:i - 1]) + nums[i])
-        print(dp)
-        return dp[-1]
+            res = max(memo[i - 2] + nums[i], memo[i - 1])
+            memo[i] = res
+        print(memo)
+        return memo[n-1]
 
 
 if __name__ == '__main__':
