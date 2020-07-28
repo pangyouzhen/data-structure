@@ -4,22 +4,7 @@ from pprint import pprint
 
 class Solution:
     def splitArray(self, nums: List[int], m: int) -> int:
-        #  终止条件
-        ans = []
-        left = 0
-
-        def splitArray_memo(nums, m, ans, left):
-            n = len(nums)
-            if m == 1:
-                return sum(nums)
-            for i in range(n):
-                left += nums[i]
-                temp = max(left, splitArray_memo(nums[i + 1:], m - 1, ans, left))
-                ans.append(temp)
-            return ans
-
-        ans = splitArray_memo(nums, m, ans, left)
-        return min(ans)
+        pass
 
 
 if __name__ == '__main__':
