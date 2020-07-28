@@ -2,19 +2,9 @@ from tree.bfs_dfs import TreeNode
 from collections import deque
 
 
-# dfs
 class Solution:
     def sumOfLeftLeaves(self, root: TreeNode) -> int:
-        def dfs(root):
-            visited, stack = [], [root]
-            while stack:
-                fst = stack.pop()
-                visited.append(fst.val)
-                if fst.right:
-                    stack.append(fst.right)
-                if fst.left:
-                    stack.append(fst.left)
-            return visited
+        pass
 
 
 if __name__ == '__main__':
@@ -25,4 +15,5 @@ if __name__ == '__main__':
     tree.right.left = TreeNode(15)
     tree.right.right = TreeNode(7)
     sol = Solution()
+    #  9+ 15  = 24
     print(sol.sumOfLeftLeaves(tree))
