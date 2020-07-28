@@ -2,6 +2,7 @@ from typing import List
 
 
 #  需要修改，有些问题
+#  背包问题，从顶层到底层进行递归
 class Solution:
     def knapsack(self, N: int, W: int, wt: List[int], val: List[int]) -> int:
         # dp = [[] for i in range(N) for j in range(W)]
