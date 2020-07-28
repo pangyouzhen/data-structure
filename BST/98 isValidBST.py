@@ -21,7 +21,10 @@ class Solution:
             return True
         if root.val <= largerThan or root.val >= lessThan:
             return False
-        return self.isValidBSTRec(root.left,min(lessThan,root.val),largerThan) and self.isValidBSTRec(root.right,lessThan,max(root.val,largerThan))
+        return self.isValidBSTRec(root.left, min(lessThan, root.val), largerThan) and self.isValidBSTRec(root.right,
+                                                                                                         lessThan,
+                                                                                                         max(root.val,
+                                                                                                             largerThan))
 
 
 if __name__ == '__main__':
