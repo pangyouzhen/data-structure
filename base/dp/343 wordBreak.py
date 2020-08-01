@@ -18,17 +18,16 @@ class Solution:
         return self.memo_integerBreak(n)
 
     def memo_integerBreak(self, n: int) -> int:
-        if n == 1:
-            return 1
-        if memo[n] != -1:
-            return memo[n]
-        res = -1
-        for i in range(1, n):
-            #  memo 需要global 的原因是  递归调用 自己函数，放在这里会重复创建
-            res = max(res, i * (n - i), i * self.memo_integerBreak(n - i))
-        memo[n] = res
-        return res
-
+        # if n == 1:
+        #     return 1
+        # if memo[n] != -1:
+        #     return memo[
+        # for i in range(1, n):
+        #     #  memo 需要global 的原因是  递归调用 自己函数，放在这里会重复创建
+        #     res = max(res, i * (n - i), i * self.memo_integerBreak(n - i))
+        # memo[n] = res
+        # return res
+        pass
 
 if __name__ == '__main__':
     sol = Solution()
