@@ -18,20 +18,25 @@ class Solution:
         return self.memo_integerBreak(n)
 
     def memo_integerBreak(self, n: int) -> int:
-        # if n == 1:
-        #     return 1
-        # if memo[n] != -1:
-        #     return memo[
-        # for i in range(1, n):
-        #     #  memo 需要global 的原因是  递归调用 自己函数，放在这里会重复创建
-        #     res = max(res, i * (n - i), i * self.memo_integerBreak(n - i))
-        # memo[n] = res
-        # return res
-        pass
+        if n == 1:
+            return 1
+        if memo[n] != -1:
+            return memo[n]
+        res = 1
+        for i in range(1, n):
+            #  memo 需要global 的原因是  递归调用 自己函数，放在这里会重复创建
+            # 为什么是三个数比较
+            res = max(res, i * (n - i), i * self.memo_integerBreak(n - i))
+        memo[n] = res
+        return res
 
+
+# 25 1,24 / 2,23
+# 24 1,23 / 2,21
 if __name__ == '__main__':
     sol = Solution()
     # print(sol.integerBreak(10))
     # print(sol.integerBreak(9))
     # print(sol.integerBreak(25))
     print(sol.integerBreak(25))
+    print(sol.integerBreak_memo(25))
