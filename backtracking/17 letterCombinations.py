@@ -32,6 +32,7 @@ class Solution:
         letter = letter_dict[c]
         for i in range(len(letter)):
             # print(letter[i])
+            #  这里可以和树形结构共同思考
             self.letterCombinations_rec(digits, index_val + 1, char + letter[i])
         return
 
