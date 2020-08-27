@@ -1,11 +1,12 @@
-graph = {'A': set(['B', 'C']),
-         'B': set(['A', 'D', 'E']),
-         'C': set(['A', 'F']),
-         'D': set(['B']),
-         'E': set(['B', 'F']),
-         'F': set(['C', 'E'])}
+# graph = {'A': set(['B', 'C']),
+#          'B': set(['A', 'D', 'E']),
+#          'C': set(['A', 'F']),
+#          'D': set(['B']),
+#          'E': set(['B', 'F']),
+#          'F': set(['C', 'E'])}
+#
 
-
+#
 def dfs(graph, start):
     visited, stack = set(), [start]
     while stack:
@@ -16,15 +17,17 @@ def dfs(graph, start):
     return visited
 
 
-graph = {'A': set(['B', 'C']),
-         'B': set(['A', 'D', 'E']),
-         'C': set(['A', 'F']),
-         'D': set(['B']),
-         'E': set(['B', 'F']),
-         'F': set(['C', 'E'])}
+# graph = {'A': set(['B', 'C']),
+#          'B': set(['A', 'D', 'E']),
+#          'C': set(['A', 'F']),
+#          'D': set(['B']),
+#          'E': set(['B', 'F']),
+#          'F': set(['C', 'E'])}
 
 
 # dfs  three element : graph,start,visited
+#  递归的方式，更好理解
+#  
 def dfs2(graph, start, visited=None):
     if visited is None:
         visited = set()
@@ -60,8 +63,9 @@ def bfs(graph, root):
 
 if __name__ == '__main__':
     #  无向图，所以每个节点，都有对应的值
+    #  图的两种表现方式
     graph2 = {0: [1, 2, 3], 1: [0, 2], 2: [0, 1, 4], 3: [1], 4: [2]}
     #  这里的dfs 和 bfs 两个是对应不同的 结构的 graph1 = {"a":set(1,1)},graph2 = {"a":[1]}
-    print(dfs(graph, 0))
+    print(dfs(graph2, 0))
     print(bfs(graph2, 0))
-    print(dfs2(graph, "A"))
+    # print(dfs2(graph, "A"))

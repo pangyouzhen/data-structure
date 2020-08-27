@@ -47,6 +47,9 @@ class Solution:
 # self.letterCombinations_rec("23", 1, "" + "b")
 
 
+# dfs 也是用了递归的思想，主要用在图的结构中
+# 回溯等一类，主要用在树形的结构中，树形可以看作特殊的图形结构
+
 if __name__ == '__main__':
     sol = Solution()
     print(sol.letterCombinations("23"))

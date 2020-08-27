@@ -3,7 +3,8 @@ class Solution:
         if len(list(filter(lambda x: x > 0, nums))) == 0:
             return max(nums)
         nums_ls = [None] * (len(nums) + 1)
-        return self.maxSubArray_memo(nums, nums_ls)
+        a = self.maxSubArray_memo(nums, nums_ls)
+        return a
 
     def maxSubArray_memo(self, nums, memo):
         memo[0] = 0
@@ -13,10 +14,12 @@ class Solution:
                 memo[i + 1] = memo_value
             else:
                 memo[i + 1] = 0
+        print(f"{memo=}")
         return max(memo)
 
 
 # 有一个关键是如果加上这个值后为负数则重新赋值为0
+# 按顺序递推和记忆化搜索是实现动态规划的两种方法
 # [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 # 这个应该从底往上思考，增加一个数字后咋样
 
