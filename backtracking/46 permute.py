@@ -37,7 +37,7 @@ class Solution:
     #         self.permute_rec_memo_error(nums, index + 1, one_ans)
     #     return
 
-    def permute_rec(self, nums):
+    def permute(self, nums):
         global result
         result = []
         self.permute_rec_memo(nums, 0, [], [False] * len(nums))
@@ -54,6 +54,7 @@ class Solution:
             one_ans.append(nums[i])
             print(f"self.permute_rec_memo({nums=},{index+1=},{one_ans=},{used=}")
             self.permute_rec_memo(nums, index + 1, one_ans, used)
+            # 这里回溯要把原先的数组也变回以前的
             one_ans.pop()
             used[i] = False
         return
@@ -75,5 +76,5 @@ if __name__ == '__main__':
     # print(len(a[0]))
     # print(a)
     # 这里a的长度为什么是27，a[0]的长度是39
-    b = sol.permute_rec([1, 2, 3])
+    b = sol.permute([1, 2, 3])
     print(b)
