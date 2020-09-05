@@ -9,7 +9,8 @@ class Solution:
         global m, n, visited
         m = len(board)
         n = len(board[0])
-        visited = [[False] * m for _ in range(n)]
+        #  这里的m和n 不要搞错，一个外层，一个内层
+        visited = [[False] * n for _ in range(m)]
         for i in range(len(board)):
             for j in range(len(board[0])):
                 if self.searchWord(board, word, 0, i, j):
@@ -24,10 +25,10 @@ class Solution:
             for i in range(4):
                 newx = startx + self.directions[i][0]
                 newy = starty + self.directions[i][1]
-                if self.inArea(newx, newy) and not visited[startx][starty]:
+                if self.inArea(newx, newy) and not visited[newx][newy]:
                     if self.searchWord(board, word, index + 1, newx, newy):
                         return True
-            visited[startx][starty] = True
+            visited[startx][starty] = False
         return False
 
     def inArea(self, x, y):
@@ -43,3 +44,6 @@ if __name__ == '__main__':
     word = "ABCCED"
     sol = Solution()
     print(sol.exist(board, word))
+    board2 = [["C", "A", "A"], ["A", "A", "A"], ["B", "C", "D"]]
+    word2 = "AAB"
+    print(sol.exist(board2, word2))
