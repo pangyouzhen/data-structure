@@ -55,6 +55,7 @@ class Solution:
             print(f"self.permute_rec_memo({nums=},{index+1=},{one_ans=},{used=}")
             self.permute_rec_memo(nums, index + 1, one_ans, used)
             # 这里回溯要把原先的数组也变回以前的
+            #  回溯这部分可以看作是对称的
             one_ans.pop()
             used[i] = False
         return
