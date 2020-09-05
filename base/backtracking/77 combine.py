@@ -1,4 +1,3 @@
-
 class Solution:
 
     def combine(self, n: int, k: int):
@@ -17,7 +16,8 @@ class Solution:
             res.append(c[:])
             # res.append(c)
             return
-        for i in range(start, n + 1):
+        # for i in range(start, n + 1):
+        for i in range(start, n - (k - len(c)) + 2):
             c.append(i)
             self.combine_memo(n, k, i + 1, c)
             c.pop()
