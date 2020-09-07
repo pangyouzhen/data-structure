@@ -18,13 +18,13 @@ class Solution:
         nums1_square = [i ** 2 for i in nums1]
         m = defaultdict(int)
         for i, v_val in enumerate(nums2):
-            for j, j_val in enumerate(nums2[i:]):
+            for j, j_val in enumerate(nums2[i + 1:]):
                 val = v_val * j_val
                 if val in m:
                     m[val] += 1
                 else:
                     m[val] = 1
-        print(m)
+        # print(m)
         for i in nums1_square:
             if i in m.keys():
                 res[-1] += m[i]
