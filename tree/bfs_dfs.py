@@ -8,6 +8,7 @@ class TreeNode(object):
         self.right = right
 
 def bfs(root: TreeNode):
+    #  b
     queue = [root]
     while queue:
         temp = queue.pop(0)
