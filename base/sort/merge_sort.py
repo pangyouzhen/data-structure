@@ -6,6 +6,7 @@ from typing import List
 #  使用heaqp进行merge
 from heapq import merge
 
+
 def merge_sort(lst):
     if len(lst) <= 1:
         return lst
@@ -16,6 +17,7 @@ def merge_sort(lst):
     #  merge
     return list(merge(left, right))
 
+
 #  自定义merge
 def merge_sort_(nums: List) -> List:
     if len(nums) < 2:
@@ -24,8 +26,8 @@ def merge_sort_(nums: List) -> List:
     mid = len(nums) // 2
     left = merge_sort(nums[:mid])
     right = merge_sort(nums[mid:])
-    #    merge
-    return merge_(left,right)
+    #merge
+    return merge_(left, right)
 
 
 def merge_(left, right):

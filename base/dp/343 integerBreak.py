@@ -9,7 +9,7 @@ class Solution:
         return dp[n]
 
     def integerBreak_memo(self, n: int) -> int:
-        #     状态转移方程
+        #  状态转移方程
         #  动态规划的本质是什么，本质是递归，但是递归的过程中有重叠的子问题，从顶往下是递归，从底网上是动态规划
         #  能够求出子问题的最优解，想一下fib序列
         global memo

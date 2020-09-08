@@ -22,10 +22,37 @@ class Solution:
         # for i in range(start, n + 1):
         # 这里次数为什么变成了n - (k - len(c)) + 2
         for i in range(start, n - (k - len(c)) + 2):
+            print(f"{start = },{i = },{n - (k - len(c)) + 2 = }")
             c.append(i)
+            # 这里为什么是i+1
             self.combine_memo(n, k, i + 1, c)
             c.pop()
+        print("-------------")
         return
+
+    # 因为是两个两个元素就终止，可以理解上面的递归其实
+    # for i in range(1, 5):
+    #     for j in range(i, 5):
+    #         print(j)
+    # 1, 2, 3, 4
+    # 2, 3, 4
+    # 3, 4
+    # 4
+    # print("____")
+
+    # start = 1, i = 1, n - (k - len(c)) + 2 = 4
+    # start = 2, i = 2, n - (k - len(c)) + 2 = 5  这里 for i in range(2,5), i=2 break
+    # start = 2, i = 3, n - (k - len(c)) + 2 = 5  这里 for i in range(2,5), i=3 break
+    # start = 2, i = 4, n - (k - len(c)) + 2 = 5  这里 for i in range(2,5), i=2 break
+    # -------------
+    # start = 1, i = 2, n - (k - len(c)) + 2 = 4
+    # start = 3, i = 3, n - (k - len(c)) + 2 = 5
+    # start = 3, i = 4, n - (k - len(c)) + 2 = 5
+    # -------------
+    # start = 1, i = 3, n - (k - len(c)) + 2 = 4
+    # start = 4, i = 4, n - (k - len(c)) + 2 = 5
+    # -------------
+    # -------------
 
     #  python 内置的排列和组合
     def builtin_combinations(self, n: Any, k: int):
@@ -36,4 +63,4 @@ class Solution:
 if __name__ == '__main__':
     sol = Solution()
     print(sol.combine(4, 2))
-    print(sol.builtin_combinations(4, 2))
+    # print(sol.builtin_combinations(4, 2))
