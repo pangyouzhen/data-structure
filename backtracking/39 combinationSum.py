@@ -1,43 +1,23 @@
 from typing import List
 
 
-class Solution(object):
-    def combinationSum(self, candidates, target):
-        def dfs(candidates, target, s, one_ans, all_ans):
-            if target == 0:
-                all_ans.append(one_ans[:])
-                return
-
-            for i in range(s, len(candidates)):
-                if candidates[i] > target: return
-                one_ans.append(candidates[i])
-                dfs(candidates, target - candidates[i], i, one_ans, all_ans)
-                one_ans.pop()
-
-        ans = []
-        candidates.sort()
-        dfs(candidates, target, 0, [], ans)
-
-        return ans
-
-
-class Solution2:
+class Solution:
     def combinationSum(self, candidates, target: int):
         global res
         res = []
         one_ans = []
         start = 0
         candidates.sort()
+        print(candidates)
         self.combinationSum_memo(candidates, target, start, one_ans)
         return res
 
     def combinationSum_memo(self, candidates, target, start, one_ans):
-        if target < 0:
-            return
-        elif target == 0:
+        if target == 0:
             res.append(one_ans[:])
             return
         for i in range(start, len(candidates)):
+            print(f'{(start + 1) * "+"},for {i=} in range({start=},{len(candidates)=}), {target = },{one_ans = }')
             if candidates[i] > target: return
             one_ans.append(candidates[i])
             self.combinationSum_memo(candidates, target - candidates[i], i, one_ans)
@@ -71,9 +51,7 @@ class Solution2:
 #         return
 
 if __name__ == '__main__':
-    sol = Solution()
-    print(sol.combinationSum([2, 3, 6, 7], 7))
-    print(sol.combinationSum([2, 3, 5], 8))
-    sol2 = Solution2()
+    sol2 = Solution()
     print(sol2.combinationSum([2, 3, 6, 7], 7))
     print(sol2.combinationSum([2, 3, 5], 8))
+    print(sol2.combinationSum([8, 7, 4, 3], 11))

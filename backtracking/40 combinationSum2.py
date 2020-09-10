@@ -3,23 +3,31 @@ from typing import List
 
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-        all_ans = []
+        global res
+        res = []
+        start = 0
         one_ans = []
-
-        def dfs(target, one_ans, all_ans, array):
-            if target == 0 and one_ans not in all_ans :
-                all_ans.append(one_ans[:])
-                return
-            elif target < 0:
-                return
-            for i in range(len(array)):
-                one_ans.append(array[i])
-                dfs(target - array[i], one_ans, all_ans, array[i + 1:])
-                one_ans.pop()
-
         candidates.sort()
-        dfs(target, one_ans, all_ans, candidates)
-        return all_ans
+        print(candidates)
+        self.combinationSum2_memo(candidates, target, start, one_ans)
+        return res
+
+    def combinationSum2_memo(self, candidates, target, start, one_ans):
+        if target < 0:
+            return
+        if target == 0:
+            if one_ans not in res:
+                res.append(one_ans[:])
+            print("--------------")
+            return
+        for i in range(start, len(candidates)):
+            print(f'{(start + 1) * "+"},for {i=} in range({start=},{len(candidates)=}), {target = },{one_ans = }')
+            if candidates[i] > target:
+                return
+            one_ans.append(candidates[i])
+            self.combinationSum2_memo(candidates, target - candidates[i], i + 1, one_ans)
+            one_ans.pop()
+        return
 
 
 if __name__ == '__main__':
