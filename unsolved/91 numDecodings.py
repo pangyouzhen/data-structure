@@ -1,6 +1,9 @@
 from string import ascii_uppercase
 
 
+#  error
+# 记忆化搜索，递归
+# 动态规划的算法来做，爬楼梯
 class Solution:
     def __init__(self):
         self.nums_str = [str(i) for i in range(1, 27)]
@@ -17,15 +20,17 @@ class Solution:
         if index == len(s):
             self.res.append(one_ans[:])
             return
-        for i in range(index, len(s)):
+        for i in range(1, len(s)):
             print(f"{'++  ' * index}for {i=} in {range(1,len(s))= }")
-            # print(f'{start = },{i=},{s[start:i]}')
+            print(f'{index = },{i=},{s[index:i] = }')
             if s[index:i] not in self.nums_str:
                 continue
             one_ans.append(s[index:i])
-            # print(f'{one_ans =}')
-            # print(f"----------------------")
+            print(f'{one_ans =}')
+            print(f"----------------------")
+            s = s[index:]
             self.numDecodings_memo(s, index + 1, one_ans)
+            s = s[index - 1:]
             one_ans.pop()
         return
 
@@ -36,3 +41,5 @@ if __name__ == '__main__':
     # print(sol.numDecodings(nums))
     nums2 = "226"
     print(sol.numDecodings(nums2))
+# 226-> / + 226 ->  2 + 26  -> 22 + 6 +
+#  26 ->  2 + 6
