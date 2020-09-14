@@ -12,6 +12,9 @@ class TreeNode:
 # 前序，后续，中序 的不同指出和名称的意思 在于打印root value的位置不同
 
 class Solution:
+    def __init__(self):
+        self.result = []
+
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         stack, res = [], []
 
@@ -29,22 +32,15 @@ class Solution:
     #  stack -> [1,3,2,4,5] + [3,4,5] + [4]
     #  res +[4] + [3] + [5]
 
-    def simpleInorder(self, root: TreeNode):
-        if root:
-            self.simpleInorder(root.left)
-            print(root.val)
-            self.simpleInorder(root.right)
+    def inorder(self, root: TreeNode):
+        self.inorderRecNew(root)
+        return self.result
 
-    def inorderRec(self, root):
-        return self.inorder3(root, [])
-
-    def inorder3(self, root, vals):
+    def inorderRecNew(self, root):
         if root:
-            vals = self.inorder3(root.left, vals)
-            if root.val:
-                vals.append(root.val)
-            vals = self.inorder3(root.right, vals)
-        return vals
+            self.inorderRecNew(root.left)
+            self.result.append(root.val)
+            self.inorderRecNew(root.right)
 
 
 if __name__ == '__main__':
@@ -59,3 +55,4 @@ if __name__ == '__main__':
     # print(sol.inorderRecursive(treenode))
     print(sol.inorderTraversal(treenode))
     # print(sol.inorderRec(treenode))
+    print(sol.inorder(treenode))

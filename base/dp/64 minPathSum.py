@@ -23,7 +23,7 @@ class Solution:
                 dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]
         return dp[-1][-1]
 
-
+#  时间复杂度和空间复杂度都是O(mn)
 # dp = [
 # [1, 4, 5],
 # [2, 7, 6],
