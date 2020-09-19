@@ -1,10 +1,18 @@
 from tree.bfs_dfs import TreeNode
-from collections import deque
 
 
 class Solution:
+    def __init__(self):
+        self.res = 0
+
     def sumOfLeftLeaves(self, root: TreeNode) -> int:
-        pass
+        if root:
+            #  判断是叶子节点 + 左节点
+            if root.left and not root.left.left and not root.left.right:
+                self.res += root.left.val
+            self.sumOfLeftLeaves(root.left)
+            self.sumOfLeftLeaves(root.right)
+        return self.res
 
 
 if __name__ == '__main__':
