@@ -1,16 +1,16 @@
 class Solution:
+    def __init__(self):
+        self.res = []
 
     def permute(self, nums):
-        global result
-        result = []
         self.permute_rec_memo(nums, 0, [], [False] * len(nums))
-        return result
+        return self.res
 
     def permute_rec_memo(self, nums, index, one_ans, used):
         if index == len(nums):
-            result.append(one_ans[:])
+            self.res.append(one_ans[:])
             return
-        for i, v in enumerate(nums):
+        for i in range(len(nums)):
             if used[i]:
                 continue
             used[i] = True
