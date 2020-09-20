@@ -26,6 +26,7 @@ class Solution:
             c.append(i)
             # 这里为什么是i+1
             self.combine_memo(n, k, i + 1, c)
+            # 在subsets中也是传入的 i,但是在permute中传入的的index， 这个区别是什么
             c.pop()
         print("-------------")
         return
