@@ -9,31 +9,27 @@ class TreeNode:
         self.right = None
 
 
+#  错误的，想仿照排列数和组合数进行回溯，因为是树型结构，但是没成功
 class Solution:
-    def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
+    class Solution:
+        def pathSum(self, root: TreeNode, total: int) -> List[List[int]]:
+            ret = list()
+            path = list()
 
-        # def dfs(graph, start, visited=None):
-        #     if visited is None:
-        #         visited = set()
-        #     visited.add(start)
-        #     for next_ in graph[start] - visited:
-        #         dfs(graph, next_, visited)
-        #     return visited
-        if not root:
-            return []
+            def dfs(root: TreeNode, total: int):
+                if not root:
+                    return
+                path.append(root.val)
+                total -= root.val
+                if not root.left and not root.right and total == 0:
+                    ret.append(path[:])
+                dfs(root.left, total)
+                dfs(root.right, total)
+                path.pop()
 
-        res = []
+            dfs(root, total)
+            return ret
 
-        def helper(root, ans, tmp):
-            if ans == 0 and not root.left and not root.right:
-                res.append(tmp)
-            if root.left:
-                helper(root.left, ans - root.left.val, tmp + [root.left.val])
-            if root.right:
-                helper(root.right, ans - root.right.val, tmp + [root.right.val])
-
-        helper(root, sum - root.val, [root.val])
-        return res
 
 
 if __name__ == '__main__':
