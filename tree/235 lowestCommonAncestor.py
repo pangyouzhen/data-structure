@@ -1,3 +1,6 @@
+from typing import List, Optional
+
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -23,12 +26,23 @@ class Solution:
             return left
 
 
-if __name__ == '__main__':
-    tree = TreeNode(1)
-    tree.left = TreeNode(3)
-    tree.right = TreeNode(4)
-    tree.left.left = TreeNode(5)
-    tree.left.right = TreeNode(6)
+def createBst(nums: List) -> Optional[TreeNode]:
+    # nums.sort()
+    if not nums:
+        return
+    mid = len(nums) // 2
+    root = TreeNode(nums[mid])
+    root.left = createBst(nums[:mid])
+    root.right = createBst(nums[mid + 1:])
+    return root
 
+
+if __name__ == '__main__':
+    a = [i for i in range(1, 10)]
+    root = createBst(a)
+    left = [i for i in range(1, 3)]
+    right = [i for i in range(4, 5)]
+    left_node = createBst(left)
+    right_node = createBst(right)
     sol = Solution()
-    # print(sol.lowestCommonAncestor(tree, 5, 6))
+    print(sol.lowestCommonAncestor(root, left_node, right_node))

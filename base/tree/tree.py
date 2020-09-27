@@ -7,6 +7,7 @@ class TreeNode(object):
         self.left = left
         self.right = right
 
+
 # 广度优先遍历
 def bfs(root: TreeNode):
     queue = [root]
@@ -111,7 +112,12 @@ def getTreeHight(root: TreeNode):
     # when left node is None and right is None, back to root
     return max(left_depth, right_depth) + 1
 
+
 # 根据 list 生成 tree
+# root = [6,2,8,0,4,7,9,null,null,3,5]
+def buildTree(nums: List) -> TreeNode:
+    pass
+
 
 if __name__ == '__main__':
     tree = TreeNode(6)

@@ -1,9 +1,6 @@
 #  二叉树：
 
 
-
-
-
 # 二叉搜索树
 #    左子树节点均小于根节点，右子树节点均大于根节点
 #    各个子节点也是如此
@@ -21,17 +18,18 @@ class TreeNode:
 
 class BST:
     def __init__(self, nums):
-        self.root = self.__sortedArrayToBST(nums)
+        self.root = self.sortedArrayToBST(nums)
 
     # 这个将已经排序的数组转为二叉搜索树，如果没排序的是不可以的
-    def __sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+    # 这个写法和merge sort 写法基本一致
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
         if not nums:
             return
         mid = len(nums) // 2
         root = TreeNode(nums[mid])
 
-        root.left = self.__sortedArrayToBST(nums[:mid])
-        root.right = self.__sortedArrayToBST(nums[mid + 1:])
+        root.left = self.sortedArrayToBST(nums[:mid])
+        root.right = self.sortedArrayToBST(nums[mid + 1:])
         return root
 
     def __repr__(self):
