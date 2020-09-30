@@ -1,9 +1,7 @@
-from functools import reduce
-from typing import List
-from collections import deque
-from array import array
 import timeit
-from random import randint
+from array import array
+from collections import deque
+from typing import List
 
 
 # Monotonic Queue 单调队列
