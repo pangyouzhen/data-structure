@@ -114,8 +114,21 @@ def getTreeHight(root: TreeNode):
 
 
 # 根据 list 生成 tree
-# root = [6,2,8,0,4,7,9,null,null,3,5]
+# root = [5,4,8,11,null,13,4,7,2,null,null,null,null,5,1]
+#               5
+#              / \
+#             4   8
+#            /   / \
+#           11  13  4
+#          /  \    / \
+#         7    2  5   1
 def buildTree(nums: List) -> TreeNode:
+    root = TreeNode(nums[0])
+    for i in nums[1:]:
+        buildTreeRoot(i, root)
+
+
+def buildTreeRoot(nums, root):
     pass
 
 
