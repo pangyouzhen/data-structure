@@ -8,8 +8,21 @@ class Node:
 
 
 class LinkedList:
-    def __init__(self):
+    def __init__(self, nodes=None):
         self.head = None
+        self.create_linked_List(nodes)
+
+    def create_linked_List(self, nodes):
+        if nodes is not None:
+            # node = Node(data=nodes.pop(0))
+            node = Node(nodes.pop(0))
+            #  链表不同的是 一定要记住首要位置，指针不要跟着链表移动,最后返回头部就好
+            #  链表两要素1. 固定指针 2. 移动指针
+            self.head = node
+            for element in nodes:
+                # node.next = Node(data=element)
+                node.next = Node(element)
+                node = node.next
 
     def __repr__(self):
         node = self.head
@@ -21,33 +34,16 @@ class LinkedList:
         return "->".join(nodes)
 
 
-class LinkedList2:
-    def __init__(self, nodes=None):
-        self.head = None
-        if nodes is not None:
-            # node = Node(data=nodes.pop(0))
-            node = Node(nodes.pop(0))
-            #  链表不同的是 一定要记住首要位置，指针不要跟着链表移动,最后返回头部就好
-            self.head = node
-            for element in nodes:
-                # node.next = Node(data=element)
-                node.next = Node(element)
-                node = node.next
-
-
 if __name__ == '__main__':
     llist = LinkedList()
-    print(llist)
     fst_node = Node("a")
     llist.head = fst_node
-    print(llist)
     sed_node = Node("b")
     third_node = Node("c")
     fst_node.next = sed_node
     sed_node.next = third_node
     print(llist)
 
-    print("22222222222200")
-    nodes = [fst_node, sed_node, third_node]
-    linked_lst2 = LinkedList2(nodes)
-    print(linked_lst2)
+    t = ["a", "b", "c"]
+    ls = LinkedList(t)
+    print(ls)

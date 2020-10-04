@@ -6,27 +6,34 @@ class ListNode:
 
 
 class Solution:
+    def __init__(self):
+        self.linked_list = None
+
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         ls1 = []
-        # this is not suitable for (for key word),so use while
-        h1 = l1
-        while h1:
-            ls1.append(str(h1.val))
-            h1 = h1.next
-
+        self.str_sum(l1, ls1)
         ls2 = []
-        h2 = l2
-        while h2:
-            ls2.append(str(h2.val))
-            h2 = h2.next
+        self.str_sum(l2, ls2)
+        print(ls1)
+        print(ls2)
 
-        res = int(''.join(ls1[::-1])) + int(''.join(ls2[::-1]))
-        reversed_res = str(res)[::-1]
-        head = temp = ListNode(reversed_res[0])
-        for digit in reversed_res[1:]:
-            temp.next = ListNode(int(digit))
-            temp = temp.next
-        return head
+        ls1_number = int("".join(ls1))
+        ls2_number = int("".join(ls2))
+
+        sum_ = str(ls1_number + ls2_number)[::-1]
+        node = ListNode(int(sum_[0]))
+        self.linked_list = node
+        print(sum_)
+        for i in sum_[1:]:
+            node.next = ListNode(int(i))
+            node = node.next
+        return self.linked_list
+
+    def str_sum(self, node: ListNode, ls):
+        if node:
+            ls.append(str(node.val))
+            self.str_sum(node.next, ls)
+
 
 if __name__ == '__main__':
     l1 = ListNode(2)
@@ -38,4 +45,5 @@ if __name__ == '__main__':
     l2.next.next = ListNode(4)
 
     sol = Solution()
-    print(sol.addTwoNumbers(l1, l2))
+    temp = (sol.addTwoNumbers(l1, l2))
+    print(temp)
