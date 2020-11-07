@@ -1,21 +1,18 @@
 class Solution:
     def removeDuplicates(self, S: str) -> str:
-        S_lst = list(S)
-        t = 1
-        while t < len(S_lst):
-            if t < 1:
-                t = 1
-            if S_lst[t] == S_lst[t - 1]:
-                del S_lst[t - 1]
-                del S_lst[t - 1]
-                t -= 2
-            t += 1
-        return "".join(S_lst)
+        #         栈的思想
+        output = []
+        for i in S:
+            if output and i == output[-1]:
+                output.pop()
+            else:
+                output.append(i)
+        return "".join(output)
 
 
 if __name__ == '__main__':
     S = "abbaca"
-    S1 = "aaaaaaaa"
+    S1 = "aaaaaaaaa"
     sol = Solution()
     print(sol.removeDuplicates(S))
     print(sol.removeDuplicates(S1))
