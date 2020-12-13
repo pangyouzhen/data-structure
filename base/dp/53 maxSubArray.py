@@ -1,22 +1,16 @@
 class Solution:
+    # 本题使用动态规划 需要从下往上，核心是若前一个元素大于0 则加到当前元素上
+    #  f(x) = max(f(x-1)+a ,a)
+    #  然后求整个数组（动态规划一般都有一个数组）的最大值即可，
     def maxSubArray(self, nums):
-        if len(list(filter(lambda x: x > 0, nums))) == 0:
-            return max(nums)
-        nums_ls = [None] * (len(nums) + 1)
-        a = self.maxSubArray_memo(nums, nums_ls)
-        return a
-
-    def maxSubArray_memo(self, nums, memo):
-        memo[0] = 0
-        for i, v in enumerate(nums):
-            memo_value = memo[i] + nums[i]
-            if memo_value > 0:
-                memo[i + 1] = memo_value
+        submemo = [0] * len(nums)
+        submemo[0] = nums[0]
+        for i, v in enumerate(nums[1:]):
+            if submemo[i] < 0:
+                submemo[i+1] = v
             else:
-                memo[i + 1] = 0
-        print(f"{memo=}")
-        return max(memo)
-
+                submemo[i+1] = submemo[i] + v
+        return max(submemo)
 
 # 有一个关键是如果加上这个值后为负数则重新赋值为0
 # 按顺序递推和记忆化搜索是实现动态规划的两种方法
