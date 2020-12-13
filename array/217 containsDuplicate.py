@@ -1,9 +1,8 @@
 class Solution:
     def containsDuplicate(self, nums):
-        if sorted(list(set(nums))) == sorted(nums):
+        if len(set(nums)) == len(nums):
             return False
-        else:
-            return True
+        return True
 
 
 if __name__ == '__main__':
