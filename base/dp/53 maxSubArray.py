@@ -1,6 +1,7 @@
 class Solution:
     # 本题使用动态规划 需要从下往上，核心是若前一个元素大于0 则加到当前元素上
     #  f(x) = max(f(x-1)+a ,a)
+    #  f(x) 代表数组 x的值
     #  然后求整个数组（动态规划一般都有一个数组）的最大值即可，
     def maxSubArray(self, nums):
         submemo = [0] * len(nums)
@@ -10,6 +11,7 @@ class Solution:
                 submemo[i+1] = v
             else:
                 submemo[i+1] = submemo[i] + v
+        print(submemo)
         return max(submemo)
 
 # 有一个关键是如果加上这个值后为负数则重新赋值为0
