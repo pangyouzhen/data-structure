@@ -1,19 +1,15 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        result = []
-        duplicate_ls = []
-        for i, v in enumerate(strs):
-            t = sorted(list(v))
-            if t not in duplicate_ls:
-                duplicate_ls.append(t)
-                result.append([v])
-            else:
-                _ = duplicate_ls.index(t)
-                result[_].append(v)
-        return result
+        t = defaultdict(list)
+        for i in strs:
+            m = sorted(i)
+            m_key = "".join(m)
+            t[m_key].append(i)
+        return list(t.values())
 
 
 if __name__ == '__main__':
