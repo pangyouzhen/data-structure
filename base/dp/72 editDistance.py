@@ -1,4 +1,6 @@
 from pprint import pprint
+
+
 class Solution:
     def editDistance(self, word1: str, word2: str):
         n = len(word1)
@@ -21,6 +23,8 @@ class Solution:
                 D[i][j] = min(left, down, left_down)
         pprint(D)
         return D[n][m]
+
+
 # dp = [
 #  [0, 1, 2, 3],
 #  [1, 1, 2, 3],
