@@ -1,26 +1,20 @@
 class Solution:
     def monotoneIncreasingDigits(self, N: int) -> int:
-        for i in range(N, 0, -1):
-            if self.check_monotone(i):
-                return i
-        return 0
-
-    def check_monotone(self, N: int):
-        nums_str = str(N)
-        for i, v in enumerate(nums_str[1:]):
-            if int(nums_str[i + 1]) - int(nums_str[i]) >= 0:
-                continue
-            else:
-                return False
-        return True
+        # 思路很简单 找到第一个下降点，然后后面的都变为9 但是注意往前推导的情况例如 332
+        st = str(N)
+        for i in range(len(st) - 1):
+            if st[i] > st[i + 1]:
+                while (i > 0 and st[i] == st[i - 1]):
+                    i -= 1
+                return int(st[:i + 1] + "".join("0" * (len(st) - i - 1))) - 1
+        return N
 
 
 if __name__ == '__main__':
     sol = Solution()
     nums1 = 273070984
-    print(sol.monotoneIncreasingDigits(nums1))
-    # assert sol.monotoneIncreasingDigits(nums1) == 1234
-    # nums2 = 322
-    # assert sol.monotoneIncreasingDigits(nums2) == 299
-    # nums3 = 10
-    # assert sol.monotoneIncreasingDigits(nums3) == 9
+    assert sol.monotoneIncreasingDigits(1234) == 1234
+    nums2 = 332
+    assert sol.monotoneIncreasingDigits(nums2) == 299
+    nums3 = 10
+    assert sol.monotoneIncreasingDigits(nums3) == 9
