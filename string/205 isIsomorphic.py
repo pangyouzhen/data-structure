@@ -1,11 +1,14 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
-            return False
         # 问题在于两者需要同时进行匹配，第一个e配上了a，那么s需要判断第二个letter，t也需要，用zip函数，不能用笛卡尔乘机，
-        if s == "":
+        omoraphic_dict = {}
+        for i in range(len(s)):
+            if s[i] not in omoraphic_dict.keys():
+                omoraphic_dict[s[i]] = t[i]
+                s = s.replace(s[i], t[i])
+        if s == t:
             return True
-        return [s.index(i) for i in s] == [t.index(i) for i in t]
+        return False
 
 
 if __name__ == '__main__':
