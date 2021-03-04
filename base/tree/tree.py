@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Dict
 
 
 class TreeNode(object):
@@ -20,6 +20,17 @@ def bfs(root: TreeNode):
         if right:
             queue.append(right)
         print(temp.val, end=" ")
+
+
+#
+def dfs(graph: Dict, start: str, visited=None):
+    #  深度优先算法的核心也是 回溯，符合回溯的相关模板
+    if visited == None:
+        visited = set()
+    visited.add(start)
+    for next_ in graph[start] - visited:
+        dfs(graph, next_, visited)
+    return visited
 
 
 def dfsPreorder(root: TreeNode):
