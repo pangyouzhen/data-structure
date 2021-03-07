@@ -3,24 +3,25 @@ class Solution:
         self.res = []
 
     def permute(self, nums):
-        self.permute_rec_memo(nums, 0, [], [False] * len(nums))
+        # 路径记录在one_ans中
+        one_ans = []
+        self.permute_rec_memo(nums, one_ans)
         return self.res
 
-    def permute_rec_memo(self, nums, index, one_ans, used):
-        if index == len(nums):
+    def permute_rec_memo(self, nums, one_ans):
+        if len(one_ans) == len(nums):
             self.res.append(one_ans[:])
             return
         for i in range(len(nums)):
-            if used[i]:
+            # 排除不合法的选择
+            if nums[i] in one_ans:
                 continue
-            used[i] = True
+            # 做选择
             one_ans.append(nums[i])
-            print(f"self.permute_rec_memo({nums=},{index+1=},{one_ans=},{used=}")
-            self.permute_rec_memo(nums, index + 1, one_ans, used)
-            # 这里回溯要把原先的数组也变回以前的
-            #  回溯这部分可以看作是对称的
+            # 进入下一层决策树
+            self.permute_rec_memo(nums, one_ans)
+            # 取消选择
             one_ans.pop()
-            used[i] = False
         return
 
 
