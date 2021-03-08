@@ -1,26 +1,23 @@
 class Solution:
-    def longestPalindrome(self, s: str) -> str:
-        palindrome = ""
-        for i in range(len(s)):
-            len1 = len(self.getlongestPalindrome(s, i, i))
+    def isPalindrome(self, s: str, start, end):
+        while start < end:
+            if s[start] == s[end]:
+                start += 1
+                end -= 1
+            else:
+                return False
+        return True
 
-            if len1 > len(palindrome):
-                palindrome = self.getlongestPalindrome(s, i, i)
+    # 暴力解法
+    def longestPalindrome2(self, s: str) -> str:
+        n = len(s)
+        best = ""
+        for i in range(n):
+            for j in range(i, n):
+                if j - i + 1 > len(best) and self.isPalindrome(s, i, j):
+                    best = s[i:j + 1]
+        return best
 
-            len2 = len(self.getlongestPalindrome(s, i, i + 1))
-            if len2 > len(palindrome):
-                palindrome = self.getlongestPalindrome(s, i, i + 1)
-
-        return palindrome
-
-    def getlongestPalindrome(self, s, l, r):
-        while l >= 0 and r < len(s) and s[l] == s[r]:
-            l -= 1
-            r += 1
-        return s[l + 1: r]
-
-
-class Solution2:
     def longestPalindrome(self, s: str) -> str:
         n = len(s)
         dp = [[False] * n for _ in range(n)]
