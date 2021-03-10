@@ -6,7 +6,6 @@ class Solution:
     def splitArray(self, nums: List[int], m: int) -> int:
         pass
 
-
 if __name__ == '__main__':
     sol = Solution()
     nums = [7, 2, 5, 10, 8]

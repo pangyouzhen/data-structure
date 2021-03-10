@@ -42,12 +42,11 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    assert sol.longestPalindrome("a") == "a"
-    assert sol.longestPalindrome("ac") == "a"
-    assert sol.longestPalindrome("babad") == "bab"
-    assert sol.longestPalindrome("cbba") == "bb"
-    assert sol.longestPalindrome("ccc") == "ccc"
-    assert sol.longestPalindrome("") == ""
-    assert sol.longestPalindrome("abccccdd") == '7'
-# 中心对称，轴对称
-# DP
+    func = sol.longestPalindrome2
+    assert func("a") == "a"
+    assert func("ac") == "a"
+    assert func("babad") == "bab"
+    assert func("cbba") == "bb"
+    assert func("ccc") == "ccc"
+    assert func("") == ""
+    assert func("abccccdd") == 'cccc'
