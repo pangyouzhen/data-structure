@@ -1,16 +1,33 @@
+from typing import List
+
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
     @classmethod
-    def convert_list2_listnode(cls, head):
+    def convert_list2listnode(cls, head: List[int]):
         head_ = head[::-1]
         curr = None
+        listnode = None
         for i in head_:
-            a = cls(val=i, next=curr)
-            curr = a
-        return a
+            listnode = cls(val=i, next=curr)
+            curr = listnode
+        return listnode
+
+    # TODO
+    def __len__(self):
+        res = 0
+        _ = self
+        while _:
+            _ = _.next
+            res += 1
+        return res
+
+    def __iter__(self):
+        if self.next:
+            return self.next
 
 
 class Solution:
@@ -20,7 +37,8 @@ class Solution:
 
 if __name__ == '__main__':
     a = [1, 2, 3, 4, 5]
-    al = ListNode.convert_list2_listnode(a)
+    al = ListNode.convert_list2listnode(a)
+    print(len(al))
     print("finish")
     # list_node5 = ListNode(val=5)
     # list_node4 = ListNode(val=4, next=list_node5)
