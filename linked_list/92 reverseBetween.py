@@ -1,4 +1,4 @@
-from linked_list.ListNode import ListNode
+from base.linked_list.ListNode import ListNode
 
 
 class Solution:
