@@ -4,25 +4,16 @@ from typing import List
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         a = ["+", "-", "*", "/"]
-        nums_list = []
+        stack = []
         for i in tokens:
             if i in a:
-                temp = 0
-                if i == "+":
-                    temp = sum(nums_list[-2:])
-                elif i == "-":
-                    temp = nums_list[-2] - nums_list[-1]
-                elif i == "*":
-                    temp = nums_list[-2] * nums_list[-1]
-                elif i == "/":
-                    temp = int(nums_list[-2] / nums_list[-1])
-                del nums_list[-2:]
-                nums_list.append(temp)
-                print(nums_list)
+                val = int(eval(stack[-2] + i + stack[-1]))
+                stack.pop(-1)
+                stack.pop(-1)
+                stack.append(str(val))
             else:
-                nums_list.append(int(i))
-                print(nums_list)
-        return nums_list[-1]
+                stack.append(i)
+        return int(stack[0])
 
 
 if __name__ == '__main__':
