@@ -1,22 +1,5 @@
 # Definition for singly-linked list.
-from typing import List
-
-
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-
-def create_listnodes(nums: List[int]) -> ListNode:
-    node = ListNode(nums.pop(0))
-    #  链表不同的是 一定要记住首要位置，指针不要跟着链表移动,最后返回头部就好
-    head = node
-    for element in nums:
-        # node.next = Node(data=element)
-        node.next = ListNode(element)
-        node = node.next
-    return  head
+from linked_list.ListNode import ListNode
 
 
 class Solution:
@@ -39,5 +22,5 @@ class Solution:
 
 if __name__ == '__main__':
     a = [1, 2, 3, 4, 5, 6]
-    b = create_listnodes(a)
-    print('finish')
+    ln = ListNode.list2node(a)
+

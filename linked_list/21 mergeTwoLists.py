@@ -1,18 +1,5 @@
 # Definition for singly-linked list.
-#  对于链表的问题，一定想到递归， h1 = h1.next 配合递归
-
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-    def __str__(self):
-        res = []
-        res.append(str(self.val))
-        while self.next:
-            res.append(str(self.next.val))
-            self.next = self.next.next
-        return ",".join(res)
+from linked_list.ListNode import ListNode
 
 
 class Solution:
@@ -28,13 +15,11 @@ class Solution:
 
 
 if __name__ == '__main__':
-    a = ListNode(1)
-    a.next = ListNode(2)
-    a.next.next = ListNode(4)
-    print(a)
-    b = ListNode(1)
-    b.next = ListNode(3)
-    b.next.next = ListNode(4)
-    print(b)
+    a = [1, 2, 4]
+    lna = ListNode.list2node(a)
+    print(lna)
+    b = [1, 3, 4]
+    lnb = ListNode.list2node(b)
+    print(lnb)
     sol = Solution()
-    print(sol.mergeTwoLists(a, b))
+    print(sol.mergeTwoLists(lna, lnb))

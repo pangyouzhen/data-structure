@@ -1,8 +1,5 @@
 # Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from linked_list.ListNode import ListNode
 
 
 class Solution:
@@ -15,9 +12,6 @@ class Solution:
 
 
 if __name__ == '__main__':
-    # head = [1, 0, 1]
-    head = ListNode(0)
-    # head.next = ListNode(0)
-    # head.next.next = ListNode(1)
+    head = ListNode.list2node([1, 0, 1])
     sol = Solution()
     print(sol.getDecimalValue(head))

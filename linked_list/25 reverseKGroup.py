@@ -1,17 +1,5 @@
 # Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-    def __str__(self):
-        res = []
-        res.append(str(self.val))
-        while self.next:
-            # 为什么运行的时候print正确，但是debug self.next 就是None  ???
-            res.append(str(self.next.val))
-            self.next = self.next.next
-        return (",".join(res))
+from linked_list.ListNode import ListNode
 
 
 class Solution2:
@@ -40,6 +28,7 @@ class Solution2:
             head = tmp
 
         return dummy.next
+
 
 class Solution:
     def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
@@ -84,13 +73,8 @@ class Solution:
         return pre
 
 
-
 if __name__ == '__main__':
-    a = ListNode(1)
-    a.next = ListNode(2)
-    a.next.next = ListNode(3)
-    a.next.next.next = ListNode(4)
-    a.next.next.next.next = ListNode(5)
+    ln = ListNode.list2node([1, 2, 3, 4, 5])
     sol = Solution()
-    print(sol.reverseKGroup(a, k=2))
+    print(sol.reverseKGroup(ln, k=2))
     # print(a)

@@ -1,8 +1,5 @@
 # Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from linked_list.ListNode import ListNode
 
 
 class Solution:
@@ -36,14 +33,8 @@ class Solution:
 
 
 if __name__ == '__main__':
-    l1 = ListNode(2)
-    l1.next = ListNode(4)
-    l1.next.next = ListNode(3)
-
-    l2 = ListNode(5)
-    l2.next = ListNode(6)
-    l2.next.next = ListNode(4)
-
+    l1 = ListNode.list2node([2, 4, 3])
+    l2 = ListNode.list2node([5, 6, 4])
     sol = Solution()
     temp = (sol.addTwoNumbers(l1, l2))
     print(temp)
