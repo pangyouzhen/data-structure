@@ -2,12 +2,7 @@
 from typing import List
 from collections import Counter
 
-
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from base.tree.tree_node import TreeNode
 
 
 class Solution:
