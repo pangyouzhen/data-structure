@@ -1,5 +1,5 @@
 from typing import List
-
+import json
 
 class ListNode:
     # 只针对非循环链表
@@ -31,7 +31,7 @@ class ListNode:
             res += 1
         return res
 
-    def __repr__(self):
+    def __str__(self):
         a = self
         res = ""
         while a is not None:
@@ -39,9 +39,30 @@ class ListNode:
             a = a.next
         return res[:-2]
 
+    def __repr__(self):
+        graph = {
+            "kind": {"graph": True},
+            "nodes": [],
+            "edges": []
+        }
+        a = self
+        last_val = None
+        while a is not None:
+            graph["nodes"].append(({'id': str(a.val), 'label': str(a.val)}))
+            # 链表必须要有两个节点
+            if len(graph["nodes"]) > 1:
+                graph["edges"].append(({
+                    "from": str(last_val), "to": str(a.val)
+                }))
+            last_val = str(a.val)
+            a = a.next
+        graph = json.dumps(graph)
+        return graph
+
 
 if __name__ == '__main__':
     nums = [1, 2, 3, 4, 5]
     listNode = ListNode.list2node(nums)
     print(len(listNode))
+    print(listNode)
     print(listNode)

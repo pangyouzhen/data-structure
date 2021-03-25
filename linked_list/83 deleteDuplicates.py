@@ -15,3 +15,6 @@ class Solution:
 if __name__ == '__main__':
     ln = ListNode.list2node([1, 1, 2])
     ln2 = ListNode.list2node([1, 1, 2, 3, 3])
+    sol = Solution()
+    print(sol.deleteDuplicates(ln))
+    print(sol.deleteDuplicates(ln2))
