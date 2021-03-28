@@ -1,27 +1,17 @@
-import string
 import re
 
 
 class Solution:
+
     def numDifferentIntegers(self, word: str) -> int:
-        # return re.split("[\w+]", word)
-        res = [[]]
-        result = []
-        for i in word:
-            if i.isdigit():
-                res[-1].extend(i)
-            else:
-                res.append([])
-        for i in res:
+        res = []
+        for i in re.split("\D+", word):
             if i:
-                l = int("".join(i))
-                result.append(l)
-        return len(set(result))
-
-
+                res.append(int(i))
+        return len(set(res))
 
 
 if __name__ == '__main__':
     word = "leet1234code234"
     sol = Solution()
-    print(sol.numDifferentIntegers2(word))
+    print(sol.numDifferentIntegers(word))
