@@ -1,35 +1,44 @@
 from typing import List
 import json
 
+
 class ListNode:
-    # 只针对非循环链表
     def __init__(self, val, next=None):
         self.val = val
         self.next = next
 
     @classmethod
     def list2node(cls, head: List[int]):
-        # 这个式子是如何写出来的： 一般构造过程
-        # ls5 = ListNode(5)
-        # ls4 = ListNode(4, next=ls5)
-        # ls3 = ListNode(3, next=ls4)
-        # ls2 = ListNode(2, next=ls3)
-        # ls1 = ListNode(1, next=ls2)
-        head_ = head[::-1]
-        curr = None
-        ls = None
-        for i in head_:
-            ls = cls(val=i, next=curr)
-            curr = ls
-        return ls
+        # 创建非循环链表
+        # 虚拟头节点
+        fst_head = cls(val=0)
+        dummy_head = fst_head
+        for i in head:
+            ls = cls(val=i)
+            dummy_head.next = ls
+            dummy_head = dummy_head.next
+        return fst_head.next
 
     def __len__(self):
+        if self.has_cycle():
+            assert "这是一个环形链表，没有长度"
         res = 0
         a = self
         while a is not None:
             a = a.next
             res += 1
         return res
+
+    def has_cycle(self):
+        m = self
+        a = set()
+        # 一定注意这里的while m, while会判断 __bool__ __len__会进入到无限循环的情况
+        while m is not None:
+            if m in a:
+                return True
+            a.add(m)
+            m = m.next
+        return False
 
     def __str__(self):
         a = self
@@ -39,7 +48,16 @@ class ListNode:
             a = a.next
         return res[:-2]
 
+    def node2list(self):
+        a = self
+        res = []
+        while a is not None:
+            res.append(a.val)
+            a = a.next
+        return res == res[::-1]
+
     def __repr__(self):
+        # vscode debug工具
         graph = {
             "kind": {"graph": True},
             "nodes": [],

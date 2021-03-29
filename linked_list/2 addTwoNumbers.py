@@ -3,33 +3,28 @@ from base.linked_list.ListNode import ListNode
 
 
 class Solution:
-    def __init__(self):
-        self.linked_list = None
 
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        ls1 = []
-        self.str_sum(l1, ls1)
-        ls2 = []
-        self.str_sum(l2, ls2)
-        print(ls1)
-        print(ls2)
+        def linked_list_value(l1: ListNode) -> int:
+            l1_value = []
+            while l1 is not None:
+                l1_value.append(str(l1.val))
+                l1 = l1.next
+            return int("".join(l1_value)[::-1])
 
-        ls1_number = int("".join(ls1))
-        ls2_number = int("".join(ls2))
+        l1_value = linked_list_value(l1)
+        # print(l1_value)
+        l2_value = linked_list_value(l2)
+        # print(l2_value)
+        value_ = str(l1_value + l2_value)[::-1]
 
-        sum_ = str(ls1_number + ls2_number)[::-1]
-        node = ListNode(int(sum_[0]))
-        self.linked_list = node
-        print(sum_)
-        for i in sum_[1:]:
-            node.next = ListNode(int(i))
-            node = node.next
-        return self.linked_list
-
-    def str_sum(self, node: ListNode, ls):
-        if node:
-            ls.append(str(node.val))
-            self.str_sum(node.next, ls)
+        dummy_head = ListNode(0)
+        t = dummy_head
+        for i in value_:
+            curr = ListNode(val=int(i))
+            t.next = curr
+            t = t.next
+        return dummy_head.next
 
 
 if __name__ == '__main__':
