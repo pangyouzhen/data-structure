@@ -4,9 +4,9 @@ from typing import List
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         for row in matrix:
-            for val in row:
-                if val == target:
+            if row[0] <= target <= row[-1]:
+                if target in row:
                     return True
-                elif val > target:
-                    break
+            elif target < row[0]:
+                return False
         return False
