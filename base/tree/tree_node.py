@@ -1,12 +1,6 @@
-#  二叉树：
-
-
-# 二叉搜索树
-#    左子树节点均小于根节点，右子树节点均大于根节点
-#    各个子节点也是如此
-# 特殊性质
-#     二叉查找树的中序遍历是有序的
 from typing import List, Optional
+
+from base.tree.tree_utils import print_btree
 
 
 class TreeNode:
@@ -18,7 +12,7 @@ class TreeNode:
     @classmethod
     def from_list(cls, nums: List[int], bst_bool=True) -> Optional["TreeNode"]:
         """
-        从列表生成树，sort_bool=True 默认生成二叉搜索树
+        从列表生成树，中间节点作为root，sort_bool=True 默认生成二叉搜索树
         """
 
         # 设置闭包的原因是如果不用闭包，from_list每次都要传入bst_bool值
@@ -48,8 +42,12 @@ class TreeNode:
             yield str(root.val)
             self.simpleInorderBST(root.right)
 
+    def __str__(self):
+        print_btree(self, lambda n: (str(n.val), n.left, n.right))
+        return ""
+
 
 if __name__ == '__main__':
-    nums = [3, 2, None, 6, 8, 5, None]
+    nums = [3, 2, None, 6, 8, 5, 9]
     sol = TreeNode.from_list(nums, bst_bool=False)
-    print("finish")
+    print(sol)
