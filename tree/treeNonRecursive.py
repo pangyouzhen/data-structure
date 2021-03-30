@@ -5,11 +5,7 @@
 #         self.right= None
 
 # TODO why above def not work
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from base.tree.tree_node import TreeNode
 
 
 class Solution:
@@ -26,13 +22,11 @@ class Solution:
                 stack.append(node.left)
         return res
 
-if __name__ == '__main__':
-    treeNode = TreeNode(1)
-    treeNode.left = TreeNode(5)
-    treeNode.right = TreeNode(7)
-    treeNode.left.left = TreeNode(3)
-    treeNode.left.right = TreeNode(6)
 
+if __name__ == '__main__':
+    nums = [1, 5, 7, 3, 6]
+    tree = TreeNode.from_list(nums)
+    print(tree)
     sol = Solution()
-    result = sol.preorderNonRecursive(treeNode)
+    result = sol.preorderNonRecursive(tree)
     print(result)

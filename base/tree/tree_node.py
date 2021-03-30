@@ -1,6 +1,7 @@
 from typing import List, Optional
 
 from base.tree.tree_utils import print_btree
+from collections import deque
 
 
 class TreeNode:
@@ -10,7 +11,7 @@ class TreeNode:
         self.right = None
 
     @classmethod
-    def from_list(cls, nums: List[int], bst_bool=True) -> Optional["TreeNode"]:
+    def bst_from_list(cls, nums: List[int], bst_bool=True) -> Optional["TreeNode"]:
         """
         从列表生成树，中间节点作为root，sort_bool=True 默认生成二叉搜索树
         """
@@ -34,13 +35,22 @@ class TreeNode:
             nums.sort()
         return from_list_inner(nums)
 
-    #  中序遍历，只有二叉搜索树的中序遍历是有序的
-    # TODO
-    def simpleInorderBST(self, root: "TreeNode") -> List:
-        if root:
-            self.simpleInorderBST(root.left)
-            yield str(root.val)
-            self.simpleInorderBST(root.right)
+    @classmethod
+    def from_list(cls, data):
+        # https://stackoverflow.com/questions/43097045/best-way-to-construct-a-binary-tree-from-a-list-in-python
+        n = iter(data)
+        tree = cls(next(n))
+        fringe = deque([tree])
+        while True:
+            head = fringe.popleft()
+            try:
+                head.left = cls(next(n))
+                fringe.append(head.left)
+                head.right = cls(next(n))
+                fringe.append(head.right)
+            except StopIteration:
+                break
+        return tree
 
     def __str__(self):
         print_btree(self, lambda n: (str(n.val), n.left, n.right))
@@ -48,6 +58,6 @@ class TreeNode:
 
 
 if __name__ == '__main__':
-    nums = [3, 2, None, 6, 8, 5, 9]
-    sol = TreeNode.from_list(nums, bst_bool=False)
+    nums = [3, 2, 4, 6, 8, 5, 9]
+    sol = TreeNode.from_list(nums)
     print(sol)

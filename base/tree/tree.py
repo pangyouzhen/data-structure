@@ -1,14 +1,9 @@
 from typing import List, Dict
 
-
-class TreeNode(object):
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
 # 广度优先遍历
+from base.tree.tree_node import TreeNode
+
+
 def bfs(root: TreeNode):
     queue = [root]
     while queue:
