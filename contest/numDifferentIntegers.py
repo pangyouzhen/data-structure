@@ -4,10 +4,7 @@ import re
 class Solution:
 
     def numDifferentIntegers(self, word: str) -> int:
-        res = []
-        for i in re.split("\D+", word):
-            if i:
-                res.append(int(i))
+        res = [int(i) for i in re.split("\D+", word) if i]
         return len(set(res))
 
 
