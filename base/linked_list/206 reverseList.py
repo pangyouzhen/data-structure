@@ -7,6 +7,7 @@ class Solution:
         if head.next is None:
             return head
         last = self.reverseList(head.next)
+        # 环形链表这里vscode没法展示
         head.next.next = head
         head.next = None
         return last

@@ -1,7 +1,9 @@
 from typing import List
+from Cyberbrain import trace
 
 
 class Solution:
+    @trace
     def countNegatives(self, grid: List[List[int]]) -> int:
         m = len(grid)
         n = len(grid[0])
