@@ -2,6 +2,7 @@ from typing import List, Optional
 
 from base.tree.tree_utils import print_btree
 from collections import deque
+import json
 
 
 class TreeNode:
@@ -55,6 +56,29 @@ class TreeNode:
     def __str__(self):
         print_btree(self, lambda n: (str(n.val), n.left, n.right))
         return ""
+
+    def __repr__(self):
+        #  vs code debug工具
+        graph = {
+            "kind": {"graph": True},
+            "nodes": [],
+            "edges": []
+        }
+
+        def simple_order(root, last):
+            if root:
+                graph["nodes"].append(({'id': str(root.val), 'label': str(root.val)}))
+                if last is not None:
+                    # print(last, root.val)
+                    graph["edges"].append(({
+                        "from": str(last), "to": str(root.val)
+                    }))
+                simple_order(root.left, last=root.val)
+                simple_order(root.right, last=root.val)
+
+        simple_order(self, last=None)
+        g = json.dumps(graph)
+        return g
 
 
 if __name__ == '__main__':
