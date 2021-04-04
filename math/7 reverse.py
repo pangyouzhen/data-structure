@@ -1,20 +1,18 @@
 class Solution:
     def reverse(self, x):
-        if x >= 0:
-            reversed_value = int(''.join([i for i in reversed(str(x))]))
-            if reversed_value > 2 ** (31) - 1:
-                return 0
-            else:
-                return reversed_value
+        s = str(x)
+        s = s[::-1]
+        if s[-1] == "-":
+            val = -int("".join(s[:-1]))
         else:
-            reversed_value = -(int(''.join([i for i in reversed(str(abs(x)))])))
-            if reversed_value < -2 ** (31):
-                return 0
-            else:
-                return reversed_value
+            val = int("".join(s))
+        if (-2 ** 31 - 1) < val < (2 ** 31 - 1):
+            return val
+        else:
+            return 0
 
 
 if __name__ == '__main__':
     sol = Solution()
-    res = sol.reverse(1534236469)
+    res = sol.reverse(-120)
     print(res)
