@@ -17,17 +17,9 @@ class Solution:
         return res
 
     def letterCombinations_rec(self, digits, index_val, char):
-        # print(f"{digits=},{index_val,}{char=}")
         if index_val == len(digits):
             res.append(char)
             return
-        # 这个感觉必须要用两层循环的？,一个循环在 递归中消解了
-        # if digits:
-        #     for i in chain("", digits):
-        #         if i:
-        #             res.append(letter_dict[i] + self.letterCombinations_rec(digits[i:]))
-        #         else:
-        #             res = self.letterCombinations_rec(digits[i:])
         c = digits[index_val]
         letter = letter_dict[c]
         for i in range(len(letter)):
@@ -37,18 +29,6 @@ class Solution:
         return
 
 
-# self.letterCombinations_rec("23", 0, "")
-# self.letterCombinations_rec("23", 1, "" + "a")
-# self.letterCombinations_rec("23", 2, "a" + "d")
-# append and return 把这一层的循环销毁了，
-# self.letterCombinations_rec("23", 2,  "a" + "e")
-# self.letterCombinations_rec("23", 2,  "a" + "f")
-# return 语句把这一层的销毁
-# self.letterCombinations_rec("23", 1, "" + "b")
-
-
-# dfs 也是用了递归的思想，主要用在图的结构中
-# 回溯等一类，主要用在树形的结构中，树形可以看作特殊的图形结构
 
 if __name__ == '__main__':
     sol = Solution()
