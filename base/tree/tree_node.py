@@ -1,15 +1,19 @@
+from copy import deepcopy
 from typing import List, Optional
 
-from base.tree.tree_utils import print_btree
+from tree_utils import print_btree
 from collections import deque
 import json
 
 
 class TreeNode:
+    node_id = 0
+
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
+        # 内置的debug函数
 
     @classmethod
     def bst_from_list(cls, nums: List[int], bst_bool=True) -> Optional["TreeNode"]:
@@ -67,14 +71,15 @@ class TreeNode:
 
         def simple_order(root, last):
             if root:
-                graph["nodes"].append(({'id': str(root.val), 'label': str(root.val)}))
+                self.node_id += 1
+                last_val = deepcopy(self.node_id)
+                graph["nodes"].append(({'id': str(self.node_id), 'label': str(root.val)}))
                 if last is not None:
-                    # print(last, root.val)
                     graph["edges"].append(({
-                        "from": str(last), "to": str(root.val)
+                        "from": str(last), "to": str(self.node_id)
                     }))
-                simple_order(root.left, last=root.val)
-                simple_order(root.right, last=root.val)
+                simple_order(root.left, last=last_val)
+                simple_order(root.right, last=last_val)
 
         simple_order(self, last=None)
         g = json.dumps(graph)
@@ -82,6 +87,7 @@ class TreeNode:
 
 
 if __name__ == '__main__':
-    nums = [3, 2, 4, 6, 8, 5, 9]
+    nums = [1, 2, 2, None, 3, None, 3]
     sol = TreeNode.from_list(nums)
     print(sol)
+    print("finish")
