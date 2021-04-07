@@ -26,7 +26,7 @@
 
 ## 多叉树
 
-### B 树（balanced）
+### B 树（balanced 多路平衡树）
 
 ### B + 树
 

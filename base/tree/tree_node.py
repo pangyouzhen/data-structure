@@ -7,6 +7,7 @@ import json
 
 
 class TreeNode:
+    #  二叉树
     node_id = 0
 
     def __init__(self, x):
@@ -84,6 +85,57 @@ class TreeNode:
         simple_order(self, last=None)
         g = json.dumps(graph)
         return g
+
+    def pre_order(self):
+        res = []
+
+        def pre_order_closure(root):
+            if root:
+                res.append(root.val)
+                pre_order_closure(root.left)
+                pre_order_closure(root.right)
+
+        pre_order_closure(self)
+        return res
+
+    def in_order(self):
+        res = []
+
+        def in_order_closure(root):
+            if root:
+                in_order_closure(root.left)
+                res.append(root.val)
+                in_order_closure(root.right)
+
+        in_order_closure(self)
+        return res
+
+    def post_order(self):
+        res = []
+
+        def post_order_closure(root):
+            if root:
+                post_order_closure(root.left)
+                post_order_closure(root.right)
+                res.append(root.val)
+
+        post_order_closure(self)
+        return res
+
+    def __len__(self):
+        # 树的深度
+        return self.depth(self)
+
+    def depth(self):
+        def maxDepth(root):
+            #  is None
+            if root is None:
+                return 0
+            left_depth = maxDepth(root.left)
+            right_depth = maxDepth(root.right)
+            return max(left_depth, right_depth) + 1
+
+        return maxDepth(self)
 
 
 if __name__ == '__main__':

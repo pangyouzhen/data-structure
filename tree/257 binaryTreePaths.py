@@ -38,5 +38,4 @@ if __name__ == '__main__':
     print(sol.binaryTreePaths(treeNode))
 
 
-ls = ["dev"]
 

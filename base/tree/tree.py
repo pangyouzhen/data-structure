@@ -88,55 +88,6 @@ def inorderTraversal(root: TreeNode) -> List[int]:
 #                 stack.append(temp.right)
 #             res.append(temp.val)
 #     return res
-def simplePreOrder(root: TreeNode):
-    if root:
-        print(root.val)
-        simplePreOrder(root.left)
-        simplePreOrder(root.right)
-
-
-def simpleInorder(root: TreeNode):
-    if root:
-        simpleInorder(root.left)
-        print(root.val)
-        simpleInorder(root.right)
-
-
-def simplePostOrder(root: TreeNode):
-    if root:
-        simpleInorder(root.left)
-        print(root.val)
-        simpleInorder(root.right)
-
-
-def getTreeHight(root: TreeNode):
-    if root is None:
-        return 0
-    #  left Rec and Rec
-    left_depth = getTreeHight(root.left)
-    right_depth = getTreeHight(root.right)
-    # when left node is None and right is None, back to root
-    return max(left_depth, right_depth) + 1
-
-
-# 根据 list 生成 tree
-# root = [5,4,8,11,null,13,4,7,2,null,null,null,null,5,1]
-#               5
-#              / \
-#             4   8
-#            /   / \
-#           11  13  4
-#          /  \    / \
-#         7    2  5   1
-def buildTree(nums: List) -> TreeNode:
-    root = TreeNode(nums[0])
-    for i in nums[1:]:
-        buildTreeRoot(i, root)
-
-
-def buildTreeRoot(nums, root):
-    pass
-
 
 if __name__ == '__main__':
     tree = TreeNode(6)
