@@ -12,16 +12,16 @@ class Solution:
         # not used rec
         if root is None:
             return []
-        result, current = [], [root]
-        while current:
+        result, queue = [], [root]
+        while queue:
             next_level, vals = [], []
-            for node in current:
+            for node in queue:
                 vals.append(node.val)
                 if node.left:
                     next_level.append(node.left)
                 if node.right:
                     next_level.append(node.right)
-            current = next_level
+            queue = next_level
             result.append(vals)
         return result
 
