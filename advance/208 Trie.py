@@ -24,21 +24,23 @@ class Trie:
             p = p[c]
         return p
 
-    # TODO
     def find_word(self, prefix: str) -> List[str]:
         res = []
         word_dict = self.find(prefix)
 
+        # 回溯法找所有可能的单词
+
         def bt(value, one_ans, res):
             if value is True:
-                one_ans += value
+                res.append("".join(one_ans[:-1]))
                 return
-            for i in word_dict.keys():
-                one_ans.append(value)
-                bt(word_dict[i], one_ans, res)
+            for i in value.keys():
+                one_ans.append(i)
+                bt(value[i], one_ans, res)
                 one_ans.pop()
 
-        bt()
+        one_ans = [prefix]
+        bt(word_dict, one_ans, res)
         return res
 
     def startsWith(self, prefix: str) -> bool:
@@ -55,3 +57,4 @@ if __name__ == '__main__':
     print("search", trie.search("ap"))
     print("startswith", trie.startsWith("ap"))
     print(trie.search("affff"))
+    print(trie.find_word("b"))
