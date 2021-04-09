@@ -1,24 +1,31 @@
 class Solution:
-    def isPalindrome(self, s: str, start, end):
-        while start < end:
-            if s[start] == s[end]:
-                start += 1
-                end -= 1
-            else:
-                return False
-        return True
 
     # 暴力解法
-    def longestPalindrome2(self, s: str) -> str:
-        n = len(s)
-        best = ""
-        for i in range(n):
-            for j in range(i, n):
-                if j - i + 1 > len(best) and self.isPalindrome(s, i, j):
-                    best = s[i:j + 1]
-        return best
-
     def longestPalindrome(self, s: str) -> str:
+        def isPalindrome(s: str):
+            start = 0
+            end = len(s) - 1
+            while start < end:
+                if s[start] == s[end]:
+                    start += 1
+                    end -= 1
+                else:
+                    return False
+            return True
+
+        n = len(s)
+        res = ""
+        for i in range(n + 1):
+            for j in range(i):
+                s_str = s[j:i]
+                if isPalindrome(s_str):
+                    if len(s_str) > len(res):
+                        res = s_str
+        return res
+
+    #  非暴力解法
+    # TODO
+    def longestPalindrome2(self, s: str) -> str:
         n = len(s)
         dp = [[False] * n for _ in range(n)]
         ans = ""
@@ -42,7 +49,7 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    func = sol.longestPalindrome2
+    func = sol.longestPalindrome
     assert func("a") == "a"
     assert func("ac") == "a"
     assert func("babad") == "bab"
