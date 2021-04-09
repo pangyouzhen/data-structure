@@ -1,6 +1,6 @@
 from typing import List
 
-
+# todo
 class Solution:
     def maxSatisfied(self, customers: List[int], grumpy: List[int], X: int):
         pass
