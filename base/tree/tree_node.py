@@ -124,7 +124,7 @@ class TreeNode:
 
     def __len__(self):
         # 树的深度
-        return self.depth(self)
+        return self.depth()
 
     def depth(self):
         def maxDepth(root):

@@ -88,7 +88,18 @@ def inorderTraversal(root: TreeNode) -> List[int]:
 #                 stack.append(temp.right)
 #             res.append(temp.val)
 #     return res
-
+def preorderNonRecursive(self, root):
+    if root is None:
+        return []
+    stack, res = [root], []
+    while stack:
+        node = stack.pop()
+        res.append(node.val)
+        if node.right is not None:
+            stack.append(node.right)
+        if node.left is not None:
+            stack.append(node.left)
+    return res
 if __name__ == '__main__':
     tree = TreeNode(6)
     tree.left = TreeNode(8)
