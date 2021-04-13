@@ -1,41 +1,28 @@
-# Definition for a binary tree node.
-from typing import List
-
-
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
-
-
-from functools import reduce
+from base.tree.tree_node import TreeNode
 
 
 class Solution:
     def minDiffInBST(self, root: TreeNode) -> int:
         res = []
 
-        def inorder(root: TreeNode, res: List) -> List:
+        def inorder(root: TreeNode):
             if root:
-                inorder(root.left, res)
-                res.append(root.val)
-                inorder(root.right, res)
-            return res
+                inorder(root.left)
+                if root.val is not None:
+                    res.append(root.val)
+                inorder(root.right)
 
-        result = inorder(root, res)
-        mium_val = []
-        for i in range(1, len(result)):
-            mium_val.append(result[i] - result[i - 1])
-        return min(mium_val)
+        inorder(root)
+        min_val = float("inf")
+        for i in range(1, len(res)):
+            val = res[i] - res[i - 1]
+            if val < min_val:
+                min_val = val
+        return min_val
 
 
 if __name__ == '__main__':
     sol = Solution()
-    tree = TreeNode(4)
-    tree.left = TreeNode(2)
-    tree.right = TreeNode(6)
-    tree.left.left = TreeNode(1)
-    tree.left.right = TreeNode(3)
+    tree = TreeNode.bst_from_list([4, 2, 6, 1, 3])
     a = sol.minDiffInBST(tree)
     print(a)
