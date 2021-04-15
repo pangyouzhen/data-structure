@@ -1,10 +1,5 @@
 class Solution(object):
     def findLength(self, A, B):
-        """
-        :type A: List[int]
-        :type B: List[int]
-        :rtype: int
-        """
         n, m = len(A), len(B)
         dp = [[0] * (m + 1) for _ in range(n + 1)]
         ans = 0

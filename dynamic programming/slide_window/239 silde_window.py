@@ -4,6 +4,24 @@ from collections import deque
 from typing import List
 
 
+
+
+# int left = 0, right = 0;
+#
+# while (right < s.size()) {
+#     // 增大窗口
+#     window.add(s[right]);
+#     right++;
+#
+#     while (window needs shrink) {
+#         // 缩小窗口
+#         window.remove(s[left]);
+#         left++;
+#     }
+# }
+
+
+
 # Monotonic Queue 单调队列
 # class MonotonicQueue(deque):
 #     def __init__(self, iterable, max_len):
