@@ -3,27 +3,12 @@ class Solution:
     def find_averages_of_subarrays(self, s, K):
         if len(s) < 5:
             return False
-        right = 4
-        res = []
-        left = 0
-        while right < len(s):
-            sum_ = sum(s[left:right]) / K
-            res.append(sum_)
-            left += 1
-            right += 1
-        return res
 
-    def find_averages_of_subarrays2(self, s, K):
-        if len(s) < 5:
-            return False
-        right = 4
-        res = []
-        left = 0
-        while right < len(s):
-            sum_ = sum(s[left:right]) / K
-            res.append(sum_)
-            left += 1
-            right += 1
+        val = sum(s[0:K]) / K
+        res = [val]
+        for i in range(K, len(s)):
+            val += s[i] / K - s[i - K] / K
+            res.append(float(format(val, '.1f')))
         return res
 
 
