@@ -2,16 +2,20 @@ from typing import List
 
 
 class Solution:
-    #  todo
     def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
-        # 超时
-        # for i in range(len(nums)):
-        #     for j in range(i):
-        #         if i != j:
-        #             if abs(nums[i] - nums[j]) <= t and abs(i - j) <= k:
-        #                 return True
-        # return False
-        pass
+        # todo 滑动窗口 timeout
+        n = len(nums)
+        window = []
+        for i in range(n):
+            value = nums[i]
+            for w in window:
+                if abs(w - value) <= t:
+                    return True
+            window.append(value)
+            if len(window) > k:
+                window.pop(0)
+        return False
+
 
 if __name__ == '__main__':
     sol = Solution()
