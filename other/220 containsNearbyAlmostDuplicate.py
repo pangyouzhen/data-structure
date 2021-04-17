@@ -13,7 +13,7 @@ class Solution:
                     return True
             window.append(value)
             if len(window) > k:
-                window.pop(0)
+                del window[0]
         return False
 
 

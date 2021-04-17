@@ -1,7 +1,6 @@
 class Solution:
     def twoSum(self, nums, target):
-        # 1. 因为返回的是原先的索引，排序后的索引是不一样的, 所以构建另外一个需要zip记录原先的位置
-        #  直接sort 会损失原先的位置信息
+        #  直接sort会损失原先的位置信息, 把原先数组和ind合并成元组也是可以的
         ind = list(range(len(nums)))
         nums_zip = zip(nums, ind)
         numbers = sorted(nums_zip)
@@ -15,7 +14,6 @@ class Solution:
                 end -= 1
             else:
                 start += 1
-        # 双指针时间复杂度 O(n) 加上排序的时间复杂度
 
 
 if __name__ == "__main__":
