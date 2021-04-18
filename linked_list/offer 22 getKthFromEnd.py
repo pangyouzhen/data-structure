@@ -2,7 +2,7 @@ from base.linked_list.ListNode import ListNode
 
 
 class Solution:
-    def kthToLast(self, head: ListNode, k: int) -> int:
+    def getKthFromEnd(self, head: ListNode, k: int) -> int:
         # 快慢指针的解法
         advance, last = head, head
         a = 0
@@ -12,7 +12,7 @@ class Solution:
         while advance:
             advance = advance.next
             last = last.next
-        return last.val
+        return last
 
 
 if __name__ == '__main__':
