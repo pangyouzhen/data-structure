@@ -3,7 +3,7 @@ class Solution:
         a = 0
         while a < len(nums):
             if nums[a] == val:
-                nums.pop(a)
+                del nums[a]
                 a = a - 1
             a = a + 1
         return len(nums)

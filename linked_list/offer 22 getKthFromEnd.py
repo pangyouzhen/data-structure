@@ -18,4 +18,4 @@ class Solution:
 if __name__ == '__main__':
     ls = ListNode.list2node([1, 2, 3, 4, 5])
     sol = Solution()
-    print(sol.kthToLast(ls, 2))
+    print(sol.getKthFromEnd(ls, 2))
