@@ -1,7 +1,5 @@
-from heapq import heappush
-
-
-class Solution(object):
+class Solution:
+    # todo
     def getOrder(self, tasks):
         """
         :type tasks: List[List[int]]

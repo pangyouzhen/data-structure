@@ -8,26 +8,24 @@ class Solution:
         start = 0
         one_ans = []
         candidates.sort()
-        print(candidates)
-        self.combinationSum2_memo(candidates, target, start, one_ans)
-        return res
 
-    def combinationSum2_memo(self, candidates, target, start, one_ans):
-        if target < 0:
-            return
-        if target == 0:
-            if one_ans not in res:
-                res.append(one_ans[:])
-            print("--------------")
-            return
-        for i in range(start, len(candidates)):
-            print(f'{(start + 1) * "+"},for {i=} in range({start=},{len(candidates)=}), {target = },{one_ans = }')
-            if candidates[i] > target:
+        def combinationSum2_memo(candidates, target, start, one_ans):
+            if target < 0:
                 return
-            one_ans.append(candidates[i])
-            self.combinationSum2_memo(candidates, target - candidates[i], i + 1, one_ans)
-            one_ans.pop()
-        return
+            if target == 0:
+                if one_ans not in res:
+                    res.append(one_ans[:])
+                return
+            for i in range(start, len(candidates)):
+                if candidates[i] > target:
+                    return
+                one_ans.append(candidates[i])
+                combinationSum2_memo(candidates, target - candidates[i], i + 1, one_ans)
+                one_ans.pop()
+            return
+
+        combinationSum2_memo(candidates, target, start, one_ans)
+        return res
 
 
 if __name__ == '__main__':

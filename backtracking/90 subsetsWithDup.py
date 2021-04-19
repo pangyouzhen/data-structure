@@ -7,7 +7,6 @@ class Solution:
 
         # backtracking
         def dfs(lst: List, nums: List, pos: int) -> None:
-            # print(f'lst is {lst},nums is {nums}, pos is {pos}')
             res1 = lst[:]
             res1.sort()
             if res1 not in result:

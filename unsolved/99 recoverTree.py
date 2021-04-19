@@ -1,11 +1,9 @@
 # Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+
+from base.tree.tree_node import TreeNode
 
 
+# todo
 class Solution:
     def recoverTree(self, root: TreeNode) -> None:
         """
