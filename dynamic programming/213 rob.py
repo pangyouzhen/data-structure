@@ -5,12 +5,16 @@ class Solution:
     # todo
     def rob(self, nums: List[int]) -> int:
         if len(nums) <= 2:
-            return max(nums)
+            return 0
         dp = [0] * len(nums)
+        dp[0] = max(dp[0], dp[1])
+        dp[1] = max(dp[0], dp[1])
+        for i in nums:
+            pass
         pass
 
 
 if __name__ == '__main__':
+    nums = [2, 3, 2]
     sol = Solution()
-    assert sol.rob([1, 2, 3, 1]) == 4
-    assert sol.rob([2, 7, 9, 3, 1]) == 12
+    print(sol.rob(nums))
