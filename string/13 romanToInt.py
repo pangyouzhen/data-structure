@@ -1,12 +1,6 @@
 class Solution:
     def romanToInt(self, s):
         roman_ = {
-            "IV": 4,
-            "IX": 9,
-            "XL": 40,
-            "XC": 90,
-            "CD": 400,
-            "CM": 900,
             "I": 1,
             "V": 5,
             "X": 10,
@@ -15,17 +9,22 @@ class Solution:
             "D": 500,
             "M": 1000,
         }
-        a = []
         t = 0
+        res = 0
         while t < len(s):
-            if t + 1 < len(s) and roman_[s[t]] < roman_[s[t + 1]]:
-                a.append(s[t:t + 2])
-                t = t + 1
-            else:
-                a.append(s[t])
-            t = t + 1
-        ls = list(map(lambda x: roman_[x], a))
-        return sum(ls)
+            try:
+                if roman_[s[t]] >= roman_[s[t + 1]]:
+                    # print(roman_[s[t]])
+                    res += roman_[s[t]]
+                    t += 1
+                else:
+                    # print(roman_[s[t - 1]])
+                    res += roman_[s[t + 1]]  - roman_[s[t]]
+                    t = t + 2
+            except IndexError as e:
+                res += roman_[s[t]]
+                break
+        return res
 
 
 # problem：切分之后，匹配之后如何跳过这个索引,跳过这个索引用while
@@ -33,5 +32,7 @@ class Solution:
 if __name__ == '__main__':
     sol = Solution()
     # assert sol.romanToInt("III") == 3
-    assert sol.romanToInt("MCMXCIV") == 1994
-    assert sol.romanToInt("III") == 3
+    print(sol.romanToInt("MCMXCIV"))
+    print(sol.romanToInt("III"))
+    # print(sol.romanToInt("MCMXCIV") == 1994)
+    # print(sol.romanToInt("III") == 3)
