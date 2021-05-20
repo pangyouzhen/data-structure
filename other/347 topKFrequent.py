@@ -6,8 +6,7 @@ from typing import List
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         t = Counter(nums)
-        keyvalues = sorted(t.items(), key=lambda x: (x[1], x[0]), reverse=True)
-        return [i[0] for i in keyvalues[:k]]
+        return [i for i, v in t.most_common(n=k)]
 
 
 if __name__ == '__main__':

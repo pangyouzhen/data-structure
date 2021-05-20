@@ -8,13 +8,13 @@ class MyQueue:
 
     def push(self, x: int) -> None:
         """
-        Push element x to the back of queue.
+        Push element x to the back of heap_queue.
         """
         self.queue.append(x)
 
     def pop(self) -> int:
         """
-        Removes the element from in front of queue and returns that element.
+        Removes the element from in front of heap_queue and returns that element.
         """
         return self.queue.pop(0)
 
@@ -26,7 +26,7 @@ class MyQueue:
 
     def empty(self) -> bool:
         """
-        Returns whether the queue is empty.
+        Returns whether the heap_queue is empty.
         """
         if len(self.queue) == 0:
             return True

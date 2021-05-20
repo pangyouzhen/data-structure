@@ -43,8 +43,8 @@ from collections import deque
 
 # bfs 分为两部分，因为不需要递归，所以输入graph 和 root就OK
 # 1. visited: set  部分
-# 2. not visited: queue
-#  while queue：
+# 2. not visited: heap_queue
+#  while heap_queue：
 #       移除quue头部元素，放在visited中
 #       根据头部元素，广度优先，找到相近的节点
 #       把相近节点放入visited中，同时为了遍历下一层，放在 queue中

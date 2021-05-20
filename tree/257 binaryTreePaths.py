@@ -24,7 +24,7 @@ class Solution:
                 stack.append((node.left, ls + str(node.val) + "->"))
         return res
 
-    #         bfs + queue
+    #         bfs + heap_queue
     def binaryTreePaths2(self,root):
         pass
 

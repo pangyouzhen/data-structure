@@ -26,7 +26,7 @@ class Solution:
                     stack.append((node.left, value * 10 + node.left.val))
         return res
 
-    # bfs + queue
+    # bfs + heap_queue
     def sumNumbers2(self, root):
         if not root:
             return 0
