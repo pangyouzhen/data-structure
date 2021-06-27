@@ -6,6 +6,7 @@ class Solution:
 
         def rotate_one(A):
             return A[1:] + A[0]
+
         if A == B:
             return True
         n = len(A)
