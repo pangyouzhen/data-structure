@@ -1,6 +1,8 @@
 from collections import defaultdict
 from bisect import bisect
 import pysnooper
+import importlib
+import inspect
 
 
 class TimeMap:
@@ -29,6 +31,29 @@ class TimeMap:
             return val_dict[a[ind - 1]]
 
 
+def import_main_class(module_path=None):
+    """Import a module at module_path and return its main class:
+    - a DatasetBuilder if dataset is True
+    - a Metric if dataset is False
+    """
+    from pathlib import Path
+    if module_path is None:
+        module_path = Path(__file__).stem
+    module = importlib.import_module(module_path)
+    main_cls_type = type
+
+    # Find the main class in our imported module
+    module_main_cls = None
+    for name, obj in module.__dict__.items():
+        if isinstance(obj, type):
+            if inspect.isabstract(obj):
+                continue
+            module_main_cls = obj
+            break
+
+    return module_main_cls
+
+
 if __name__ == '__main__':
     # obj = TimeMap()
     # obj.set("foo", "bar", 1)
@@ -37,11 +62,12 @@ if __name__ == '__main__':
     # obj.set("foo", "bar2", 4)
     # print(obj.get("foo", 4))  # 输出 "bar2"
     # print(obj.get("foo", 5))  # 输出 "bar2"
-    a = ["TimeMap", "set", "set", "get", "get", "get", "get", "get"]
-    b = [[], ["love", "high", 10], ["love", "low", 20], ["love", 5], ["love", 10], ["love", 15], ["love", 20],
-         ["love", 25]]
-
-    obj = TimeMap()
-    obj.set("love", "high", 10)
-    obj.set("love", "low", 20)
-    print(obj.get("love", 5))
+    # a = ["TimeMap", "set", "set", "get", "get", "get", "get", "get"]
+    # b = [[], ["love", "high", 10], ["love", "low", 20], ["love", 5], ["love", 10], ["love", 15], ["love", 20],
+    #      ["love", 25]]
+    #
+    # obj = TimeMap()
+    # obj.set("love", "high", 10)
+    # obj.set("love", "low", 20)
+    # print(obj.get("love", 5))
+    print(import_main_class())
