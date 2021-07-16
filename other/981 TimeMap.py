@@ -1,5 +1,5 @@
 from collections import defaultdict
-from bisect import bisect
+from bisect import bisect_right
 import pysnooper
 import importlib
 import inspect
@@ -11,24 +11,19 @@ class TimeMap:
         """
         Initialize your data structure here.
         """
-        self.d = defaultdict(list)
+        self.dct = defaultdict(list)
 
     def set(self, key: str, value: str, timestamp: int) -> None:
-        self.d[key].append((timestamp, value))
+        self.dct[key].append([timestamp, value])
 
-    # @pysnooper.snoop()
+    @pysnooper.snoop()
     def get(self, key: str, timestamp: int) -> str:
-        val = self.d.get(key)
-        val_dict = dict(val)
-        a = list(val_dict.keys())
-        a.sort()
-        if timestamp in a:
-            return val_dict[timestamp]
+        # return "" if (a := bisect_right(self.dct[key], [timestamp, "z" * 101])) == 0 else self.dct[key][a - 1][1]
+        a = bisect_right(self.dct[key], [timestamp, "z" * 101])
+        if a == 0:
+            return ""
         else:
-            ind = bisect(a, timestamp)
-            if ind == 0:
-                return ""
-            return val_dict[a[ind - 1]]
+            return self.dct[key][a - 1][1]
 
 
 def import_main_class(module_path=None):
@@ -54,7 +49,7 @@ def import_main_class(module_path=None):
     return module_main_cls
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # obj = TimeMap()
     # obj.set("foo", "bar", 1)
     # param_2 = obj.get("foo", 1)
@@ -62,12 +57,3 @@ if __name__ == '__main__':
     # obj.set("foo", "bar2", 4)
     # print(obj.get("foo", 4))  # 输出 "bar2"
     # print(obj.get("foo", 5))  # 输出 "bar2"
-    # a = ["TimeMap", "set", "set", "get", "get", "get", "get", "get"]
-    # b = [[], ["love", "high", 10], ["love", "low", 20], ["love", 5], ["love", 10], ["love", 15], ["love", 20],
-    #      ["love", 25]]
-    #
-    # obj = TimeMap()
-    # obj.set("love", "high", 10)
-    # obj.set("love", "low", 20)
-    # print(obj.get("love", 5))
-    print(import_main_class())
