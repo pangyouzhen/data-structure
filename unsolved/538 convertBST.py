@@ -3,18 +3,9 @@ from base.tree.tree_node import TreeNode
 
 class Solution:
     def convertBST(self, root: TreeNode) -> TreeNode:
-        def dfs(root: TreeNode):
-            nonlocal total
-            if root:
-                dfs(root.right)
-                total += root.val
-                root.val = total
-                dfs(root.left)
-
-        total = 0
-        dfs(root)
-        return root
-
+        pass
 
 if __name__ == '__main__':
-    pass
+    a = TreeNode.from_list([4, 1, 6, 0, 2, 5, 7, None, None, None, 3, None, None, None, 8])
+    sol = Solution()
+    print(sol.convertBST(a))

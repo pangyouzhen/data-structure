@@ -62,29 +62,29 @@ class TreeNode:
         print_btree(self, lambda n: (str(n.val), n.left, n.right))
         return ""
 
-    def __repr__(self):
-        #  vs code debug工具
-        graph = {
-            "kind": {"graph": True},
-            "nodes": [],
-            "edges": []
-        }
-
-        def simple_order(root, last):
-            if root:
-                self.node_id += 1
-                last_val = deepcopy(self.node_id)
-                graph["nodes"].append(({'id': str(self.node_id), 'label': str(root.val)}))
-                if last is not None:
-                    graph["edges"].append(({
-                        "from": str(last), "to": str(self.node_id)
-                    }))
-                simple_order(root.left, last=last_val)
-                simple_order(root.right, last=last_val)
-
-        simple_order(self, last=None)
-        g = json.dumps(graph)
-        return g
+    # def __repr__(self):
+    #     #  vs code debug工具
+    #     graph = {
+    #         "kind": {"graph": True},
+    #         "nodes": [],
+    #         "edges": []
+    #     }
+    #
+    #     def simple_order(root, last):
+    #         if root:
+    #             self.node_id += 1
+    #             last_val = deepcopy(self.node_id)
+    #             graph["nodes"].append(({'id': str(self.node_id), 'label': str(root.val)}))
+    #             if last is not None:
+    #                 graph["edges"].append(({
+    #                     "from": str(last), "to": str(self.node_id)
+    #                 }))
+    #             simple_order(root.left, last=last_val)
+    #             simple_order(root.right, last=last_val)
+    #
+    #     simple_order(self, last=None)
+    #     g = json.dumps(graph)
+    #     return g
 
     def pre_order(self):
         res = []
