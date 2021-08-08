@@ -5,17 +5,22 @@ from bisect import insort
 
 
 class Solution:
-    # @pysnooper.snoop()
+    # todo 原先的是C++代码，不会翻译
     def minStoneSum(self, piles: List[int], k: int) -> int:
-        total = sum(piles)
-        piles.sort()
+        queue = []
+        while not queue:
+            queue.pop()
+        for i in piles:
+            queue.append(i)
         for i in range(k):
-            a = piles.pop()
-            remove_val = math.floor(a / 2)
-            reverse_val = a - remove_val
-            total -= remove_val
-            insort(piles, reverse_val)
-        return total
+            v = queue[0]
+            queue.pop()
+            queue.append(v - v / 2)
+        ans = 0
+        while not queue:
+            ans += queue[0]
+            queue.pop()
+        return ans
 
 
 # 怎么优化这个时间

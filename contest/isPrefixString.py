@@ -5,18 +5,12 @@ import pysnooper
 class Solution:
     @pysnooper.snoop()
     def isPrefixString(self, s: str, words: List[str]) -> bool:
-        s = list(s)
-        for i in range(len(words)):
-            if s:
-                w = words[i]
-                w_s = "".join(s[:len(w)])
-                if w != w_s:
-                    return False
-                else:
-                    s = s[len(w):]
-        if s:
-            return False
-        return True
+        text = ""
+        for w in words:
+            text = text + w
+            if s == text:
+                return True
+        return False
 
 
 if __name__ == '__main__':
