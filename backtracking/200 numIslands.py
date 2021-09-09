@@ -3,7 +3,7 @@ from typing import List
 
 # 回溯法+方向判断
 class Solution:
-    # 联通图的个数-染色问题
+    # 联通图的个数-染色问题- 其实也可以看作是树形结构
     def numIslands(self, grid: List[List[str]]) -> int:
         n_rows = len(grid)
         if n_rows == 0:

@@ -1,8 +1,7 @@
 class Solution:
     def twoSum(self, nums, target):
-        #  直接sort会损失原先的位置信息, 把原先数组和ind合并成元组也是可以的
-        ind = list(range(len(nums)))
-        nums_zip = zip(nums, ind)
+        #  直接sort会损失原先的位置信息
+        nums_zip = [(v, i) for i, v in enumerate(nums)]
         numbers = sorted(nums_zip)
         start = 0
         end = len(nums) - 1

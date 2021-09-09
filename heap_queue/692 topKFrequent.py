@@ -1,21 +1,12 @@
 from typing import List
-from collections import Counter
-from queue import PriorityQueue
+import heapq
 import pysnooper
 
 
 class Solution:
     @pysnooper.snoop()
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
-        counter = Counter(words)
-        c = PriorityQueue()
-        for i, v in counter.most_common():
-            c.put((-v, i))
-        res = []
-        while k > 0:
-            res.append(c.get()[1])
-            k -= 1
-        return res
+        pass
 
 
 if __name__ == '__main__':
