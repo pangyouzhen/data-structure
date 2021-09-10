@@ -11,8 +11,10 @@
 ## 回溯问题的框架
 
 ``` 
-backtracking() { 
+
+backtracking(ind：树的深度，one_ans: one_ans的结果){ 
     if (终止条件) {
+        # 终止条件是树的深度
          存放结果;
      }
      for (选择：选择列表（可以想成树中节点孩子的数量）) {

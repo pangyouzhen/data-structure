@@ -1,8 +1,9 @@
-#  递归，树形结构
+from typing import List
+
+
 class Solution:
-    def letterCombinations(self, digits):
-        global letter_dict, res
-        letter_dict = {
+    def __init__(self):
+        self.letter_dict = {
             "2": "abc",
             "3": "def",
             "4": "ghi",
@@ -12,24 +13,26 @@ class Solution:
             "8": "tuv",
             "9": "wxyz",
         }
-        res = []
-        self.letterCombinations_rec(digits, 0, "")
-        return res
+        self.all_ans = []
 
-    def letterCombinations_rec(self, digits, index_val, char):
-        if index_val == len(digits):
-            res.append(char)
+    def letterCombinations(self, digits: str) -> List[str]:
+        if len(digits) == 0:
+            return []
+        self.letterCombinations_memo(digits, 0, "")
+        return self.all_ans
+
+    def letterCombinations_memo(self, digits, ind, one_ans):
+        if ind == len(digits):
+            self.all_ans.append(one_ans)
             return
-        c = digits[index_val]
-        letter = letter_dict[c]
+        c = digits[ind]
+        letter = self.letter_dict[c]
         for i in range(len(letter)):
-            # print(letter[i])
-            #  这里可以和树形结构共同思考
-            self.letterCombinations_rec(digits, index_val + 1, char + letter[i])
-        return
-
+            self.letterCombinations_memo(digits, ind + 1, one_ans + letter[i])
 
 
 if __name__ == '__main__':
-    sol = Solution()
-    print(sol.letterCombinations("23"))
+    digits = "23"
+    out = ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
+    func = Solution().letterCombinations
+    print(func(digits))
