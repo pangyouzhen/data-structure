@@ -1,5 +1,5 @@
 from typing import List, Any
-
+from pysnooper import snoop
 
 class Solution:
     def __init__(self):
@@ -11,17 +11,17 @@ class Solution:
         self.combine_memo(n, k, 1, [])
         return self.res
 
+    @snoop()
     def combine_memo(self, n: int, k: int, start: int, one_ans):
         if len(one_ans) == k:
             self.res.append(one_ans[:])
             return
-        # for i in range(start, n + 1):
+        for i in range(start, n + 1):
         # 这里次数为什么变成了n - (k - len(c)) + 2
-        for i in range(start, n - 1):
+        # for i in range(start, n - (k - len(one_ans)) + 2):
             one_ans.append(i)
             self.combine_memo(n, k, i + 1, one_ans)
             one_ans.pop()
-        print("-------------")
         return
 
     #  python 内置的排列和组合
@@ -33,4 +33,4 @@ class Solution:
 if __name__ == '__main__':
     sol = Solution()
     print(sol.combine(4, 2))
-    print(sol.builtin_combinations(4, 2))
+    # print(sol.builtin_combinations(4, 2))

@@ -33,6 +33,6 @@ class Solution:
 
 if __name__ == '__main__':
     digits = "23"
-    out = ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
+    # out = ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
     func = Solution().letterCombinations
     print(func(digits))

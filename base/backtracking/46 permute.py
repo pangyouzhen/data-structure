@@ -1,3 +1,5 @@
+import pysnooper
+
 class Solution:
     def __init__(self):
         self.res = []
@@ -7,6 +9,7 @@ class Solution:
         self.permute_rec_memo(nums, one_ans)
         return self.res
 
+    @pysnooper.snoop()
     def permute_rec_memo(self, nums, one_ans):
         if len(one_ans) == len(nums):
             self.res.append(one_ans[:])
