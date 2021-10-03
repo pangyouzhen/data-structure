@@ -11,9 +11,11 @@ class Solution:
 
     @pysnooper.snoop()
     def permute_rec_memo(self, nums, one_ans):
+        # 纵向，因为是取2个元素，所以终止条件是
         if len(one_ans) == len(nums):
             self.res.append(one_ans[:])
             return
+        # 横向循环。确保只循环一次
         for i in range(len(nums)):
             # 排除不合法的选择
             if nums[i] in one_ans:

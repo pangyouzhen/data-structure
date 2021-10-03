@@ -12,7 +12,7 @@ class Solution:
         return self.res
 
     def subsets_memo(self, nums, start, one_ans):
-        # 这里的回溯的终止条件不太一样
+        # 纵向，因为是取所有的子集，所以这里的没有终止条件
         self.res.append(one_ans[:])
         for i in range(start, self.nums_len):
             one_ans.append(nums[i])
