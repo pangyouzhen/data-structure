@@ -3,28 +3,35 @@ import pysnooper
 
 
 class Solution:
-    # @pysnooper.snoop()
+    """
+    .. math::
+    min y = |x1 - k| + |x2 -k| + |x3-k| + |....|
+    这种求极值的问题是取找到中位数
+    """
+
+    @pysnooper.snoop()
     def minOperations(self, grid: List[List[int]], x: int) -> int:
-        all_num = [i / x for j in grid for i in j]
+        all_num = [i for j in grid for i in j]
+        _ = [i % x for i in all_num]
         if len(all_num) == 1:
             return 0
-        all_num_bool = []
-        for i in all_num:
-            if i == int(i):
-                all_num_bool.append(True)
+        elif len(set(_)) >= 2:
+            return -1
+
+        def median(data):
+            data.sort()
+            l = len(data)
+            mid_loc = l // 2
+            if l % 2 == 1:
+                return data[mid_loc]
             else:
-                all_num_bool.append(False)
-            if len(set(all_num_bool)) == 2:
-                return -1
-        all_num.sort()
-        mid = int(len(all_num) / 2)
-        c = len(all_num) % 2
+                return (data[mid_loc] + data[mid_loc - 1]) / 2
+
+        mid = median(all_num)
         res = 0
-        if c == 0:
-            res = sum(all_num[mid:]) - sum(all_num[:mid])
-        if c == 1:
-            res = sum(all_num[mid+1:]) - sum(all_num[:mid])
-        return int(res)
+        for i in all_num:
+            res += abs(i - mid)
+        return int(res / x)
 
 
 if __name__ == '__main__':
@@ -34,7 +41,9 @@ if __name__ == '__main__':
     # x = 92
     # grid = [[931, 128], [639, 712]]
     # x = 73
-    grid =[[980, 476, 644, 56], [644, 140, 812, 308], [812, 812, 896, 560], [728, 476, 56, 812]]
-    x = 84
+    # grid = [[980, 476, 644, 56], [644, 140, 812, 308], [812, 812, 896, 560], [728, 476, 56, 812]]
+    # x = 84
+    grid = [[980, 437, 889, 386], [45, 655, 891, 659], [751, 705, 333, 436], [452, 155, 603, 775]]
+    x = 741
     func = Solution().minOperations(grid, x)
     print(func)
