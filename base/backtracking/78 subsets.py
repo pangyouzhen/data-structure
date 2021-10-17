@@ -1,4 +1,7 @@
 # combination
+from typing import Iterable
+from itertools import chain, combinations
+
 
 class Solution:
     def __init__(self):
@@ -20,8 +23,14 @@ class Solution:
             one_ans.pop()
         return
 
+    # python 没有内置的subset计算，但是可以从下面函数中得到
+    def powerset(self, iterable: Iterable):
+        s = list(iterable)
+        return chain.from_iterable(combinations(s, r) for r in range(len(s) + 1))
+
 
 if __name__ == '__main__':
     nums = [1, 2, 3]
     sol = Solution()
     print(sol.subsets(nums))
+    print([i for i in sol.powerset(nums)])
