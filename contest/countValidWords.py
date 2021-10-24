@@ -4,22 +4,13 @@ from pysnooper import snoop
 
 
 class Solution:
-    @snoop()
-    # todo
+    # @snoop()
     def countValidWords(self, sentence: str) -> int:
         words = sentence.split()
         res = 0
         for word in words:
-            if re.search("\d", word):
-                continue
-            if re.match("^[a-z]+(-([a-z]+))?.?$", word):
+            if re.match("[a-z]*([a-z]-[a-z])?[a-z]*[!,.]?$", word):
                 res += 1
-                continue
-            if re.match("^-$", word):
-                continue
-            if re.match("^.$", word):
-                res += 1
-                continue
         return res
 
 

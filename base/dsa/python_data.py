@@ -28,3 +28,14 @@ print(b - a)
 print(a | b)
 
 # python
+
+for i in range(10):
+    if i > 5:
+        print(i)
+        continue
+
+print("--------------")
+for i in range(10):
+    if i > 5:
+        print(i)
+        break
