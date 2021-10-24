@@ -1,16 +1,19 @@
+from typing import List
+
 import pysnooper
+
 
 class Solution:
     def __init__(self):
         self.res = []
 
-    def permute(self, nums):
+    def permute(self, nums: List[int]):
         one_ans = []
         self.permute_rec_memo(nums, one_ans)
         return self.res
 
     @pysnooper.snoop()
-    def permute_rec_memo(self, nums, one_ans):
+    def permute_rec_memo(self, nums: List[int], one_ans: List[int]):
         # 纵向，因为是取2个元素，所以终止条件是
         if len(one_ans) == len(nums):
             self.res.append(one_ans[:])

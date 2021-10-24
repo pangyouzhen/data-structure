@@ -1,9 +1,12 @@
+from typing import List
+
+
 class Solution:
     def permuteUnique(self, nums):
         curr = []
         ans = []
 
-        def dfs(nums, d, n, used, curr, ans):
+        def dfs(nums: List[int], d: int, n: int, used: List[bool], curr: List[int], ans: List[List[int]]):
             if d == n and curr[:] not in ans:
                 ans.append(curr[:])
                 return

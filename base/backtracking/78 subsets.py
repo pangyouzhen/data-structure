@@ -1,5 +1,5 @@
 # combination
-from typing import Iterable
+from typing import Iterable, List
 from itertools import chain, combinations
 
 
@@ -7,14 +7,14 @@ class Solution:
     def __init__(self):
         self.res = []
 
-    def subsets(self, nums):
+    def subsets(self, nums: List[int]):
         one_ans = []
         start = 0
         self.nums_len = len(nums)
         self.subsets_memo(nums, start, one_ans)
         return self.res
 
-    def subsets_memo(self, nums, start, one_ans):
+    def subsets_memo(self, nums: List[int], start: int, one_ans: List[int]):
         # 纵向，因为是取所有的子集，所以这里的没有终止条件
         self.res.append(one_ans[:])
         for i in range(start, self.nums_len):

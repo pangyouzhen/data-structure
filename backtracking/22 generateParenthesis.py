@@ -6,10 +6,9 @@ class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
 
         #  深度优先算法 -> 回溯法
-        def dfs(graph:
-        Dict, start: str, visited=None):
+        def dfs(graph: Dict, start: str, visited=None):
             #  深度优先算法的核心也是递归
-            if visited == None:
+            if visited is None:
                 visited = set()
             visited.add(start)
             for next_ in graph[start] - visited:

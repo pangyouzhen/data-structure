@@ -2,7 +2,7 @@ import re
 
 
 class Solution:
-    def myAtoi(self, strs):
+    def myAtoi(self, strs: str):
         regex_res = re.match("^(\s)*([+,-]?\d+)", strs)
         res = 0
         if regex_res:

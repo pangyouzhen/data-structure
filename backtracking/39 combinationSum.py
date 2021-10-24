@@ -2,26 +2,27 @@ from typing import List
 
 
 class Solution:
-    def combinationSum(self, candidates, target: int):
-        global res
-        res = []
+    def __init__(self):
+        self.res = []
+
+    def combinationSum(self, candidates: List[int], target: int):
         one_ans = []
-
-        def combinationSum_memo(candidates, target, start, one_ans):
-            if target == 0:
-                res.append(one_ans[:])
-                return
-            for i in range(start, len(candidates)):
-                if candidates[i] > target: return
-                one_ans.append(candidates[i])
-                combinationSum_memo(candidates, target - candidates[i], i, one_ans)
-                one_ans.pop()
-            return
-
         start = 0
         candidates.sort()
-        combinationSum_memo(candidates, target, start, one_ans)
-        return res
+        self.combination_sum_memo(candidates, target, start, one_ans)
+        return self.res
+
+    def combination_sum_memo(self, candidates: List[int], target: int, start: int, one_ans: List[int]):
+        if target == 0:
+            self.res.append(one_ans[:])
+            return
+        for i in range(start, len(candidates)):
+            if candidates[i] > target:
+                return
+            one_ans.append(candidates[i])
+            self.combination_sum_memo(candidates, target - candidates[i], i, one_ans)
+            one_ans.pop()
+        return
 
 
 if __name__ == '__main__':

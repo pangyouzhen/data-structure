@@ -1,4 +1,5 @@
 from typing import List
+from pysnooper import snoop
 
 
 class Solution:
@@ -15,19 +16,22 @@ class Solution:
         }
         self.all_ans = []
 
+    @snoop()
     def letterCombinations(self, digits: str) -> List[str]:
         if len(digits) == 0:
             return []
         self.letterCombinations_memo(digits, 0, "")
         return self.all_ans
 
-    def letterCombinations_memo(self, digits, ind, one_ans):
+    @snoop()
+    def letterCombinations_memo(self, digits: str, ind: int, one_ans: str):
         if ind == len(digits):
             self.all_ans.append(one_ans)
             return
         c = digits[ind]
         letter = self.letter_dict[c]
         for i in range(len(letter)):
+            # 这里为什么是递归中传入 one_ans + letter[i] 而不是 one_ans += letter[i]
             self.letterCombinations_memo(digits, ind + 1, one_ans + letter[i])
 
 
