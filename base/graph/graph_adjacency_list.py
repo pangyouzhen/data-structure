@@ -1,45 +1,41 @@
-# Adjascency List representation in Python
+from typing import Dict
+from typing import List
+
+from pysnooper import snoop
+
+graph: Dict[str, set[str]] = {'A': {'B', 'C'},
+                              'B': {'A', 'D', 'E'},
+                              'C': {'A', 'F'},
+                              'D': {'B'},
+                              'E': {'B', 'F'},
+                              'F': {'C', 'E'}}
+
+graph2: Dict[str, List[str]] = {'A': ['B', 'C'],
+                                'B': ['A', 'D', 'E'],
+                                'C': ['A', 'F'],
+                                'D': ['B'],
+                                'E': ['B', 'F'],
+                                'F': ['C', 'E']}
+
+graph3 = {'0': {'1', '2'},
+          '1': {'0', '3', '4'},
+          '2': {'0'},
+          '3': {'1'},
+          '4': {'2', '3'}}
 
 
-class AdjNode:
-    def __init__(self, value):
-        self.vertex = value
-        self.next = None
+@snoop()
+def dfs(graph: Dict[str, set[str]], start: str, visited=None):
+    #  todo 为什么有时不是从start 出发的？程序有问题？
+    #  todo 这个程序对有向图和无向图均适用？
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    # print(start)
+    for next in (graph[start] - visited):
+        dfs(graph, next, visited)
+    return visited
 
 
-class Graph:
-    def __init__(self, num):
-        self.V = num
-        self.graph = [None] * self.V
-
-    # Add edges
-    def add_edge(self, s, d):
-        node = AdjNode(d)
-        node.next = self.graph[s]
-        self.graph[s] = node
-
-        node = AdjNode(s)
-        node.next = self.graph[d]
-        self.graph[d] = node
-
-    # Print the graph
-    def print_agraph(self):
-        for i in range(self.V):
-            print("Vertex " + str(i) + ":", end="")
-            temp = self.graph[i]
-            while temp:
-                print(" -> {}".format(temp.vertex), end="")
-                temp = temp.next
-            print(" \n")
-
-
-if __name__ == "__main__":
-    V = 5
-    # Create graph and edges
-    graph = Graph(V)
-    graph.add_edge(0, 1)
-    graph.add_edge(0, 2)
-    graph.add_edge(0, 3)
-    graph.add_edge(1, 2)
-
-    graph.print_agraph()
+if __name__ == '__main__':
+    print(dfs(graph3, "0"))

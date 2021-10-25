@@ -8,6 +8,7 @@
 ## 数据结构
 
 ### 图
+
 #### 图的两种表示方法
 
 1. 邻接表
@@ -76,19 +77,31 @@ backtracking() {
     1. `dp[i][j]=0; i==j`
     1. `dp[i][j] = min(dp[i][k] + dp[k+1][j] + p[i-1]*p[k]*p[j]); (i<j && i<=k<j)`
     1. `dp[1][n] 为最终解`
+   
+### 其他算法
 
-### 其他
+1. 滑动窗口
+1. 深度优先算法(染色问题)
+1. 双指针
+1. 
+
+## 其他
 
 1. 很多算法能先排序就先排序
 1. 输入规模和时间复杂度关系
 
-### python-leetcode常用库和函数
+### python基础函数
 
-1. `functools 中的 reduce函数`
+1. `functools 中的 reduce, lru_cache`
 2. `collections 中的 Counter`
 3. `itertools 中的 permutations combinations`
 4. `heapq`
 5. `bisect`
+6. `python set的交(&),并(|),补(-)计算`
+
+### 时间复杂度和算法
+
+1. 
 
 ## todo
 

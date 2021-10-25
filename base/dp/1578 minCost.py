@@ -1,31 +1,5 @@
 from typing import List
-from copy import deepcopy
-
-
-#  最小删除成本 -> 首先考虑动态规划
-
-
-#  这个使用的是DP
-#  如果新增数字和前面的不一样，则总cost不变
-#  dp[i+1] = dp[i] + 0 if s[i] != s[i+1]
-#  动态规划的两种思想
-#  1. 记忆化搜索，可以想象成一棵树，这棵树进行 递归，-> 状态转移方程，存在许多的重复值，需要进行剪枝，
-#  剪枝就把原先计算好的保留, 根节点是 目标值，比如总共花费27
-#  2. 按顺序推导（数学归纳），假设原先的已经成立，增加一个元素怎么处理
-#  这个题目的问题是 "bbbb" 和 cost = [5, 4, 8, 1]， 当
-#  a = [b]  min = 0 不用管
-#  a = [b,b] min = (5,4) 比较，所以应该删除 4 的那个，保留大的元素
-#  a = [b,b,b] min = (5,8) 所以应该删除5的元素那个，写代码时，
-#  这个容易写成和前一个元素比较，而不是和删除了最小值的前一个元素比较, 所以需要维护一个索引值
 class Solution:
-    # def minCost(self, s: str, cost: List[int]) -> int:
-    #     res = 0
-    #     for i, v in enumerate(s[1:]):
-    #         if s[i + 1] == s[i]:
-    #             t = min(cost[i + 1], cost[i])
-    #             res += t
-    #             print(t)
-    #     return res
     #  最直观的解法 -- 超出了时间限制
     def minCost___(self, s: str, cost: List[int]) -> int:
         s = list(s)
@@ -94,8 +68,3 @@ if __name__ == '__main__':
 
     sol = Solution()
     print(sol.minCost___(s, cost))
-
-# 动态规划，什么情况下用 动态规划
-# 1. 计数
-# 2. 最值，最长递升子序列
-# 3. 是否
