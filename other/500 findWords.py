@@ -3,15 +3,13 @@ from typing import List
 
 class Solution:
     def findWords(self, words: List[str]) -> List[str]:
-        ones = "qwertyuiop"
-        twos = "asdfghjkl"
-        threes = "zxcvbnm"
-        keys = [set(ones), set(twos), set(threes)]
+        ones = set("qwertyuiop")
+        twos = set("asdfghjkl")
+        threes = set("zxcvbnm")
         res = []
         for word in words:
             word_set = set(word.lower())
-            r = [True for k in keys if k & word_set]
-            if len(r) == 1:
+            if word_set <= ones or word_set <= twos or word_set <= threes:
                 res.append(word)
         return res
 

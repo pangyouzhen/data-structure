@@ -97,7 +97,7 @@ backtracking() {
 3. `itertools 中的 permutations combinations`
 4. `heapq`
 5. `bisect`
-6. `python set的交(&),并(|),补(-)计算`
+6. `python set的交(&),并(|),补(-),比较大小<=`
 
 ### 时间复杂度和算法
 
