@@ -7,7 +7,7 @@ class Solution:
     def __init__(self):
         self.res = []
 
-    def permute(self, nums: List[int]):
+    def permute(self, nums: List[int]) -> List[List[int]]:
         one_ans = []
         self.permute_rec_memo(nums, one_ans)
         return self.res

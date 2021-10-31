@@ -7,7 +7,7 @@ class Solution:
     def __init__(self):
         self.res = []
 
-    def subsets(self, nums: List[int]):
+    def subsets(self, nums: List[int]) -> List[List[int]]:
         one_ans = []
         start = 0
         self.nums_len = len(nums)

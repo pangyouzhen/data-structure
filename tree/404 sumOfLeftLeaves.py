@@ -6,6 +6,7 @@ class Solution:
         self.res = 0
 
     def sumOfLeftLeaves(self, root: TreeNode) -> int:
+        # 二叉树不是二叉搜索树
         if root:
             #  判断是叶子节点 + 左节点
             if root.left and not root.left.left and not root.left.right:

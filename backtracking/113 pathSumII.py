@@ -1,30 +1,29 @@
-# Definition for a binary tree node.
-from typing import List
+from typing import List, Optional
 
 from base.tree.tree_node import TreeNode
 
 
-#  todo
-#  错误的，想仿照排列数和组合数进行回溯，因为是树型结构，但是没成功
 class Solution:
-    def pathSum(self, root: TreeNode, total: int) -> List[List[int]]:
-        res = []
+    # 这里的结果是List[List[int]] 所以每一步都应该有一个List[int] 作为one_ans
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        self.res = []
+        one_ans = [root.val]
+        self.dfs(root, targetSum - root.val, one_ans)
+        return self.res
 
-        def dfs(root: TreeNode, total: int, one_ans):
-            if sum(one_ans) == total:
-                res.append(one_ans)
-            if root.left:
-                one_ans.append(root.val)
-                dfs(root.left, total, one_ans)
+    def dfs(self, root: Optional[TreeNode], targetSum: int, one_ans: List[int]):
+        if targetSum == 0:
+            # 注意这里是one_ans[:]
+            self.res.append(one_ans[:])
+            return
+        # 因为是二叉树，所以只有左右两个节点
+        for i in [root.left, root.right]:
+            if i and i.val:
+                # 注意回溯先回后溯，这里是先回
+                one_ans.append(i.val)
+                self.dfs(i, targetSum - i.val, one_ans)
+                # 后溯
                 one_ans.pop()
-            if root.right:
-                one_ans.append(root.val)
-                dfs(root.right, total, one_ans)
-                one_ans.pop()
-
-        one_ans = []
-        dfs(root, total, one_ans)
-        return res
 
 
 if __name__ == '__main__':

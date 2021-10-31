@@ -6,7 +6,7 @@ class Solution:
     def __init__(self):
         self.res = []
 
-    def combine(self, n: int, k: int):
+    def combine(self, n: int, k: int) -> List[List[int]]:
         if n <= 0 or k <= 0 or k > n:
             return []
         self.combine_memo(n, k, 1, [])
