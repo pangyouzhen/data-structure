@@ -1,32 +1,22 @@
 from typing import List
+from collections import defaultdict
 
 
-#  超时
 class Solution:
-    def longestSubsequence(self, arr: List[int], difference: int) -> int:
-        n = len(arr)
-        dp = [0] * n
-        for i in range(n):
+    #  用原始的dp思想两层for循环是超时的
+    def longestSubsequence2(self, arr: List[int], difference: int) -> int:
+        dp = [1] * len(arr)
+        for i in range(1, len(arr)):
             for j in range(i):
                 if arr[i] - arr[j] == difference:
                     dp[i] = max(dp[i], dp[j] + 1)
-        return max(dp) + 1
+        return max(dp)
 
-
-class Solution2:
     def longestSubsequence(self, arr: List[int], difference: int) -> int:
-
-        dic = {}
-        res = 0
-
-        for i in arr:
-            if i - difference in dic:
-                dic[i] = dic[i - difference] + 1
-            else:
-                dic[i] = 1
-            res = max(res, dic[i])
-
-        return res
+        dp = defaultdict(int)
+        for v in arr:
+            dp[v] = dp[v - difference] + 1
+        return max(dp.values())
 
 
 if __name__ == '__main__':
