@@ -92,20 +92,22 @@ backtracking() {
 
 ### 其他算法
 
+1. 暴力解法
 1. 滑动窗口
 1. 深度优先算法(染色问题)
 1. 双指针
-1.
+1. 极值等问题
 
 ## 其他
 
 1. 很多算法能先排序就先排序
 1. 输入规模和时间复杂度关系
+1. 计算机只能暴力计算,但是可能重复计算, 所以需要剪枝
 
 ### python基础函数
 
 1. `functools 中的 reduce, lru_cache`
-2. `collections 中的 Counter`
+2. `collections 中的 Counter, defaultdict`
 3. `itertools 中的 permutations combinations`
 4. `heapq`
 5. `bisect`
