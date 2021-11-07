@@ -1,6 +1,7 @@
 from typing import List
 
 
+#  极值问题
 class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
         N = len(nums)
