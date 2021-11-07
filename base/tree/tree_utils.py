@@ -4,7 +4,7 @@ import functools as fn
 # https://stackoverflow.com/questions/48850446/how-to-print-a-binary-tree-in-as-a-structure-of-nodes-in-python
 
 def print_btree(node, node_info=None, inverted=False, is_top=True):
-    # node value string and sub nodes
+    # node value string_ and sub nodes
     string_value, left_node, right_node = node_info(node)
 
     string_value_width = len(string_value)
@@ -103,7 +103,7 @@ def print_btree(node, node_info=None, inverted=False, is_top=True):
     merged_sub_lines = [line + right_sub_lines[i][max(0, -p):] for i, p, line in merged_sub_lines]
 
     # Assemble final result combining
-    #  * node value string
+    #  * node value string_
     #  * link line (if any)
     #  * merged lines from left and right sub trees (if any)
     tree_lines = [left_indent + value_line] + ([] if not link_line else [left_indent + link_line]) + merged_sub_lines

@@ -1,36 +1,18 @@
-import re
-from string import ascii_lowercase
-from typing import List
-
-from pysnooper import snoop
-
-
 class Solution:
-    #  todo 怎样切分看下更好
-    def __init__(self):
-        self.vowels = {'a', "e", 'i', 'o', 'u'}
 
     def countVowelSubstrings(self, word: str) -> int:
-        lowercase = set(ascii_lowercase) - self.vowels
-        print(lowercase)
-        pattern = re.compile(f"[{list(lowercase)}]")
-        w: List[str] = re.split(pattern, word)
-        res = 0
-        for j in w:
-            res += self.get_number(j)
-        return res
-
-    @snoop()
-    def get_number(self, w: str):
-        t = 0
-        start = 0
-        end = len(w)
-        for i in range(len(w)):
-            if set(set(w[i:])):
-                pass
+        vowels = {'a', "e", 'i', 'o', 'u'}
+        ans, n = 0, len(word)
+        # print(n)
+        for i in range(n - 4):
+            for j in range(i, n + 1):
+                # print(i, j)
+                # print(word[i:j])
+                if set(word[i:j]) == vowels:
+                    ans += 1
+        return ans
 
 
 if __name__ == '__main__':
     func = Solution().countVowelSubstrings
-    func2 = Solution().get_number
-    print(func2("uaieuoua"))
+    print(func("uaieuoua"))
