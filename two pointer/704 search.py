@@ -17,7 +17,7 @@ class Solution:
 
         # if not nums:
         #     return -1
-        # mid = math.floor(len(nums) / 2)
+        # mid = math_.floor(len(nums) / 2)
         # if nums[mid] == target:
         #     return True
         # elif nums[mid] > target:

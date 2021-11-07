@@ -4,7 +4,7 @@ import pysnooper
 
 class Solution:
     """
-    .. math::
+    .. math_::
     min y = |x1 - k| + |x2 -k| + |x3-k| + |....|
 
     这种求极值的问题是取找到中位数
