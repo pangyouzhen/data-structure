@@ -1,7 +1,7 @@
 from typing import List
 from collections import Counter, defaultdict
 
-
+# 字典
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
         c = Counter(nums)
