@@ -1,4 +1,5 @@
 class Solution:
+    # todo
     def shortestPalindrome(self, s: str) -> str:
         n = len(s)
         if n % 2 == 0:
@@ -7,4 +8,3 @@ class Solution:
             mid = n // 2
             left = mid - 1
             right = mid + 1
-

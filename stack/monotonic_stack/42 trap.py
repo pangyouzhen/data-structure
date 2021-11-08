@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # todo
     def trap(self, height: List[int]) -> int:
         if len(height) == 0:
             return 0
