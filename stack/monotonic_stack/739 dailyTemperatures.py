@@ -19,6 +19,7 @@ class Solution:
         return res
 
     # 单调栈应用场景: 每个数右边第一个比它大的数
+    @snoop()
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         l = len(temperatures)
         ans = [0] * l
