@@ -1,4 +1,7 @@
 #  这个题目的考点是滑动窗口
+from pysnooper import snoop
+
+
 class Solution:
     def lengthOfLongestSubstring(self, s):
         if not s:
@@ -26,9 +29,21 @@ class Solution:
             ans = max(ans, rk - i + 1)
         return ans
 
+    # 暴力解法
+    # @snoop()
+    def lengthOfLongestSubstring3(self, s: str):
+        l = len(s)
+        _ = 0
+        for i in range(l):
+            for j in range(i, l + 1):
+                if len(set(s[i:j])) == len(s[i:j]):
+                    if len(s[i:j]) > _:
+                        _ = len(s[i:j])
+        return _
+
 
 if __name__ == '__main__':
-    sol = Solution().lengthOfLongestSubstring
+    sol = Solution().lengthOfLongestSubstring3
     assert sol("abcabcbb") == 3
     assert sol("bbbbb") == 1
     assert sol("pwwkew") == 3

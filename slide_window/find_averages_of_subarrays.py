@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # 定长的滑动窗口
     # https://zhuanlan.zhihu.com/p/157728782
     def find_averages_of_subarrays(self, s: List[int], K: int):
         if len(s) < K:

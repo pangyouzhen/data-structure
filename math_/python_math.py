@@ -60,6 +60,18 @@ print(f"{matrix3 = }")
 # 打印矩阵的下三角，带对角线
 matrix3 = [[i, j] for i in range(r) for j in range(i + 1)]
 print(f"{matrix3 = }")
+s = "abcde"
+# 枚举所有子串
+for i in range(len(s)):
+    # 这里起始值设置为i+1,避免空串，末尾设置为len(s)+1的主要原因是s[i:j]，切片时是不包含末尾的
+    for j in range(i + 1, len(s) + 1):
+        print(s[i:j])
+
+# 固定长度的滑动窗口,以2为例
+_ = "abcde"
+# 只有最后k-1个元素没法进行滑动，所以长度应该len -k +1
+for i in range(len(_) - 2 + 1):
+    print(_[i:i + 2])
 
 # 矩阵转置,以不规则matrix为例,原始是9*2,所以reverse得到的是2 * 9的
 r = len(matrix)
