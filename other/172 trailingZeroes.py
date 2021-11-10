@@ -1,15 +1,14 @@
-from functools import lru_cache
-
-
 class Solution:
     def trailingZeroes(self, n: int) -> int:
-        res = 0
+        if n == 0:
+            return 0
+        count = 0
         while n > 0:
-            res += n //5
-            n //= 5
-        return res
+            n = n // 5
+            count += n
+        return count
 
 
 if __name__ == '__main__':
     sol = Solution()
-    print(sol.trailingZeroes(100))
+    print(sol.trailingZeroes(10))
