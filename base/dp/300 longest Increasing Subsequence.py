@@ -4,10 +4,10 @@ class Solution:
     def lengthOfLIS(self, nums):
         size = len(nums)
         dp = [1] * size
-        for x in range(size):
-            for y in range(x):
-                if nums[x] > nums[y]:
-                    dp[x] = max(dp[x], dp[y] + 1)
+        for i in range(size):
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    dp[i] = max(dp[i], dp[j] + 1)
         print(dp)
         return max(dp) if dp else 0
 

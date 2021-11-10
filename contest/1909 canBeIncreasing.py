@@ -1,24 +1,20 @@
+from typing import List
 import pysnooper
 
 
 class Solution(object):
-    @pysnooper.snoop()
-    def canBeIncreasing(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
-        c = 0
-        for i, v in enumerate(nums[1:]):
-            if v - nums[i] <= 0:
-                c += 1
-                if i - 1 >= 0 and v - nums[i - 1] > 0:
-                    continue
-                elif i - 1 == -1:
-                    continue
-                else:
-                    return False
-        return True
+    # @pysnooper.snoop()
+    # 最长递增子序列
+    def canBeIncreasing(self, nums: List[int]):
+        l = len(nums)
+        dp = [1] * l
+        for i in range(l):
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+        if max(dp) == len(nums) - 1 or max(dp) == len(nums):
+            return True
+        return False
 
 
 if __name__ == '__main__':

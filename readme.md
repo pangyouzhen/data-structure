@@ -114,7 +114,7 @@ backtracking() {
 2. `collections 中的 Counter, defaultdict`
 3. `itertools 中的 permutations combinations`
 4. `heapq`
-5. `bisect`
+5. `bisect中的bisect_left,bisect_right,insort`
 6. `python set的交&,并|,补-, 对称差集^,比较大小<=`
 1. `python中的按位与&，按位或|，按位异或^,按位取反~,左移<<,右移>>`
 
