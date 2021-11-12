@@ -5,10 +5,10 @@ from pysnooper import snoop
 class Solution:
     @snoop()
     # 可以视为双端队列
-    # todo
     def isStraight(self, nums: List[int]) -> bool:
-        pass
-
+        nums.sort(reverse=True)
+        for i in range(nums):
+            pass
 
 
 if __name__ == '__main__':
