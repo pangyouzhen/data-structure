@@ -124,4 +124,9 @@ backtracking() {
 
 ## todo
 
-2. 
+2.
+
+## 几个点
+
+1. `a = 0, if a: print("print)` 这个是不执行的，因为在python中`False == 0,True == 1`
+1. 用字典的时候，先看key在不在然后再去判断相应的取值
