@@ -1,13 +1,10 @@
-import collections
-
-
 class MapSum:
 
     def __init__(self):
         """
         Initialize your data structure here.
         """
-        self.root = collections.defaultdict(list)
+        self.root = {}
 
     def insert(self, key: str, val: int) -> None:
         self.root[key] = val

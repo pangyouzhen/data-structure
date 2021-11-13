@@ -14,6 +14,7 @@ class Solution:
         """
         # 五子连棋主要判断四个方向水平
         # 竖直方向
+        # 后续能不能减少函数，这几个比较类似
         vertical_nums = 0
         for vertical in range(-4, 4):
             if arr[x][y - vertical] == flag:
