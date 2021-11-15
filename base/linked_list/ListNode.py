@@ -8,9 +8,11 @@ class ListNode:
         self.next = next
 
     @classmethod
+    # 以数组作为创建ListNode,java中的构造函数
     def list2node(cls, head: List[int]):
         # 创建非循环链表
         # 虚拟头节点
+        assert len(head) > 0, "输入的是空的list，无法创建链表"
         fst_head = cls(val=0)
         dummy_head = fst_head
         for i in head:
@@ -46,7 +48,8 @@ class ListNode:
         while a is not None:
             res = res + str(a.val) + "->"
             a = a.next
-        return res[:-2]
+        res += "end"
+        return res
 
     def node2list(self):
         a = self
