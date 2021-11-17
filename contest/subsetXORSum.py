@@ -17,4 +17,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     sol = Solution()
-    print(sol.subsetXORSum([3,4,5,6,7,8]))
+    print(sol.subsetXORSum([3, 4, 5, 6, 7, 8]))
