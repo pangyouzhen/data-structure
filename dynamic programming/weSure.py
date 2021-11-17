@@ -5,6 +5,7 @@ from typing import List
 
 
 class Solution:
+    # todo
     def total_minum(self, nums: List) -> int:
         if len(nums) <= 2:
             return 0

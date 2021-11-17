@@ -84,3 +84,35 @@ for i in range(r):
     for j in range(c):
         reverse_[j][i] = matrix[i][j]
 print(reverse_)
+
+
+# 分组
+# 均等分组 将0->(num-1)的组分为group组, 假设可以均分
+def equal_group(num: int, group_num: int) -> List[List[int]]:
+    nums = [i for i in range(num)]
+    res = []
+    k = group_num
+    element_num = int(num / group_num)
+    for i in range(k):
+        res.append(nums[i * element_num:(i + 1) * element_num])
+    return res
+
+
+print(equal_group(100, 25))
+
+
+# 递增分组 第一组1个，第二组2个，第三组3个，第四组4个.....
+def increase_group(num: int) -> List[List[int]]:
+    i = 0
+    res = []
+    tmp = []
+    group = 1
+    while i < num:
+        tmp.append(i)
+        #  这里改一下就是递乘分组了 group * n
+        if len(tmp) == group:
+            res.append(tmp)
+            tmp = []
+            group += 1
+        i += 1
+    return res

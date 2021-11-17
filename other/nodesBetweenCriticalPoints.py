@@ -4,6 +4,7 @@ from base.linked_list.ListNode import ListNode
 
 
 class Solution:
+    # todo
     def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> List[int]:
         pass
 
