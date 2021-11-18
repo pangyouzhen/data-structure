@@ -1,15 +1,11 @@
 from typing import List
 
-
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from base.tree.tree_node import TreeNode
 
 
 # 前序，后续，中序 的不同指出和名称的意思 在于打印root value的位置不同
+# Definition for a binary tree node.
+
 
 class Solution:
     def __init__(self):
@@ -45,14 +41,8 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    treenode = TreeNode(10)
-    treenode.right = TreeNode(5)
-    treenode.left = TreeNode(11)
-    treenode.right.left = TreeNode(6)
-    treenode.right.right = TreeNode(3)
-    # treenode.right.left = TreeNode(3)
-    # print(sol.simpleInorder(treenode))
-    # print(sol.inorderRecursive(treenode))
+    _ = [10, 11, 5, None, None, 6, 3]
+    treenode = TreeNode.from_list(_)
+    print(treenode)
     print(sol.inorderTraversal(treenode))
-    # print(sol.inorderRec(treenode))
     print(sol.inorder(treenode))

@@ -1,5 +1,3 @@
-from collections import deque
-
 from base.tree.tree_node import TreeNode
 
 

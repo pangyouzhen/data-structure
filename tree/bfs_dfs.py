@@ -4,7 +4,6 @@ from base.tree.tree_node import TreeNode
 
 
 def bfs(root: TreeNode):
-    #  b
     queue = [root]
     while queue:
         temp = queue.pop(0)

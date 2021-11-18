@@ -1,4 +1,4 @@
-class TreeNode:
+class ChildTreeNode:
     def __init__(self, key):
         self.key = key
         self.child = []
@@ -19,20 +19,20 @@ class TreeNonRecursive:
 
 
 if __name__ == '__main__':
-    root = TreeNode("A")
-    root.child.append(TreeNode("B"))
-    root.child.append(TreeNode("F"))
-    root.child.append(TreeNode("D"))
-    root.child.append(TreeNode("E"))
-    root.child[0].child.append(TreeNode('K'))
-    root.child[0].child.append(TreeNode('J'))
-    root.child[2].child.append(TreeNode("G"))
-    root.child[3].child.append(TreeNode("C"))
-    root.child[3].child.append(TreeNode("H"))
-    root.child[3].child.append(TreeNode("I"))
-    root.child[0].child[0].child.append(TreeNode("N"))
-    root.child[0].child[0].child.append(TreeNode("M"))
-    root.child[3].child[0].child.append(TreeNode("O"))
-    root.child[3].child[2].child.append(TreeNode("L"))
+    root = ChildTreeNode("A")
+    root.child.append(ChildTreeNode("B"))
+    root.child.append(ChildTreeNode("F"))
+    root.child.append(ChildTreeNode("D"))
+    root.child.append(ChildTreeNode("E"))
+    root.child[0].child.append(ChildTreeNode('K'))
+    root.child[0].child.append(ChildTreeNode('J'))
+    root.child[2].child.append(ChildTreeNode("G"))
+    root.child[3].child.append(ChildTreeNode("C"))
+    root.child[3].child.append(ChildTreeNode("H"))
+    root.child[3].child.append(ChildTreeNode("I"))
+    root.child[0].child[0].child.append(ChildTreeNode("N"))
+    root.child[0].child[0].child.append(ChildTreeNode("M"))
+    root.child[3].child[0].child.append(ChildTreeNode("O"))
+    root.child[3].child[2].child.append(ChildTreeNode("L"))
     treeNonRecusive = TreeNonRecursive()
     treeNonRecusive.travse_tree(root)

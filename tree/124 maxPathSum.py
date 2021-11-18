@@ -1,9 +1,5 @@
 # Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from base.tree.tree_node import TreeNode
 
 
 class Solution:
@@ -29,19 +25,14 @@ class Solution:
             return node.val + max(leftGain, rightGain)
 
         maxGain(root)
-        return self.maxSum
+        return int(self.maxSum)
 
 
 if __name__ == '__main__':
-    tree = TreeNode(1)
-    tree.left = TreeNode(2)
-    tree.right = TreeNode(3)
-
-    tree2 = TreeNode(-10)
-    tree2.left = TreeNode(9)
-    tree2.right = TreeNode(20)
-    tree2.right.left = TreeNode(15)
-    tree2.right.right = TreeNode(7)
+    _ = [1, 2, 3]
+    tree = TreeNode.from_list(_)
+    _ = [-10, 9, 20, None, None, 15, 7]
+    tree2 = TreeNode.from_list(_)
     sol = Solution()
     print(sol.maxPathSum(tree))
     print(sol.maxPathSum(tree2))
