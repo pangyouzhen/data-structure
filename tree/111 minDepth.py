@@ -4,6 +4,9 @@ from base.tree.tree_node import TreeNode
 
 class Solution:
     def minDepth(self, root: TreeNode) -> int:
+        """
+        宏观语义：得到最小深度
+        """
         if root is None:
             return 0
         left_depth = self.minDepth(root.left)
@@ -15,10 +18,8 @@ class Solution:
 
 
 if __name__ == '__main__':
-    _ = [3, 9, 20, None, None, 15, 7]
+    _ = [3, 9, 20, None, 4, 15, 7]
     tree = TreeNode.from_list(_)
     print(tree)
     sol = Solution()
-    # print(sol.minDepth(tree))
-    # print(sol.minDepth(tree2))
     print(sol.minDepth(tree))
