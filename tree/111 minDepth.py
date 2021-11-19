@@ -18,8 +18,8 @@ class Solution:
 
 
 if __name__ == '__main__':
-    _ = [3, 9, 20, None, 4, 15, 7]
-    tree = TreeNode.from_list(_)
+    root = "[2, null, 3, null, 4, null, 5, null, 6]"
+    tree = TreeNode.from_strs(root)
     print(tree)
     sol = Solution()
     print(sol.minDepth(tree))
