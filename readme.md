@@ -119,7 +119,7 @@ backtracking() {
 2. `collections 中的 Counter, defaultdict`
 3. `itertools 中的 permutations combinations`
 4. `heapq`
-5. `bisect中的bisect_left,bisect_right,insort`
+5. `bisect中的bisect_left,bisect_right,insort，左右指的是在相同值的左边还是右边`
 6. `python set的交&,并|,补-, 对称差集^,比较大小<=`
 1. `python中的按位与&，按位或|，按位异或^,按位取反~,左移<<,右移>>`
 
@@ -135,3 +135,6 @@ backtracking() {
 
 1. `a = 0, if a: print("print)` 这个是不执行的，因为在python中`False == 0,True == 1`
 1. 用字典的时候，先看key在不在然后再去判断相应的取值
+1. 有序list 一定想到bisect
+1. 最值问题首先想到动态规划
+1. 没啥想法先用暴力解法

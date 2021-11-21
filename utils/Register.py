@@ -38,3 +38,6 @@ class Register:
     def keys(self):
         """key"""
         return self._dict.keys()
+
+
+register = Register("data")
