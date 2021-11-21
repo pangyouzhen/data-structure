@@ -1,9 +1,9 @@
-from typing import Dict
+from typing import Dict, Set
 from typing import List
 
 from pysnooper import snoop
 
-graph: Dict[str, set[str]] = {'A': {'B', 'C'},
+graph: Dict[str, Set[str]] = {'A': {'B', 'C'},
                               'B': {'A', 'D', 'E'},
                               'C': {'A', 'F'},
                               'D': {'B'},

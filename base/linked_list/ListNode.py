@@ -1,5 +1,5 @@
 import json
-from typing import List
+from typing import List, Optional
 
 
 class ListNode:
@@ -20,6 +20,24 @@ class ListNode:
             dummy_head.next = ls
             dummy_head = dummy_head.next
         return fst_head.next
+
+    @classmethod
+    # todo
+    # 以数组作为创建ListNode,java中的构造函数
+    def list2node_(cls, head: List[int]) -> 'ListNode':
+        # 创建非循环链表
+        # 虚拟头节点
+        return cls.list2node__(head, 0)
+
+    @classmethod
+    def list2node__(cls, head: List[int], ind: int) -> "Optional[ListNode]":
+        """
+        :rtype: 返回创建的链表
+        """
+        if not head:
+            return
+        res = cls.list2node__(head[ind:], ind + 1)
+        return res
 
     def __len__(self):
         if self.has_cycle():
@@ -60,7 +78,7 @@ class ListNode:
         return res == res[::-1]
 
     def __repr__(self):
-     # vscode debug工具
+        # vscode debug工具
         graph = {
             "kind": {"graph": True},
             "nodes": [],
@@ -83,7 +101,7 @@ class ListNode:
 
 if __name__ == '__main__':
     nums = [1, 2, 3, 4, 5]
-    listNode = ListNode.list2node(nums)
-    print(len(listNode))
-    print(listNode)
+    listNode = ListNode.list2node_(nums)
+    # print(len(listNode))
+    # print(listNode)
     print(listNode)
