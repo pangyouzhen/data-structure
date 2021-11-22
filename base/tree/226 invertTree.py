@@ -4,9 +4,10 @@ from base.tree.tree_node import TreeNode
 
 class Solution:
     def invertTree(self, root: TreeNode) -> TreeNode:
-        if root:
-            root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
-            return root
+        if root is None:
+            return
+        root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
+        return root
 
 
 if __name__ == '__main__':
