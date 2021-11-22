@@ -9,10 +9,14 @@ class Solution:
     def hasPathSum(self, root: TreeNode, sum: int) -> bool:
         if root is None:
             return False
-        if root.left is None and root.right is None and root.val == sum:
+        # 题目中说的是叶子节点
+        if root.left is None and root.right is None:
+            return root.val == sum
+        if self.hasPathSum(root.left, sum - root.val):
             return True
-        else:
-            return self.hasPathSum(root.left, sum - root.val) or self.hasPathSum(root.right, sum - root.val)
+        if self.hasPathSum(root.right, sum - root.val):
+            return True
+        return False
 
     def hasPathSum2(self, root: TreeNode, sum: int) -> bool:
         if not root:
