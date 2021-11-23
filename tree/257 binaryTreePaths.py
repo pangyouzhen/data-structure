@@ -7,9 +7,12 @@ class TreeNode:
         self.left = None
         self.right = None
 
-
+# todo
 class Solution:
-    # dfs + stack
+
+    def __init__(self) -> None:
+        self.res = []
+
     def binaryTreePaths1(self, root: TreeNode) -> List[str]:
         if not root:
             return []
@@ -25,8 +28,15 @@ class Solution:
         return res
 
     #         bfs + heap_queue
-    def binaryTreePaths2(self,root):
-        pass
+    def binaryTreePaths2(self, root: TreeNode) -> List[str]:
+        self.binaryTreePaths_(self, root)
+        return self.res
+
+    def binaryTreePaths_(self, root: TreeNode):
+        if root is None:
+            return
+        if root.left is None and root.right is None:
+            self.res.append()
 
 
 if __name__ == '__main__':
@@ -36,6 +46,3 @@ if __name__ == '__main__':
     treeNode.right = TreeNode(3)
     sol = Solution()
     print(sol.binaryTreePaths(treeNode))
-
-
-
