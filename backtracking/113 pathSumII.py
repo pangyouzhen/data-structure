@@ -3,31 +3,32 @@ from typing import List, Optional
 from base.tree.tree_node import TreeNode
 
 
+# todo
 class Solution:
-    # 这里的结果是List[List[int]] 所以每一步都应该有一个List[int] 作为one_ans
-    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
-        self.res = []
-        one_ans = [root.val]
-        self.dfs(root, targetSum - root.val, one_ans)
-        return self.res
 
-    def dfs(self, root: Optional[TreeNode], targetSum: int, one_ans: List[int]):
-        if targetSum == 0:
-            # 注意这里是one_ans[:]
-            self.res.append(one_ans[:])
-            return
-        # 因为是二叉树，所以只有左右两个节点
-        for i in [root.left, root.right]:
-            if i and i.val:
-                # 注意回溯先回后溯，这里是先回
-                one_ans.append(i.val)
-                self.dfs(i, targetSum - i.val, one_ans)
-                # 后溯
-                one_ans.pop()
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        res = []
+        if root is None:
+            return []
+        if root.left is None and root.right is None:
+            if targetSum == root.val:
+                # 这里返回的List[List[int]],这里靠猜的，后面debug下
+                res.append([root.val])
+        # 左子树到叶子节点的所有list
+        left_ls: List[List[int]] = self.pathSum(root.left, targetSum - root.val)
+        # [[4,11,2]]
+        for i in left_ls:
+            i.insert(0, root.val)
+            res.append(i)
+        right_ls = self.pathSum(root.right, targetSum - root.val)
+        for j in right_ls:
+            j.insert(0, root.val)
+            res.append(j)
+        return res
 
 
 if __name__ == '__main__':
-    tree = TreeNode.from_list([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, None, None, 5, 1])
+    tree = TreeNode.from_strs("[5,4,8,11,null,13,4,7,2,null,null,5,1]")
     print(tree)
     sol = Solution()
     print(sol.pathSum(tree, 22))
