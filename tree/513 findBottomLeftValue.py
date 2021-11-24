@@ -19,6 +19,6 @@ class Solution:
 
 
 if __name__ == '__main__':
-    tree = TreeNode.from_list([2, 1, 3])
+    tree = TreeNode.from_strs("[2, 1, 3]")
     sol = Solution()
     print(sol.findBottomLeftValue(tree))

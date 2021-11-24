@@ -1,4 +1,5 @@
 import threading
+from typing import Callable
 
 empty = threading.Semaphore(1)
 full = threading.Semaphore(0)
