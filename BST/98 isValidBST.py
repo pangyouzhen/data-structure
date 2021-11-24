@@ -3,40 +3,23 @@ from base.tree.tree_node import TreeNode
 
 
 class Solution:
-    def isValidBST(self, root: TreeNode):
-        return self.isValidBSTRec(root, lessThan=float('inf'), largerThan=float('-inf'))
-
-    def isValidBSTRec(self, root: TreeNode, lessThan, largerThan):
-        # 3 step:
-        #  Tree problem -> travserd -> two parts -> the second part need some element
-        # 1. None ->  True
-        # 2. False
-        # 3. travserd the  until True or Flase
-        # ptr is ALL
-        if root is None:
-            return True
-        if root.val <= largerThan or root.val >= lessThan:
-            return False
-        return self.isValidBSTRec(root.left, min(lessThan, root.val), largerThan) and self.isValidBSTRec(root.right,
-                                                                                                         lessThan,
-                                                                                                         max(root.val,
-                                                                                                             largerThan))
+    # todo
+    def isValidBST(self, root: TreeNode) -> bool:
+        # 注意直接递归是不行的，因为可能出现right.left < root 的情况，所以需要另起一个函数记录当前的min和max
+        pass
 
 
 if __name__ == '__main__':
-    tree1 = TreeNode(2)
-    tree1.left = TreeNode(1)
-    tree1.right = TreeNode(3)
-    sol = Solution()
-    assert sol.isValidBST(tree1) == True
+    func = Solution().isValidBST
+    tree1 = "[2,1,3]"
+    tree1 = TreeNode.from_strs(tree1)
+    assert func(tree1) is True
 
-    tree2 = TreeNode(5)
-    tree2.left = TreeNode(1)
-    tree2.right = TreeNode(4)
-    tree2.right.left = TreeNode(3)
-    tree2.right.right = TreeNode(6)
-    assert sol.isValidBST(tree2) == False
+    tree2 = "[5,1,4,null,null,3,6]"
+    tree2 = TreeNode.from_strs(tree2)
+    assert func(tree2) is False
 
-    tree3 = TreeNode(1)
-    tree3.left = TreeNode(1)
-    assert sol.isValidBST(tree3) == False
+    tree3 = "[5,4,6,null,null,3,7]"
+    tree3 = TreeNode.from_strs(tree3)
+    print(tree3)
+    assert func(tree1) is False
