@@ -1,12 +1,24 @@
 # Definition for a binary tree node.
 from base.tree.tree_node import TreeNode
 
-
+# todo
 class Solution:
-    # todo
     def isValidBST(self, root: TreeNode) -> bool:
         # 注意直接递归是不行的，因为可能出现right.left < root 的情况，所以需要另起一个函数记录当前的min和max
-        pass
+        return self.isBst(root, float("-inf"), float("inf"))
+
+    def isBst(self, root: TreeNode, left_value: float, right_value: float):
+        if root is None:
+            return True
+        if root.left is not None and root.right is not None:
+            return root.left.val < root.val < root.right.val
+        if root.left is None and root.right is not None:
+            return root.val < root.right.val
+        if root.left is not None and root.right is None:
+            return root.left.val < root.val
+        left_bool = self.isBst(root.left, root.val, float("inf"))
+        right_bool = self.isBst(root.right, root.val, float("-inf"))
+        return left_bool & right_bool
 
 
 if __name__ == '__main__':

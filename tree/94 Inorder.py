@@ -2,47 +2,24 @@ from typing import List
 
 from base.tree.tree_node import TreeNode
 
-
 # 前序，后续，中序 的不同指出和名称的意思 在于打印root value的位置不同
 # Definition for a binary tree node.
 
 
 class Solution:
-    def __init__(self):
-        self.result = []
 
     def inorderTraversal(self, root: TreeNode) -> List[int]:
-        stack, res = [], []
-
-        while True:
-            while root:
-                stack.append(root)
-                root = root.left
-            if not stack:
-                return res
-            node = stack.pop()
-            res.append(node.val)
-            root = node.right
-
-    #  root 1 left-mid 3 left-left 4 left right 5 / right 2
-    #  stack -> [1,3,2,4,5] + [3,4,5] + [4]
-    #  res +[4] + [3] + [5]
-
-    def inorder(self, root: TreeNode):
-        self.inorderRecNew(root)
-        return self.result
-
-    def inorderRecNew(self, root):
+        res = []
         if root:
-            self.inorderRecNew(root.left)
-            self.result.append(root.val)
-            self.inorderRecNew(root.right)
+            res.extend(self.inorderTraversal(root.left))
+            res.append(root.val)
+            res.extend(self.inorderTraversal(root.right))
+        return res
 
 
 if __name__ == '__main__':
     sol = Solution()
-    _ = [10, 11, 5, None, None, 6, 3]
-    treenode = TreeNode.from_list(_)
+    _ = "[10, 11, 5, null, null, 6, 3]"
+    treenode = TreeNode.from_strs(_)
     print(treenode)
     print(sol.inorderTraversal(treenode))
-    print(sol.inorder(treenode))
