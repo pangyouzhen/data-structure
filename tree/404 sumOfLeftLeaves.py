@@ -1,4 +1,4 @@
-from tree.bfs_dfs import TreeNode
+from base.tree.tree_node import TreeNode
 
 
 class Solution:
