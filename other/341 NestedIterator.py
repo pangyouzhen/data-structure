@@ -23,7 +23,7 @@ class NestedInteger:
         if self.isInteger():
             return self.item
 
-    def getList(self) -> ["NestedInteger"]:
+    def getList(self) -> "NestedInteger":
         """
         @return the nested list that this NestedInteger holds, if it holds a nested list
         Return None if this NestedInteger holds a single integer
@@ -61,7 +61,7 @@ print(res)
 
 
 class NestedIterator:
-    def __init__(self, nestedList: [NestedInteger]):
+    def __init__(self, nestedList: "NestedInteger"):
         self.nestedList = nestedList
         self.g = self.gen()
 

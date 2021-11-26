@@ -1,4 +1,5 @@
 from typing import Optional
+
 from base.tree.tree_node import TreeNode
 
 
@@ -10,5 +11,4 @@ class Solution:
             elif root.val > val:
                 return self.searchBST(root.left, val)
             elif root.val < val:
-                return self.searchBST(root.right, val)
-        return None
+                return self.searchBST(root.right, val)      
