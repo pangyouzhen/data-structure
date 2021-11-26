@@ -24,6 +24,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    tree = TreeNode.from_list([3, 9, 20, None, None, 15, 7])
+    tree = TreeNode.from_strs("[3, 9, 20, null, null, 15, 7]")
+    print(tree)
     sol = Solution()
     print(sol.levelOrderBottom(tree))

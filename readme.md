@@ -138,3 +138,4 @@ backtracking() {
 1. 有序list 一定想到bisect
 1. 最值问题首先想到动态规划
 1. 没啥想法先用暴力解法
+1. if not q and not p 两者都是None，有一个为None, if not q or not p 

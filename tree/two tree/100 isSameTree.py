@@ -1,9 +1,4 @@
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from base.tree.tree_node import TreeNode
 
 
 class Solution:
@@ -28,4 +23,4 @@ if __name__ == '__main__':
     q.left = TreeNode(4)
     q.right = TreeNode(3)
     sol = Solution()
-    assert sol.isSameTree(p, q) == False
+    assert sol.isSameTree(p, q) is False

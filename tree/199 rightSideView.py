@@ -1,12 +1,7 @@
 # Definition for a binary tree node.
 from typing import List
 
-
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from base.tree.tree_node import TreeNode
 
 
 class Solution:
@@ -24,10 +19,11 @@ class Solution:
 
 
 if __name__ == '__main__':
-    tee = TreeNode(1)
-    tee.left = TreeNode(2)
-    tee.left.right = TreeNode(5)
-    tee.right = TreeNode(3)
-    tee.right.right = TreeNode(4)
+    tree = TreeNode(1)
+    tree.left = TreeNode(2)
+    tree.left.right = TreeNode(5)
+    tree.right = TreeNode(3)
+    tree.right.right = TreeNode(4)
+    print(tree)
     sol = Solution()
-    print(sol.rightSideView(tee))
+    print(sol.rightSideView(tree))
