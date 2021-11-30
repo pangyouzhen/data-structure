@@ -1,30 +1,29 @@
 # Definition for singly-linked list.
+from typing import Deque
 from base.linked_list.ListNode import ListNode
 
 
 class Solution:
 
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        def linked_list_value(l1: ListNode) -> int:
-            l1_value = []
-            while l1 is not None:
-                l1_value.append(str(l1.val))
-                l1 = l1.next
-            return int("".join(l1_value)[::-1])
-
-        l1_value = linked_list_value(l1)
-        # print(l1_value)
-        l2_value = linked_list_value(l2)
-        # print(l2_value)
-        value_ = str(l1_value + l2_value)[::-1]
-
+        l1_int = int(self.reverseListNode(l1))
+        l2_int = int(self.reverseListNode(l2))
+        res = str(l1_int + l2_int)[::-1]
         dummy_head = ListNode(0)
-        t = dummy_head
-        for i in value_:
-            curr = ListNode(val=int(i))
-            t.next = curr
-            t = t.next
-        return dummy_head.next
+        head = ListNode(0)
+        dummy_head.next = head
+        for i in res:
+            head.next = ListNode(int(i))
+            head =  head.next
+        return dummy_head.next.next
+        
+
+    def reverseListNode(self, l: ListNode) -> str:
+        res = []
+        while l:
+            res.append(str(l.val))
+            l = l.next
+        return "".join(res[::-1])
 
 
 if __name__ == '__main__':
@@ -33,3 +32,4 @@ if __name__ == '__main__':
     sol = Solution()
     temp = (sol.addTwoNumbers(l1, l2))
     print(temp)
+    # print(sol.reverseListNode(l1))

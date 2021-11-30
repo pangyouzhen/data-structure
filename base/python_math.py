@@ -63,9 +63,12 @@ print(f"{matrix3 = }")
 s = "abcde"
 # 枚举所有子串
 for i in range(len(s)):
+    # [0, l) 数学表示
     # 这里起始值设置为i+1,避免空串，末尾设置为len(s)+1的主要原因是s[i:j]，切片时是不包含末尾的
     for j in range(i + 1, len(s) + 1):
+        # [j,l) 数学表示
         print(s[i:j])
+
 
 # 固定长度的滑动窗口,以2为例
 _ = "abcde"
