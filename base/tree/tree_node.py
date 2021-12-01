@@ -12,8 +12,8 @@ class TreeNode:
 
     def __init__(self, x):
         self.val = x
-        self.left = None
-        self.right = None
+        self.left: Optional[TreeNode] = None
+        self.right: Optional[TreeNode] = None
         # 内置的debug函数
 
     @classmethod
@@ -27,8 +27,10 @@ class TreeNode:
         root = kids.pop()
         for node in nodes:
             if node:
-                if kids: node.left = kids.pop()
-                if kids: node.right = kids.pop()
+                if kids:
+                    node.left = kids.pop()
+                if kids:
+                    node.right = kids.pop()
         return root
 
     # @classmethod
@@ -155,7 +157,7 @@ class TreeNode:
 
 
 if __name__ == '__main__':
-    nums = [1, 2, 2, None, 3, None, 3]
-    sol = TreeNode.from_list(nums)
+    nums = "[1, 2, 2, null, 3, null, 3]"
+    sol = TreeNode.from_strs(nums)
     print(sol)
     print("finish")
