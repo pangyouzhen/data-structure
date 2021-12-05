@@ -17,7 +17,6 @@ def bfs(root: TreeNode):
         print(temp.val, end=" ")
 
 
-
 def dfsPreorder(root: TreeNode):
     stack = [root]
     res = []
@@ -78,7 +77,7 @@ def inorderTraversal(root: TreeNode) -> List[int]:
 #                 stack.append(temp.right)
 #             res.append(temp.val)
 #     return res
-def preorderNonRecursive(self, root):
+def preorderNonRecursive(root: TreeNode) -> List[int]:
     if root is None:
         return []
     stack, res = [root], []
@@ -90,19 +89,57 @@ def preorderNonRecursive(self, root):
         if node.left is not None:
             stack.append(node.left)
     return res
+
+
+class Solution:
+
+    def __init__(self):
+        self.res = []
+
+    def find_path(self, root: TreeNode, value: int):
+        # 找到到value的路径，每个节点的值都不是相同的
+        if root is None:
+            return False
+        self.res.append(root.val)
+        if root.val == value:
+            return True
+        b = False
+        if root.left is not None:
+            b = self.find_path(root.left, value)
+        if b is False and root.right is not None:
+            b = self.find_path(root.right, value)
+        if b is False:
+            self.res.pop()
+        return b
+
+    def find_path2(self, root: TreeNode, value: int):
+        self.res.append(root.val)
+        if root.val == value:
+            return True
+        for i in [root.left, root.right]:
+            if i:
+                # self.res.append(i.val)
+                b = self.find_path(i, value)
+                if b is False:
+                    self.res.pop()
+                else:
+                    break
+
+
 if __name__ == '__main__':
-    tree = TreeNode(6)
-    tree.left = TreeNode(8)
-    tree.right = TreeNode(4)
-    tree.left.left = TreeNode(9)
-    tree.left.right = TreeNode(7)
-    tree.right.left = TreeNode(5)
-    tree.right.right = TreeNode(3)
-    print(bfs(tree))
-    print("---------")
+    nums = "[6,8,4,9,7,3,5]"
+    tree = TreeNode.from_strs(nums)
+    print(tree)
+    # print(bfs(tree))
+    # print("---------")
     # print(dfs(tree))
-    print('---------')
-    print(f'inorder is {inorderTraversal(tree)}')
-    print(f'dfs preorder is {dfsPreorder(tree)}')
-    print(f'dfs postorder is {dfsPostorder(tree)}')
+    # print('---------')
+    # print(f'inorder is {inorderTraversal(tree)}')
+    # print(f'dfs preorder is {dfsPreorder(tree)}')
+    # print(f'dfs postorder is {dfsPostorder(tree)}')
     # print(f'inorderTravsalTest is {inorderTraversalTest(tree)}')
+    sol = Solution()
+    # func = sol.find_path(tree, 9)
+    func = sol.find_path2(tree, 9)
+    print(sol.res)
+    # print(preorderNonRecursive(tree))

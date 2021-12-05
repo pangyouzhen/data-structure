@@ -104,7 +104,7 @@ class TreeNode:
     #     g = json.dumps(graph)
     #     return g
 
-    def pre_order(self):
+    def pre_order(self) -> List[int]:
         res = []
 
         def pre_order_closure(root):

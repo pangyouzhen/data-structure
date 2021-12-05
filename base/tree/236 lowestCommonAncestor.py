@@ -1,11 +1,12 @@
-from typing import List
+from typing import Optional
+
 from base.tree.tree_node import TreeNode
 
 
 # todo
 class Solution():
     # 注意这里和235题目的区别，这里不是二叉搜索树
-    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> Optional[TreeNode]:
         if root is None:
             return
         if root.left is None and root.right is None:
@@ -23,6 +24,6 @@ if __name__ == "__main__":
     p = "[5,6,2,null,null,7,4]"
     p_tree = TreeNode.from_strs(p)
     q = "[1,0,8]"
-    q_tree = TreeNode.from_str(q)
+    q_tree = TreeNode.from_strs(q)
     root = TreeNode.from_strs(nums)
-    print(func(root, p, q))
+    print(func(root, p_tree, q_tree))
