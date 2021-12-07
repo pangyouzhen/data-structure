@@ -1,25 +1,17 @@
-from typing import List
-
-import pysnooper
-
-
 class Solution:
     def __init__(self):
         self.res = []
 
-    def permute(self, nums: List[int]) -> List[List[int]]:
+    def permute(self, nums):
         one_ans = []
         self.permute_rec_memo(nums, one_ans)
         return self.res
 
-    @pysnooper.snoop()
-    # 这里最终返回的是-> List[str]，所以每一个元素应该是str,所以one_ans应该是List[str]
-    def permute_rec_memo(self, nums: List[int], one_ans: List[int]):
-        # 递归的终止条件
+    # @pysnooper.snoop()
+    def permute_rec_memo(self, nums, one_ans):
+        # 纵向，因为是取2个元素，所以终止条件是
         if len(one_ans) == len(nums):
-            # 这里为什么用的是one_ans[:],如果用self.res.append(one_ans)增加的是一个对象，下一步递归又把元素pop了
-            # id(one_ans[:]) 和 id(one_ans) 是不同的，相当于新添加了个对象
-            self.res.append(one_ans[:])
+            self.res.append(one_ans)
             return
         # 横向循环。确保只循环一次
         for i in range(len(nums)):
