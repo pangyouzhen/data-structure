@@ -1,6 +1,7 @@
 from typing import List
 from pysnooper import snoop
 
+
 # todo
 class Solution:
     # @snoop()
@@ -21,9 +22,10 @@ class Solution:
     def dfs_(self, nums: List[int], t: int, target: int) -> bool:
         if target == 0:
             return True
-        elif target < 0 or t == len(nums):
+        if target < 0 or t == len(nums):
             return False
         for i in range(t, len(nums)):
+            # 这里为什么不用回溯
             target -= nums[i]
             if self.dfs_(nums, t + 1, target) is True:
                 return True
