@@ -3,14 +3,14 @@ from collections import Counter
 
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        ransomNote_dic = Counter(ransomNote)
+        magazine_dic = Counter(magazine)
+        #  小字典 - 大字典
+        condition = ransomNote_dic - magazine_dic
+        if not condition:
+            return True
+        return False
 
-        if ransomNote:
-            note_number = Counter(ransomNote)
-            magazine_number = Counter(magazine)
-            for i in note_number:
-                if i not  in magazine_number or note_number[i] > magazine_number[i]:
-                    return False
-        return True
 
 if __name__ == '__main__':
     sol = Solution()
@@ -20,6 +20,6 @@ if __name__ == '__main__':
     assert sol.canConstruct("fffbfg", "effjfggbffjdgbjjhhdegh") == True
     assert sol.canConstruct("bjaajgea",
                             "affhiiicabhbdchbidghccijjbfjfhjeddgggbajhidhjchiedhdibgeaecffbbbefiabjdhggihccec") == True
-    assert sol.canConstruct("","") == True
-    assert sol.canConstruct("","a") == True
-    assert sol.canConstruct("fihjjjjei","hjibagacbhadfaefdjaeaebgi") == False
+    assert sol.canConstruct("", "") == True
+    assert sol.canConstruct("", "a") == True
+    assert sol.canConstruct("fihjjjjei", "hjibagacbhadfaefdjaeaebgi") == False
