@@ -135,7 +135,7 @@ backtracking() {
 
 ## 几个点
 
-1. `a = 0, if a: print("print)` 这个是不执行的，因为在python中`False == 0,True == 1`
+1. **False == 0,True == 1,这个list[int]的判断条件时很容易错**
 1. 用字典的时候，先看key在不在然后再去判断相应的取值
 1. 有序list 一定想到bisect
 1. 最值问题首先想到动态规划
