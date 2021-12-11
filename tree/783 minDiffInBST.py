@@ -23,6 +23,6 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    tree = TreeNode.bst_from_list([4, 2, 6, 1, 3])
+    tree = TreeNode.from_strs("[4, 2, 6, 1, 3]")
     a = sol.minDiffInBST(tree)
     print(a)
