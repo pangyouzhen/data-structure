@@ -14,4 +14,5 @@ class Solution:
         if prev_start == start:
             return res
         for i in sort_time[1:]:
-            if prev_start
+            pass
+
