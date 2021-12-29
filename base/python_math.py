@@ -69,7 +69,6 @@ for i in range(len(s)):
         # [j,l) 数学表示
         print(s[i:j])
 
-
 # 固定长度的滑动窗口,以2为例
 _ = "abcde"
 # 只有最后k-1个元素没法进行滑动，所以长度应该len -k +1
@@ -119,3 +118,46 @@ def increase_group(num: int) -> List[List[int]]:
             group += 1
         i += 1
     return res
+
+
+nums = [0, 1, 2, 3, 5]
+# for i in nums:
+#     for j in nums[i:]:
+#         for k in nums[j:]:
+#             for t in nums[k:]:
+#                 print(i, j, k, t)
+# 枚举nums的四个元素
+l = len(nums)
+
+# 排列数，这是回溯法的具体含
+for i in range(l):
+    for j in range(i + 1, l):
+        for m in range(j + 1, l):
+            for n in range(m + 1, l):
+                print(nums[i], nums[j], nums[m], nums[n])
+
+print("--------------------------------------------")
+# 排列数
+for i in range(l):
+    for j in range(l):
+        for m in range(l):
+            for n in range(l):
+                print(nums[i], nums[j], nums[m], nums[n])
+
+# 不重复的枚举元素
+print("-----------------------------------------------")
+from itertools import combinations
+
+a = combinations([0, 1, 2, 3, 4], 4)
+for i in a:
+    print(nums[i[0]], nums[i[1]], nums[i[2]], nums[i[3]])
+
+# def comb2(s):
+#     all_ans = []
+#     for i, v1 in enumerate(s):
+#         for j in range(i + 1, len(s)):
+#             all_ans.append([v1, s[j]])
+#     return all_ans
+#
+#
+# print(comb2(nums))

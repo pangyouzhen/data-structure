@@ -18,6 +18,7 @@ class Solution:
         # 纵向，因为是取所有的子集，所以这里的没有终止条件
         self.res.append(one_ans[:])
         for i in range(start, self.nums_len):
+            print(f"for i in range({start}, {self.nums_len}):")
             one_ans.append(nums[i])
             self.subsets_memo(nums, i + 1, one_ans)
             one_ans.pop()
