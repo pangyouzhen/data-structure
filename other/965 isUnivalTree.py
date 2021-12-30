@@ -20,6 +20,6 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    tree = TreeNode.from_list([2, 2, 2, 2, 5, ])
+    tree = TreeNode.from_strs("[2, 2, 2, 2, 5, ]")
     print(tree)
     print(sol.isUnivalTree(tree))
