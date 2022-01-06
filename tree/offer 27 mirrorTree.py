@@ -11,7 +11,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    tree = TreeNode.from_list([4, 2, 7, 1, 3, 6, 9])
+    tree = TreeNode.from_strs("[4, 2, 7, 1, 3, 6, 9]")
     sol = Solution()
     a = sol.mirrorTree(tree)
     print(a)

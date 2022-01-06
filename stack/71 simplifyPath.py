@@ -1,26 +1,26 @@
+import os
+
+
 class Solution:
     def simplifyPath(self, path: str) -> str:
-        res = path.split("/")
-        result = []
-        for i in res:
-            if i:
-                if i == ".":
-                    pass
-                elif i == "..":
-                    if len(result) >= 1:
-                        del result[-1]
-                else:
-                    result.append(i)
-        result.insert(0, "")
-        ll = "/".join(result)
-        if ll:
-            return ll
-        else:
-            return "/"
+        # python 内置函数 解决方案
+        # return os.path.realpath(path)
+        # 栈解决方案
+        names = path.split("/")
+        stack = []
+        for name in names:
+            if name == "..":
+                if stack:
+                    stack.pop()
+            elif name and name != ".":
+                stack.append(name)
+        return "/"+"/".join(name)
 
 
 if __name__ == '__main__':
     sol = Solution()
-    # path = "/a/./b/../../c/"
-    path = "/../"
+    #path = "/a/./b/../../c/"
+    path = "/a/../../b/../c//.//"
+    # path = "/../"
+    # path = "/home//path"
     print(sol.simplifyPath(path))
