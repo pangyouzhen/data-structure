@@ -4,6 +4,7 @@ from typing import List
 # 这是一个背包问题
 # F(i,c) = F(i-1,c) || F(i-1,c -w(i))
 class Solution:
+    # todo 分割问题
     def __init__(self):
         # 进行记忆化搜索
         #  -1 表示没有计算过,0 表示不可以填充，1表示可以填充

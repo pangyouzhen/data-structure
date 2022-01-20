@@ -3,6 +3,7 @@ from typing import List
 
 class Solution:
     # todo
+    # 分割问题
     def shipWithinDays(self, weights: List[int], D: int) -> int:
         pass
 
