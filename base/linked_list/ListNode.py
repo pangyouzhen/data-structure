@@ -13,6 +13,7 @@ class ListNode:
         # 创建非循环链表
         # 虚拟头节点
         assert len(head) > 0, "输入的是空的list，无法创建链表"
+        #  头指针+移动指针，两个开始相同，随后移动指针不断变化，最后返回头指针
         fst_head = cls(val=0)
         dummy_head = fst_head
         for i in head:

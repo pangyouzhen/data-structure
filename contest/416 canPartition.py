@@ -8,28 +8,17 @@ class Solution:
     # 不是左右双指针,比如[1,1,2,2], 比如[2,2,1,1]
     # 就是从m个数字来任取n个能否等于指定的某个值, 深度优先搜索/ 回溯等等
     def canPartition(self, nums: List[int]) -> bool:
-        l = len(nums)
-        if l == 1:
-            return False
         s = sum(nums)
-        if s % 2 == 1:
+        if s % 2 != 0:
             return False
-        mid = int(s / 2)
-        a = self.dfs_(nums, 0, mid)
-        return a
+        return self.try_partiton(nums, len(nums) - 1, s/2)
 
-    @snoop()
-    def dfs_(self, nums: List[int], t: int, target: int) -> bool:
-        if target == 0:
+    def try_partiton(self, nums, ind, s):
+        if s == 0:
             return True
-        if target < 0 or t == len(nums):
+        if s < 0 or ind < 0:
             return False
-        for i in range(t, len(nums)):
-            # 这里为什么不用回溯
-            target -= nums[i]
-            if self.dfs_(nums, t + 1, target) is True:
-                return True
-            target += nums[i]
+        return  self.try_partiton(nums,ind-1,s) or self.try_partiton(nums,ind-1,s-nums[ind]) 
 
 
 if __name__ == '__main__':

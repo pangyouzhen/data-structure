@@ -90,11 +90,14 @@ backtracking() {
     1. `dp[i][j] = max(dp[i-1][j-1],dp[i-1][j] + data[i][j])`
 1. 01背包问题
     1. `dp[i][j] = max(dp[i-1][j-v[i]]+c[i],dp[i-1][j])`
+1. 从n个数中选择k个数使之和为某个值, 背包问题的变种
+    1. `F(i,c) = F(i-1,c) || F(i-1,c-v[i])`
+    1. 时间复杂度: `O(n * sum)`
 1. 矩阵连乘
     1. `dp[i][j]=0; i==j`
     1. `dp[i][j] = min(dp[i][k] + dp[k+1][j] + p[i-1]*p[k]*p[j]); (i<j && i<=k<j)`
     1. `dp[1][n] 为最终解`
-
+    
 ### 其他算法
 
 1. 暴力解法
