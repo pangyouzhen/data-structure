@@ -11,7 +11,6 @@ class Solution:
         reps = 0
         while True:
             flag = False
-            # todo
             # c++: for (int i=25;i>=0 && !flag;i--)
             for i in reverse_lowercase:
                 if not flag:
