@@ -14,13 +14,12 @@ class ListNode:
         # 虚拟头节点
         assert len(head) > 0, "输入的是空的list，无法创建链表"
         #  头指针+移动指针，两个开始相同，随后移动指针不断变化，最后返回头指针
-        fst_head = cls(val=0)
-        dummy_head = fst_head
-        for i in head:
-            ls = cls(val=i)
+        dummy_head = fst_head = cls(val=head[0])
+        for i in range(1,len(head)):
+            ls = cls(val=head[i])
             dummy_head.next = ls
             dummy_head = dummy_head.next
-        return fst_head.next
+        return fst_head
 
     @classmethod
     # todo
@@ -63,12 +62,11 @@ class ListNode:
 
     def __str__(self):
         a = self
-        res = ""
+        res = []
         while a is not None:
-            res = res + str(a.val) + "->"
+            res.append(str(a.val))
             a = a.next
-        res += "end"
-        return res
+        return "->".join(res)
 
     def node2list(self):
         a = self

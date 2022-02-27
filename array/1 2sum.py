@@ -1,6 +1,7 @@
 class Solution:
     def twoSum(self, nums, target):
         #  直接sort会损失原先的位置信息
+        #  如果元素中有不重复的值，可以用字典代替
         nums_zip = [(v, i) for i, v in enumerate(nums)]
         numbers = sorted(nums_zip)
         start = 0

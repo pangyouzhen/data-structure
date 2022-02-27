@@ -17,7 +17,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    root = TreeNode.from_list([1, 2, 2, None, 3, None, 3])
+    root = TreeNode.from_strs("[1, 2, 2, None, 3, None, 3]")
     print(root)
     sol = Solution()
     print(sol.isSymmetric(root))
