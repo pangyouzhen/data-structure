@@ -26,4 +26,4 @@ class Solution:
 
     def is_aplha(self, board: List[str], alpha_type: str) -> bool:
         ind = board[0].index(alpha_type)
-        rows =
+        pass

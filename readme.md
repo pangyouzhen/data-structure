@@ -130,6 +130,8 @@ backtracking() {
 
 ### 时间复杂度和算法
 
+1. 二分查找： O(log(n))
+1. 
 
 ## todo
 

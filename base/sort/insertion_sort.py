@@ -3,8 +3,6 @@ def insertion_sort(alist):
     while t < len(alist):
         insert(alist, t)
         t = t + 1
-        print(alist)
-        print("_____")
     return alist
 
 

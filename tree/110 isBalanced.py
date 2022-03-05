@@ -17,7 +17,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    _ = [3, 9, 20, None, None, 15, 7]
-    p1_tree = TreeNode.from_list(_)
+    _ = "[3, 9, 20, null, null, 15, 7]"
+    p1_tree = TreeNode.from_strs(_)
     sol = Solution()
     assert sol.isBalanced(p1_tree) is True

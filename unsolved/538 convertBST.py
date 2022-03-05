@@ -6,6 +6,6 @@ class Solution:
         pass
 
 if __name__ == '__main__':
-    a = TreeNode.from_list([4, 1, 6, 0, 2, 5, 7, None, None, None, 3, None, None, None, 8])
+    a = TreeNode.from_strs("[4, 1, 6, 0, 2, 5, 7, null, null, null, 3, null, null, null, 8]")
     sol = Solution()
     print(sol.convertBST(a))
