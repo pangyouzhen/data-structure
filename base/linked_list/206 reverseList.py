@@ -15,7 +15,7 @@ class Solution:
 
     def reverseList2(self, head: ListNode) -> ListNode:
         # 终止条件
-        if head.next is None:
+        if head is None or head.next is None:
             return head
         last = self.reverseList2(head.next)
         head.next.next = head
