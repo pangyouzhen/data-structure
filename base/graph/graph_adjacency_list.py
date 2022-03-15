@@ -26,8 +26,8 @@ graph3 = {'0': {'1', '2'},
 
 @snoop()
 def dfs(graph: Dict[str, set[str]], start: str, visited=None):
-    #  todo 为什么有时不是从start 出发的？程序有问题？
-    #  todo 这个程序对有向图和无向图均适用？
+    #  TODO 为什么有时不是从start 出发的？程序有问题？
+    #  TODO 这个程序对有向图和无向图均适用？
     if visited is None:
         visited = set()
     visited.add(start)

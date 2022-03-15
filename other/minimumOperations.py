@@ -16,7 +16,7 @@ class Solution:
     pass
 
     # @snoop()
-    # todo 广度优先算法，没写出来
+    # TODO 广度优先算法，没写出来
     def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
         goals = {goal}
         goals_break = set()

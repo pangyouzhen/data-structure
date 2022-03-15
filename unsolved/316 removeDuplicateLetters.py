@@ -1,5 +1,5 @@
 class Solution:
-    # todo
+    # TODO
     def removeDuplicateLetters(self, s: str) -> str:
         if len(s) == 1:
             return s

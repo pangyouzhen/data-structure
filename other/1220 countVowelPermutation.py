@@ -1,6 +1,6 @@
 from typing import List
 
-# todo
+# TODO
 class Solution():
     def countVowelPermutation(self, n: int) -> int:
         pass

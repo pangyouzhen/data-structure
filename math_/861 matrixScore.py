@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    # todo
+    # TODO
     def matrixScore(self, A: List[List[int]]) -> int:
         pass
 

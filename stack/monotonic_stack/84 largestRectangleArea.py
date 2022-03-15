@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    # todo
+    # TODO
     def largestRectangleArea(self, heights: List[int]) -> int:
         pass
 

@@ -4,7 +4,7 @@ class Solution:
         s = s.replace("/", "//")
         return int(eval(s))
 
-    # todo
+    # TODO
     def calculate_stack(self, s: str) -> int:
         stack = []
         for i in s:

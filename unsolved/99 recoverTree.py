@@ -2,7 +2,7 @@
 
 from base.tree.tree_node import TreeNode
 
-# todo
+# TODO
 class Solution:
     def recoverTree(self, root: TreeNode) -> None:
         """

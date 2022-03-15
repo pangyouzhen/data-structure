@@ -2,7 +2,7 @@ from typing import List
 
 from base.tree.tree_node import TreeNode
 
-# todo
+# TODO
 class Solution():
     def generateTrees(self, n: int) -> List[TreeNode]:
         pass

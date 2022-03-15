@@ -4,7 +4,7 @@ from bisect import bisect
 
 
 class Solution:
-    # todo
+    # TODO
     def getOrder(self, task: List[List[int]]):
         task_dict = defaultdict(list)
         for ind, (start_time, last_time) in task:

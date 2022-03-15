@@ -3,7 +3,7 @@ from typing import List, Optional
 from base.tree.tree_node import TreeNode
 
 
-# todo
+# TODO
 class Solution:
 
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:

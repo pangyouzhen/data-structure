@@ -2,7 +2,7 @@ import re
 import pysnooper
 
 
-# todo
+# TODO
 class Solution:
     @pysnooper.snoop()
     def countOfAtoms(self, formula: str) -> str:

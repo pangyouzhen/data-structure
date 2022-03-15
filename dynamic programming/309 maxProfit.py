@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    # todo
+    # TODO
     def maxProfit(self, prices: List[int]) -> int:
         l = len(prices)
         if l == 1:

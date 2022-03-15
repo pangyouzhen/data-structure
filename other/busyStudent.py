@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    # todo
+    # TODO
     def busyStudent(self, startTime: List[int], endTime: List[int], queryTime: int) -> int:
         count_ = 0
         for start, end in zip(startTime, endTime):

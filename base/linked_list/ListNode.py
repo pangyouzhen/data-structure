@@ -22,7 +22,7 @@ class ListNode:
         return fst_head
 
     @classmethod
-    # todo
+    # TODO
     # 以数组作为创建ListNode,java中的构造函数
     def list2node_(cls, head: List[int]) -> 'ListNode':
         # 创建非循环链表

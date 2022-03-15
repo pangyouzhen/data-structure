@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution():
-    # todo
+    # TODO
     def stoneGameIX(self, stones: List[int]) -> bool:
         t = [i for i in stones if i%3 != 0]
 

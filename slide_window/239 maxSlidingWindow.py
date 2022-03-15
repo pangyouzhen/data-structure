@@ -23,7 +23,7 @@ class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         def mon_arr(arr):
             n = len(arr)
-            # todo 这不是单调队列
+            # TODO 这不是单调队列
             while n > 1 and arr[0] < arr[-1]:
                 arr.pop(0)
 

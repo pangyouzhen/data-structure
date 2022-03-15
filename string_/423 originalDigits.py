@@ -1,7 +1,7 @@
 from collections import defaultdict,Counter
 
 
-# todo
+# TODO
 class Solution:
     # 暴力解法-超时
     def originalDigits_(self, s: str) -> str:

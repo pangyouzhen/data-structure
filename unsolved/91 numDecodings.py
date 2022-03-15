@@ -3,7 +3,7 @@ from string import ascii_uppercase
 
 # 记忆化搜索，递归
 # 动态规划的算法来做，爬楼梯
-# todo
+# TODO
 class Solution:
     def numDecodings(self, s: str) -> int:
         res = []

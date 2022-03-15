@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    # todo 滑动窗口
+    # TODO 滑动窗口
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         a = {}
         for i, v in enumerate(nums):

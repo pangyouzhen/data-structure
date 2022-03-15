@@ -1,6 +1,6 @@
 from typing import List
 
-# todo
+# TODO
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:
         """

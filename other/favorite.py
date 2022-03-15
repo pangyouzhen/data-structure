@@ -2,7 +2,7 @@ from typing import List
 from collections import defaultdict
 
 class Solution():
-    # todo
+    # TODO
     def maximumInvitations(self, favorite: List) -> int:
         a = defaultdict(list)
         # 只有一个出度，统计入度即可

@@ -1,6 +1,6 @@
 from typing import List
 
-# todo
+# TODO
 class Solution():
     def maxSubsequence(self, nums: List[int], k: int) -> List[int]:
         pass
