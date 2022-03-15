@@ -3,7 +3,7 @@ from typing import List, Optional
 
 from base.tree.tree_node import TreeNode
 
-# todo
+# TODO
 class Solution:
     def createBinaryTree(self, descriptions: List[List[int]]) -> Optional[TreeNode]:
         root = None

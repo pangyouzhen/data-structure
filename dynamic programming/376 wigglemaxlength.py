@@ -1,7 +1,7 @@
 from typing import List
 
 
-# todo
+# TODO
 class Solution:
     def wiggleMaxLength(self, nums: List[int]) -> int:
         pass

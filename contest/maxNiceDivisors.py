@@ -1,5 +1,5 @@
 class Solution:
-    # todo
+    # TODO
     def maxNiceDivisors(self, primeFactors: int) -> int:
         pass
 

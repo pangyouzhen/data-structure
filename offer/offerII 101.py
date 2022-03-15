@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution():
-    # todo
+    # TODO
     # 为什么是一个0-1背包问题?
     def canPartition(self, nums: List[int]) -> bool:
         pass

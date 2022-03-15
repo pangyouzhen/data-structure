@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    # todo
+    # TODO
     def rob(self, nums: List[int]) -> int:
         if len(nums) <= 2:
             return max(nums)

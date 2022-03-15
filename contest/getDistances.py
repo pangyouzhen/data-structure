@@ -4,7 +4,7 @@ from functools import lru_cache, reduce
 
 
 class Solution:
-    #todo
+    #TODO
     def getDistances(self, arr: List[int]) -> List[int]:
         arr_dic = defaultdict(list)
         new_dic = defaultdict(int)

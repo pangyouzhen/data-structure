@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
-        # todo 滑动窗口 timeout
+        # TODO 滑动窗口 timeout
         n = len(nums)
         window = []
         for i in range(n):

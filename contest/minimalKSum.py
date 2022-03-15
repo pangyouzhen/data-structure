@@ -1,6 +1,6 @@
 from typing import List
 
-# todo
+# TODO
 class Solution:
     def minimalKSum(self, nums: List[int], k: int) -> int:
         nums.sort()

@@ -2,7 +2,7 @@ from typing import List
 from pysnooper import snoop
 
 
-# todo
+# TODO
 class Solution:
     # @snoop()
     # 不是左右双指针,比如[1,1,2,2], 比如[2,2,1,1]

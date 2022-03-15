@@ -11,7 +11,7 @@ from math import floor
 
 
 class Solution:
-    # todo
+    # TODO
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         l = 0
         h = deepcopy(head)

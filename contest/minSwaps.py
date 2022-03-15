@@ -1,6 +1,6 @@
 from typing import List
 import re
-# todo
+# TODO
 class Solution():
     # 最长递增为1的序列的开始结束位置
     def minSwaps(self, nums: List[int]) -> int:

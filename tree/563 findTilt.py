@@ -5,7 +5,7 @@ class Solution:
     def __init__(self):
         self.res = 0
 
-    # todo
+    # TODO
     def findTilt(self, root: TreeNode) -> int:
         pass
         # if root is None:

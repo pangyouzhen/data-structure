@@ -1,7 +1,7 @@
 from typing import List
 
 
-# todo 
+# TODO 
 class Solution():
     def nextPermutation(self, nums: List[int]) -> None:
         pass

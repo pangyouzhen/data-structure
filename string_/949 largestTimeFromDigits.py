@@ -10,7 +10,7 @@ class Solution:
         pass
 
     @snoop()
-    # todo
+    # TODO
     def dfs(self, arr, one_ans, start):
         if len(one_ans) == 4:
             self.all_ans.append(one_ans[:])
