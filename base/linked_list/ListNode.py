@@ -9,7 +9,7 @@ class ListNode:
 
     @classmethod
     # 以数组作为创建ListNode,java中的构造函数
-    def list2node(cls, head: List[int]):
+    def list2node(cls, head: List[int])->Optional['ListNode']:
         # 创建非循环链表
         # 虚拟头节点
         assert len(head) > 0, "输入的是空的list，无法创建链表"
