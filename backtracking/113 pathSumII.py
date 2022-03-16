@@ -3,32 +3,34 @@ from typing import List, Optional
 from base.tree.tree_node import TreeNode
 
 
-# TODO
 class Solution:
+    def __init__(self) -> None:
+        self.res = []
 
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
-        res = []
-        if root is None:
-            return []
-        if root.left is None and root.right is None:
-            if targetSum == root.val:
-                # 这里返回的List[List[int]],这里靠猜的，后面debug下
-                res.append([root.val])
-        # 左子树到叶子节点的所有list
-        left_ls: List[List[int]] = self.pathSum(root.left, targetSum - root.val)
-        # [[4,11,2]]
-        for i in left_ls:
-            i.insert(0, root.val)
-            res.append(i)
-        right_ls = self.pathSum(root.right, targetSum - root.val)
-        for j in right_ls:
-            j.insert(0, root.val)
-            res.append(j)
-        return res
+        if not root:
+            return self.res
+        one_ans = [root.val]
+        self.path_sum(root, targetSum - root.val, one_ans)
+        return self.res
+
+    def path_sum(self, root: Optional[TreeNode], targetSum: int, one_ans: List[int]):
+        if targetSum == 0 and root.left is None and root.right is None:
+            self.res.append(one_ans[:])
+        if targetSum != 0 and root.left is None and root.right is None:
+            return
+        for i in [root.left, root.right]:
+            if i is not None:
+                one_ans.append(i.val)
+                self.path_sum(i, targetSum-i.val, one_ans)
+                one_ans.pop()
 
 
 if __name__ == '__main__':
     tree = TreeNode.from_strs("[5,4,8,11,null,13,4,7,2,null,null,5,1]")
+    tree2 = TreeNode.from_strs("[-2,null,-3]")
     print(tree)
-    sol = Solution()
-    print(sol.pathSum(tree, 22))
+    # sol = Solution()
+    print(Solution().pathSum(tree, 22))
+    print(tree2)
+    print(Solution().pathSum(tree2, -5))
