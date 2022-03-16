@@ -1,3 +1,4 @@
+import opcode
 from typing import Optional
 
 from base.tree.tree_node import TreeNode
@@ -5,29 +6,13 @@ from base.tree.tree_node import TreeNode
 
 # TODO
 class Solution:
+    # bfs
     def rob(self, root: Optional[TreeNode]) -> int:
         if root is None:
             return 0
-        result, queue = [], [root]
-        while queue:
-            next_level, vals = [], []
-            for node in queue:
-                if node.val is not None:
-                    vals.append(node.val)
-                    if node.left:
-                        next_level.append(node.left)
-                    if node.right:
-                        next_level.append(node.right)
-            queue = next_level
-            result.append(vals)
-        odd = 0
-        even = 0
-        for i, v in enumerate(result):
-            if i % 2 == 0:
-                even += sum(v)
-            else:
-                odd += sum(v)
-        return max(odd, even)
+        pass
+                    
+            
 
 
 if __name__ == '__main__':
