@@ -1,6 +1,4 @@
-from pysnooper import snoop
 class Solution:
-    # @snoop()
     def areNumbersAscending(self, s: str) -> bool:
         t = s.split()
         res = True
