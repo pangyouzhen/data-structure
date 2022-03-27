@@ -1,9 +1,6 @@
 import string
-import pysnooper
-
 
 class Solution:
-    @pysnooper.snoop()
     def getLucky(self, s: str, k: int) -> int:
         dic = {v: str(i + 1) for i, v in enumerate(string.ascii_lowercase)}
         num_init = ""
