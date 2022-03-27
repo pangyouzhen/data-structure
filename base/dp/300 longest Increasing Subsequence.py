@@ -8,8 +8,19 @@ class Solution:
             for j in range(i):
                 if nums[i] > nums[j]:
                     dp[i] = max(dp[i], dp[j] + 1)
-        print(dp)
+        print(f"{dp =}")
         return max(dp) if dp else 0
+        
+    # TODO why error  
+    def lengthOfLIS2(self,nums):
+        l = len(nums)
+        dp = [1] * l
+        for i in range(l):
+            for j in range(1, i):
+                if nums[i] > nums[j]:
+                    dp[i] = max(dp[i-1],dp[j] + 1)
+        print(f"{dp = }")
+        return max(dp)
 
 
 if __name__ == '__main__':
@@ -26,3 +37,6 @@ if __name__ == '__main__':
     print("********************")
     nums2 = [5, 6, 7, 1, 2]
     print(sol.lengthOfLIS(nums2))
+    nums3 = [0,1,0,3,2,3]
+    print(sol.lengthOfLIS(nums3))
+    print(sol.lengthOfLIS2(nums3))
