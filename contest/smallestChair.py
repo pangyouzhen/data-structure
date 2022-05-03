@@ -1,9 +1,7 @@
 from typing import List
-import pysnooper
 
 
 class Solution:
-    @pysnooper.snoop()
     def smallestChair(self, times: List[List[int]], targetFriend: int) -> int:
         target = times[targetFriend][0]
         # print(target)
