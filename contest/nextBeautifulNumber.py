@@ -1,9 +1,6 @@
 from collections import Counter
-from pysnooper import snoop
-
 
 class Solution:
-    # @snoop()
     def nextBeautifulNumber(self, n: int) -> int:
         n += 1
         while True:

@@ -2,10 +2,8 @@ from typing import List
 from collections import defaultdict
 
 
-# from pysnooper import snoop
 
 class Solution:
-    # @snoop()
     def findAllPeople(self, n: int, meetings: List[List[int]], firstPerson: int) -> List[int]:
         a = defaultdict(list)
         for m in meetings:

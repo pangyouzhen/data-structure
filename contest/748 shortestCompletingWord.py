@@ -1,10 +1,8 @@
 from collections import Counter
 from typing import List
-from pysnooper import snoop
 
 
 class Solution:
-    # @snoop()
     def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
         char = []
         for i in licensePlate:

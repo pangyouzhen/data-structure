@@ -1,9 +1,7 @@
 from typing import List
-import pysnooper
 
 
 class Solution:
-    @pysnooper.snoop()
     def isPrefixString(self, s: str, words: List[str]) -> bool:
         text = ""
         for w in words:

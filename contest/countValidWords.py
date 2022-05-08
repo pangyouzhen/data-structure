@@ -1,10 +1,6 @@
 import re
 
-from pysnooper import snoop
-
-
 class Solution:
-    # @snoop()
     def countValidWords(self, sentence: str) -> int:
         words = sentence.split()
         res = 0

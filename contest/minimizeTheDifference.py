@@ -1,6 +1,5 @@
 from typing import List
 from bisect import bisect
-import numpy as np
 
 
 class Solution:

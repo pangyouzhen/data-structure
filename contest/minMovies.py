@@ -1,8 +1,4 @@
-from pysnooper import snoop
-
-
 class Solution:
-    # @snoop()
     def minMoves(self, target: int, maxDoubles: int) -> int:
         res = 0
         while target != 1:

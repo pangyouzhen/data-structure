@@ -1,5 +1,4 @@
 from typing import List
-import pysnooper
 
 
 class Solution:
@@ -10,7 +9,6 @@ class Solution:
     这种求极值的问题是取找到中位数
     """
 
-    @pysnooper.snoop()
     def minOperations(self, grid: List[List[int]], x: int) -> int:
         all_num = [i for j in grid for i in j]
         _ = [i % x for i in all_num]

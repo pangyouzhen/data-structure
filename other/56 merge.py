@@ -1,9 +1,7 @@
 from typing import List
-from pysnooper import snoop
 
 
 class Solution:
-    # @snoop()
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         intervals = sorted(intervals, key=lambda x: x[0])
         res = [intervals[0]]

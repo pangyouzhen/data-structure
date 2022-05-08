@@ -1,7 +1,5 @@
-from typing import List
-import pysnooper
-import math
 import heapq
+from typing import List
 
 
 class Solution:
@@ -17,7 +15,7 @@ class Solution:
         return -sum(piles)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     piles = [5, 4, 9]
     k = 2
     sol = Solution().minStoneSum
