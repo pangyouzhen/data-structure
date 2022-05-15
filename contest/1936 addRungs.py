@@ -1,9 +1,7 @@
 import math
-import pysnooper
 
 
-class Solution(object):
-    # @pysnooper.snoop()
+class Solution:
     def addRungs(self, rungs, dist):
         """
         :type rungs: List[int]

@@ -1,6 +1,6 @@
 from typing import List
 from collections import Counter
-class Solution():
+class Solution:
     def divideArray(self, nums: List) -> bool :
         c = Counter(nums)
         for k,v in c.items():

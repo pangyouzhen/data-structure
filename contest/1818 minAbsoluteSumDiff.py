@@ -6,7 +6,6 @@ class Solution:
     #  贪心替换是错误的，比如下面的例子
     # nums1 = [1, 28, 21]
     # nums2 = [9, 21, 20]
-    # @pysnooper.snoop()
     def minAbsoluteSumDiff(self, nums1, nums2) -> int:
         n, total, sl, ans = len(nums1), 0, sorted(nums1), float("inf")
         for i in range(n):
