@@ -1,9 +1,7 @@
 from typing import List
-import pysnooper
 
 
 class Solution(object):
-    # @pysnooper.snoop()
     # 最长递增子序列
     def canBeIncreasing(self, nums: List[int]):
         l = len(nums)

@@ -1,5 +1,4 @@
 from typing import List
-from pysnooper import snoop
 from functools import lru_cache
 
 
@@ -20,7 +19,6 @@ class Solution:
 
         # 记忆化搜索计算满足购物清单所需花费的最低价格
         @lru_cache(None)
-        @snoop()
         def dfs(cur_needs):
             # 不购买任何大礼包，原价购买购物清单中的所有物品
             min_price = sum(need * price[i] for i, need in enumerate(cur_needs))
