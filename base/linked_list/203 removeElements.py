@@ -1,5 +1,4 @@
 from base.linked_list.ListNode import ListNode
-from pysnooper import snoop
 
 
 class Solution:
@@ -19,7 +18,6 @@ class Solution:
                 prev = prev.next
         return dummy_head.next
 
-    # @snoop()
     def removeElements2(self, head: ListNode, val: int) -> ListNode:
         # 宏观语义：这个函数就是移除元素
         # 最基本的情况
