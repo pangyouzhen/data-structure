@@ -1,7 +1,7 @@
 from typing import List
 
 
-class Solution():
+class Solution:
     def countCollisions(self, directions: str) -> int:
         d = {
             "LL":[0,"L"],
