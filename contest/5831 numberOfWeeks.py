@@ -1,10 +1,8 @@
 from typing import List
 from bisect import insort
-import pysnooper
 
 
 class Solution:
-    @pysnooper.snoop()
     def numberOfWeeks(self, milestones: List[int]) -> int:
         queue = sorted(milestones, reverse=True)
         result = 0

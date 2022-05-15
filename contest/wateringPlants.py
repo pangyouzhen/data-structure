@@ -1,11 +1,9 @@
 from typing import List
 from copy import deepcopy
 
-# from pysnooper import snoop
 
 
 class Solution:
-    # @snoop()
     def wateringPlants(self, plants: List[int], capacity: int) -> int:
         res = 0
         _ = deepcopy(capacity)

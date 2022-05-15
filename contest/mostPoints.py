@@ -1,10 +1,8 @@
 from typing import List
 
-from pysnooper import snoop
 
 
 class Solution:
-    # @snoop()
     def mostPoints(self, questions: List[List[int]]) -> int:
         n = len(questions)
         f = [0] * (n + 1)

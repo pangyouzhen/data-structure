@@ -2,7 +2,7 @@ from typing import List
 
 from base.tree.tree_node import TreeNode
 
-class Solution():
+class Solution:
     def largestGoodInteger(self, num : str) -> str:
         res = ""
         pre = ""

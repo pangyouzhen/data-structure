@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution:
     def maxIceCream(self, costs, coins):
         """
         :type costs: List[int]
