@@ -33,48 +33,6 @@ class TreeNode:
                     node.right = kids.pop()
         return root
 
-    # @classmethod
-    # def bst_from_list(cls, nums: List[int], bst_bool=True) -> Optional["TreeNode"]:
-    #     """
-    #     从列表生成树，中间节点作为root，sort_bool=True 默认生成二叉搜索树
-    #     """
-    #
-    #     # 设置闭包的原因是如果不用闭包，from_list每次都要传入bst_bool值
-    #     def from_list_inner(nums: List[int]) -> Optional["TreeNode"]:
-    #         """
-    #         从列表生成树，sort_bool=True 默认生成二叉搜索树
-    #         """
-    #         if not nums:
-    #             return
-    #         mid = len(nums) // 2
-    #         root = TreeNode(nums[mid])
-    #
-    #         root.left = from_list_inner(nums[:mid])
-    #         root.right = from_list_inner(nums[mid + 1:])
-    #         return root
-    #
-    #     if bst_bool:
-    #         nums = [num for num in nums if num]
-    #         nums.sort()
-    #     return from_list_inner(nums)
-
-    # @classmethod
-    # def from_list(cls, data):
-    #     # 对于root = [2,null,3,null,4,null,5,null,6] 生成是有问题的
-    #     # https://stackoverflow.com/questions/43097045/best-way-to-construct-a-binary-tree-from-a-list-in-python
-    #     n = iter(data)
-    #     tree = cls(next(n))
-    #     fringe = deque([tree])
-    #     while True:
-    #         head = fringe.popleft()
-    #         try:
-    #             head.left = cls(next(n))
-    #             fringe.append(head.left)
-    #             head.right = cls(next(n))
-    #             fringe.append(head.right)
-    #         except StopIteration:
-    #             break
-    #     return tree
 
     def __str__(self):
         print_btree(self, lambda n: (str(n.val), n.left, n.right))
@@ -154,6 +112,41 @@ class TreeNode:
             return max(left_depth, right_depth) + 1
 
         return maxDepth(self)
+
+    def level(root:"TreeNode") -> List[int]:
+        """
+        层次遍历
+        :param root:
+        :return:
+        """
+        if root is None:
+            return []
+        res,curr = [],[root]
+        while curr:
+            node = curr.pop(0)
+            if node.left:
+                curr.append(node.left)
+            if node.right:
+                curr.append(node.right)
+            res.append(node.val)
+        return res
+    
+    def levelOreder(root:"TreeNode") -> List[List[int]]:
+        if root is None:
+            return []
+        res ,curr = [],[root]
+        while curr:
+            next_vals,vals = [],[]
+            for node in curr:
+                if node.left:
+                    next_vals.append(node.left)
+                if node.right:
+                    next_vals.append(node.right)
+                vals.append(node.val)
+            curr = next_vals
+            res.append(vals)
+        return res
+        
 
 
 if __name__ == '__main__':

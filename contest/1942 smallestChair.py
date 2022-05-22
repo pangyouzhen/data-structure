@@ -1,6 +1,6 @@
 from typing import List
 
-
+# TODO
 class Solution:
     def smallestChair(self, times: List[List[int]], targetFriend: int) -> int:
         t = times[targetFriend]
