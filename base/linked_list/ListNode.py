@@ -76,26 +76,26 @@ class ListNode:
             a = a.next
         return res == res[::-1]
 
-    def __repr__(self):
-        # vscode debug工具
-        graph = {
-            "kind": {"graph": True},
-            "nodes": [],
-            "edges": []
-        }
-        a = self
-        last_val = None
-        while a is not None:
-            graph["nodes"].append(({'id': str(a.val), 'label': str(a.val)}))
-            # 链表必须要有两个节点
-            if len(graph["nodes"]) > 1:
-                graph["edges"].append(({
-                    "from": str(last_val), "to": str(a.val)
-                }))
-            last_val = str(a.val)
-            a = a.next
-        graph = json.dumps(graph)
-        return graph
+    # def __repr__(self):
+    #     # vscode debug工具
+    #     graph = {
+    #         "kind": {"graph": True},
+    #         "nodes": [],
+    #         "edges": []
+    #     }
+    #     a = self
+    #     last_val = None
+    #     while a is not None:
+    #         graph["nodes"].append(({'id': str(a.val), 'label': str(a.val)}))
+    #         # 链表必须要有两个节点
+    #         if len(graph["nodes"]) > 1:
+    #             graph["edges"].append(({
+    #                 "from": str(last_val), "to": str(a.val)
+    #             }))
+    #         last_val = str(a.val)
+    #         a = a.next
+    #     graph = json.dumps(graph)
+    #     return graph
 
 
 if __name__ == '__main__':
