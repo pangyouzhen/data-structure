@@ -1,9 +1,10 @@
 # Definition for singly-linked list.
+from typing import Optional
 from base.linked_list.ListNode import ListNode
 
 
 class Solution:
-    def reverseList(self, head: ListNode) -> ListNode:
+    def reverseList(self, head: ListNode) -> Optional[ListNode]:
         pre = None
         curr = head
         while curr:
@@ -25,7 +26,7 @@ class Solution:
 
 if __name__ == '__main__':
     nums = [1, 2, 3, 4, 5]
-    ln = ListNode.list2node(nums)
+    ln = ListNode.from_list(nums)
     print(ln)
     sol = Solution()
     a = sol.reverseList(ln)

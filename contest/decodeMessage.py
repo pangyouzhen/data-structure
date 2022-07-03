@@ -1,10 +1,11 @@
 from string import ascii_lowercase
+from typing import Dict
 
 class Solution:
     def decodeMessage(self, key: str, message: str) -> str:
         a = key.replace(" ", "")
         print(a)
-        d = {}
+        d: Dict[str,str] = {}
         k_pointer = 0
         m_pointer = 0
         while k_pointer < len(a):
