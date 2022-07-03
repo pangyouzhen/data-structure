@@ -44,7 +44,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    ls = ListNode.list2node([1, 2, 6, 3, 4, 5, 6])
+    ls = ListNode.from_list([1, 2, 6, 3, 4, 5, 6])
     # func = Solution().removeElements
     # print(func(ls, 6))
     func2 = Solution().removeElements2

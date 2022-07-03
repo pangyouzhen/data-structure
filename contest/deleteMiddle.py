@@ -39,7 +39,7 @@ if __name__ == '__main__':
     # nums = [1, 3, 4, 7, 1, 2, 6]
     nums = [2, 1]
     # nums = [1, 2, 3, 4]
-    ls = ListNode.list2node(nums)
+    ls = ListNode.from_list(nums)
     func = Solution().deleteMiddle
     print(ls)
     print(func(ls))

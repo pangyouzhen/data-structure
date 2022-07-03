@@ -9,35 +9,17 @@ class ListNode:
 
     @classmethod
     # 以数组作为创建ListNode,java中的构造函数
-    def from_list(cls, head: List[int])->Optional['ListNode']:
+    def from_list(cls, head: List[int]) -> "ListNode":
         # 创建非循环链表
         # 虚拟头节点
         assert len(head) > 0, "输入的是空的list，无法创建链表"
         #  头指针+移动指针，两个开始相同，随后移动指针不断变化，最后返回头指针
         dummy_head = fst_head = cls(val=head[0])
-        for i in range(1,len(head)):
+        for i in range(1, len(head)):
             ls = cls(val=head[i])
             dummy_head.next = ls
             dummy_head = dummy_head.next
         return fst_head
-
-    @classmethod
-    # TODO
-    # 以数组作为创建ListNode,java中的构造函数
-    def list2node_(cls, head: List[int]) -> 'ListNode':
-        # 创建非循环链表
-        # 虚拟头节点
-        return cls.list2node__(head, 0)
-
-    @classmethod
-    def list2node__(cls, head: List[int], ind: int) -> "Optional[ListNode]":
-        """
-        :rtype: 返回创建的链表
-        """
-        if not head:
-            return
-        res = cls.list2node__(head[ind:], ind + 1)
-        return res
 
     def __len__(self):
         if self.has_cycle():
@@ -98,7 +80,7 @@ class ListNode:
     #     return graph
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     nums = [1, 2, 3, 4, 5]
     listNode = ListNode.list2node_(nums)
     # print(len(listNode))

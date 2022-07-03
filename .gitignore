@@ -5,3 +5,4 @@ tree/__pycache__
 tmp
 *png
 .vscode
+.*
