@@ -1,5 +1,4 @@
 from typing import List
-from pysnooper import snoop
 
 
 class Solution:
@@ -9,8 +8,6 @@ class Solution:
     def largestTimeFromDigits(self, arr: List[int]) -> str:
         pass
 
-    @snoop()
-    # TODO
     def dfs(self, arr, one_ans, start):
         if len(one_ans) == 4:
             self.all_ans.append(one_ans[:])

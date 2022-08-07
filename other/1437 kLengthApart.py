@@ -1,9 +1,6 @@
 from typing import List
-from pysnooper import snoop
-
 
 class Solution:
-    # @snoop()
     def kLengthApart(self, nums: List[int], k: int) -> bool:
         pre_ind = None
         for i, v in enumerate(nums):

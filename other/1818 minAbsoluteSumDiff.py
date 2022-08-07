@@ -1,10 +1,7 @@
 from typing import List
 from bisect import bisect_right
-import pysnooper
-
 
 class Solution:
-    @pysnooper.snoop()
     def minAbsoluteSumDiff(self, nums1: List[int], nums2: List[int]) -> int:
         res = 0
         minus_val = 0

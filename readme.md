@@ -127,6 +127,7 @@ backtracking() {
 5. `bisect中的bisect_left,bisect_right,insort，左右指的是在相同值的左边还是右边`
 6. `python set的交&,并|,补-, 对称差集^,比较大小<=`
 1. `python中的按位与&，按位或|，按位异或^,按位取反~,左移<<,右移>>`
+1. `in /not in` 的判断最好是对set进行判断
 
 ### 时间复杂度和算法
 

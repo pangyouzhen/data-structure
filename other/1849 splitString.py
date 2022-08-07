@@ -1,9 +1,6 @@
-from pysnooper import snoop
-
 
 class Solution:
     # 应该是贪婪算法+队列
-    @snoop()
     # TODO
     def splitString(self, s: str) -> bool:
         s = s.lstrip("0")
