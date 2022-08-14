@@ -1,7 +1,5 @@
-from typing import Dict, Set
-from typing import List
+from typing import Dict, Set, Tuple,List
 
-from pysnooper import snoop
 
 graph: Dict[str, Set[str]] = {'A': {'B', 'C'},
                               'B': {'A', 'D', 'E'},
@@ -24,18 +22,16 @@ graph3 = {'0': {'1', '2'},
           '4': {'2', '3'}}
 
 
-@snoop()
-def dfs(graph: Dict[str, set[str]], start: str, visited=None):
-    #  TODO 为什么有时不是从start 出发的？程序有问题？
-    #  TODO 这个程序对有向图和无向图均适用？
-    if visited is None:
-        visited = set()
+def dfs(graph: Dict[str, Tuple[int]], start: str, all_res: List[str]):
     visited.add(start)
-    # print(start)
-    for next in (graph[start] - visited):
-        dfs(graph, next, visited)
-    return visited
+    all_res.append(start)
+    for next in graph[start]:
+        if next not in visited:
+            dfs(graph, next, all_res)
 
 
 if __name__ == '__main__':
-    print(dfs(graph3, "0"))
+    visited = set()
+    all_res = []
+    dfs(graph3, "0", all_res)
+    print(all_res)
