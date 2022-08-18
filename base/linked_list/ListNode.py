@@ -82,7 +82,7 @@ class ListNode:
 
 if __name__ == "__main__":
     nums = [1, 2, 3, 4, 5]
-    listNode = ListNode.list2node_(nums)
+    listNode = ListNode.from_list(nums)
     # print(len(listNode))
     # print(listNode)
     print(listNode)
