@@ -16,10 +16,10 @@ class Solution:
 
 if __name__ == '__main__':
     a = [1, 2, 4]
-    lna = ListNode.list2node(a)
+    lna = ListNode.from_list(a)
     print(lna)
     b = [1, 3, 4]
-    lnb = ListNode.list2node(b)
+    lnb = ListNode.from_list(b)
     print(lnb)
     sol = Solution()
     print(sol.mergeTwoLists(lna, lnb))

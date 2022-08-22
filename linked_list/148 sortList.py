@@ -21,6 +21,6 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    a = ListNode.list2node([4, 2, 1, 3])
+    a = ListNode.from_list([4, 2, 1, 3])
     b = sol.sortList(a)
     print(b)

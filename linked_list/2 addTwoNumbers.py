@@ -27,8 +27,8 @@ class Solution:
 
 
 if __name__ == '__main__':
-    l1 = ListNode.list2node([2, 4, 3])
-    l2 = ListNode.list2node([5, 6, 4])
+    l1 = ListNode.from_list([2, 4, 3])
+    l2 = ListNode.from_list([5, 6, 4])
     sol = Solution()
     temp = (sol.addTwoNumbers(l1, l2))
     print(temp)

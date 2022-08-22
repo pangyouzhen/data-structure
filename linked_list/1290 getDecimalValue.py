@@ -12,6 +12,6 @@ class Solution:
 
 
 if __name__ == '__main__':
-    head = ListNode.list2node([1, 0, 1])
+    head = ListNode.from_list([1, 0, 1])
     sol = Solution()
     print(sol.getDecimalValue(head))

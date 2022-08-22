@@ -16,6 +16,6 @@ class Solution:
 
 
 if __name__ == '__main__':
-    ls = ListNode.list2node([1, 2, 3, 4, 5])
+    ls = ListNode.from_list([1, 2, 3, 4, 5])
     sol = Solution()
     print(sol.getKthFromEnd(ls, 2))

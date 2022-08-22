@@ -9,6 +9,6 @@ class Solution:
 if __name__ == '__main__':
     sol = Solution()
     head = [1, 2, 3, 4, 5]
-    head = ListNode.list2node(head)
+    head = ListNode.from_list(head)
     k = 2
     print(sol.rotateRight(head, k))

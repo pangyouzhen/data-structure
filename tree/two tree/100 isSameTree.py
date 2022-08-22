@@ -3,15 +3,17 @@ from base.tree.tree_node import TreeNode
 
 class Solution:
     def isSameTree(self, p: TreeNode, q: TreeNode):
-        # both None
-        if not p and not q:
+        if p is None and q is None:
             return True
-        # any None
-        if not q or not p:
+        elif p is not None and q is not None:
+            if p.val != q.val:
+                return False
+            else:
+                left = self.isSameTree(p.left, q.left)
+                right = self.isSameTree(p.right, q.right)
+                return left & right
+        else:
             return False
-        if p.val != q.val:
-            return False
-        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
 
 if __name__ == '__main__':
