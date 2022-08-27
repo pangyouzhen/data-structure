@@ -33,6 +33,18 @@ class TreeNode:
                     node.right = kids.pop()
         return root
 
+    @classmethod
+    def from_ls_int(cls, ls: List[Optional[int]]) -> 'Optional[TreeNode]':
+        nodes = [cls(i) if i else None for i in ls]
+        kids = nodes[::-1]
+        root = kids.pop()
+        for node in nodes:
+            if node:
+                if kids:
+                    node.left = kids.pop()
+                if kids:
+                    node.right = kids.pop()
+        return root
 
     def __str__(self):
         print_btree(self, lambda n: (str(n.val), n.left, n.right))
@@ -113,7 +125,7 @@ class TreeNode:
 
         return maxDepth(self)
 
-    def level(root:"TreeNode") -> List[int]:
+    def level(root: "TreeNode") -> List[int]:
         """
         层次遍历
         :param root:
@@ -121,7 +133,7 @@ class TreeNode:
         """
         if root is None:
             return []
-        res,curr = [],[root]
+        res, curr = [], [root]
         while curr:
             node = curr.pop(0)
             if node.left:
@@ -130,13 +142,13 @@ class TreeNode:
                 curr.append(node.right)
             res.append(node.val)
         return res
-    
-    def levelOreder(root:"TreeNode") -> List[List[int]]:
+
+    def levelOreder(root: "TreeNode") -> List[List[int]]:
         if root is None:
             return []
-        res ,curr = [],[root]
+        res, curr = [], [root]
         while curr:
-            next_vals,vals = [],[]
+            next_vals, vals = [], []
             for node in curr:
                 if node.left:
                     next_vals.append(node.left)
@@ -146,7 +158,6 @@ class TreeNode:
             curr = next_vals
             res.append(vals)
         return res
-        
 
 
 if __name__ == '__main__':

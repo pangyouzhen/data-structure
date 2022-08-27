@@ -1,7 +1,6 @@
-from cgitb import small
 from typing import List
 
-class Solution():
+class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
         bigger_zero = []
         smaller_zero = []

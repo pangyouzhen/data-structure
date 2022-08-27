@@ -1,11 +1,9 @@
 from typing import List
-import pysnooper
 import re
 from collections import Counter
 
 
 class Solution:
-    @pysnooper.snoop()
     def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
         paras = re.split("\W+", paragraph)
         paras = [para.lower() for para in paras if para]

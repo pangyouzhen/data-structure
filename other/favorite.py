@@ -1,7 +1,7 @@
 from typing import List
 from collections import defaultdict
 
-class Solution():
+class Solution:
     # TODO
     def maximumInvitations(self, favorite: List) -> int:
         a = defaultdict(list)

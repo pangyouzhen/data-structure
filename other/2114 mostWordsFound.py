@@ -1,6 +1,6 @@
 from typing import List
 
-class Solution():
+class Solution:
     def mostWordsFound(self, sentences: List[str]) -> int:
         max_length = 0
         for i in sentences:

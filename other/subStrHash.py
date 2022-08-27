@@ -3,7 +3,7 @@ from collections import defaultdict
 from string import ascii_lowercase
 
 
-class Solution():
+class Solution:
     def subStrHash(self, s: str, power: int, modulo: int, k: int, hashValue: int) -> str:
         ind = {v: i + 1 for i, v in enumerate(ascii_lowercase)}
         mod_val = []

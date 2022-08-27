@@ -1,6 +1,6 @@
 from typing import List
 
-class Solution():
+class Solution:
     def firstPalindrome(self, nums: List[str]) -> str:
         res = ""
         for num in nums:

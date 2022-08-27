@@ -1,6 +1,6 @@
 from typing import List
 
-class Solution():
+class Solution:
     def dominantIndex(self, nums: List[int]) -> int:
         if len(nums) <= 1:
             return 0

@@ -1,18 +1,18 @@
 from typing import List
 
+
 # TODO
 class Solution:
     def smallestChair(self, times: List[List[int]], targetFriend: int) -> int:
-        t = times[targetFriend]
-        start = t[0]
-        end = t[1]
-        times.pop(targetFriend)
-        sort_time = sorted(times, key=lambda x: x[0])
-        res = 0
-        prev_start = sort_time[0][0]
-        prev_end = sort_time[0][1]
-        if prev_start == start:
-            return res
-        for i in sort_time[1:]:
+        times = list(zip(enumerate(times)))
+        arrive_time = sorted(times, key=lambda x: x[1][0])
+        for i,v in arrive_time:
             pass
+        return times
 
+
+if __name__ == '__main__':
+    times = [[1, 4], [2, 3], [4, 6]]
+    targetFriend = 1
+    func = Solution().smallestChair
+    print(func(times, targetFriend))

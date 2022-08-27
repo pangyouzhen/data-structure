@@ -1,6 +1,6 @@
 from typing import List
 
-class Solution():
+class Solution:
     def asteroidsDestroyed(self, mass:int,asteroids: List) -> bool:
         asteroids.sort()
         l = len(asteroids)

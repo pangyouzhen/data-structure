@@ -1,12 +1,12 @@
 class Solution:
-    # TODO
+    # todo
     def removeDuplicateLetters(self, s: str) -> str:
-        if len(s) == 1:
-            return s
-        queue = []
-        for i in s:
-            if i in s:
-                ind = s.index(i)
+        pass
 
-            else:
-                queue.append(s)
+
+if __name__ == '__main__':
+    func = Solution().removeDuplicateLetters
+    s = "bcabc"
+    print(func(s))
+    s1 = "cbacdcbc"
+    print(func(s1))

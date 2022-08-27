@@ -3,9 +3,7 @@ from typing import List
 
 class Solution:
     def flipAndInvertImage(self, A: List[List[int]]) -> List[List[int]]:
-        res = []
-        for i in A:
-            res.append(i[::-1])
+        res = [i[::-1] for i in A]
         for i, v in enumerate(res):
             for j in v:
                 if j == 1:

@@ -1,7 +1,7 @@
 from typing import List
 
 
-class Solution():
+class Solution:
     def numberOfBeams(self, bank: List[str]) -> int:
         ones = []
         for i,v in enumerate(bank):

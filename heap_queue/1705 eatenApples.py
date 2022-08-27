@@ -2,7 +2,7 @@ from typing import List
 from heapq import heappop, heappush
 
 
-class Solution():
+class Solution:
     def eatenApples(self, apples: List[int], days: List[int]) -> int:
         ans = 0
         pq = []

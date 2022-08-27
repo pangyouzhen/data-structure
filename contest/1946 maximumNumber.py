@@ -1,10 +1,6 @@
 from typing import List
 
-# import pysnooper
-
-
 class Solution:
-    # @pysnooper.snoop()
     def maximumNumber(self, num: str, change: List[int]) -> str:
         flag = 0
         n = len(num)

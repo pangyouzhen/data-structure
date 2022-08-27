@@ -1,4 +1,5 @@
 from collections import Counter
+from string import digits
 
 
 class Solution:
@@ -35,6 +36,7 @@ class Solution:
 
 if __name__ == "__main__":
     # num = "444947137"
-    num = "00009"
-    func = Solution().largestPalindromic
-    print(func(num))
+    # num = "00009"
+    # func = Solution().largestPalindromic
+    # print(func(num))
+    print(digits[:0:-1])

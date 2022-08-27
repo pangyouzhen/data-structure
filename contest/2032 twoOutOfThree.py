@@ -3,10 +3,10 @@ from typing import List
 
 class Solution:
     def twoOutOfThree(self, nums1: List[int], nums2: List[int], nums3: List[int]) -> List[int]:
-        a1 = set(nums1).intersection(nums2)
-        a2 = set(nums1).intersection(nums3)
-        a3 = set(nums2).intersection(nums3)
-        a = set(a1).union(a2).union(a3)
+        a1 = set(nums1) & set(nums2)
+        a2 = set(nums1) & set(nums3)
+        a3 = set(nums2) & set(nums3)
+        a = a1 | a2 | a3
         return list(a)
 
 

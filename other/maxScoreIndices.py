@@ -1,7 +1,7 @@
 from typing import List
 
 
-class Solution():
+class Solution:
     def maxScoreIndices(self, nums: List) -> List[int]:
         zeros = 0
         ones = nums.count(1)

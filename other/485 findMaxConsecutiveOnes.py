@@ -1,9 +1,7 @@
 from typing import List
-import pysnooper
 
 
 class Solution:
-    @pysnooper.snoop()
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
         curr = 0
         res = 0

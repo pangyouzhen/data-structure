@@ -1,10 +1,8 @@
 from typing import List
 from copy import deepcopy
-import pysnooper
 
 
 class Solution:
-    @pysnooper.snoop()
     def countTriplets(self, arr: List[int]) -> int:
         n = len(arr)
         res = []
