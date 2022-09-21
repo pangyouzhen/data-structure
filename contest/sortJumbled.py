@@ -1,5 +1,5 @@
-from typing import List
 from bisect import insort, bisect
+from typing import List
 
 
 class Solution:

@@ -3,7 +3,7 @@ from base.linked_list.ListNode import ListNode
 import random
 
 
-class Solution():
+class Solution:
     def __init__(self, head: Optional[ListNode]) -> None:
         self.arr = []
         while head:

@@ -1,24 +1,24 @@
 from typing import List
 
 
-class Solution():
+class Solution:
     def countHillValley(self, nums: List) -> int:
         res = 0
         ns = []
         pre = nums[0]
-        for i in range(1,len(nums)):
+        for i in range(1, len(nums)):
             if nums[i] == pre:
                 continue
             else:
                 ns.append(pre)
-                pre = nums[i] 
+                pre = nums[i]
         ns.append(pre)
         if len(ns) <= 2:
             return 0
-        for i in range(1,len(ns) -1):
-            if ns[i] > ns[i-1] and ns[i] > ns[i+1]:
-                res +=1
-            elif ns[i] < ns[i-1] and ns[i] < ns[i+1]:
+        for i in range(1, len(ns) - 1):
+            if ns[i] > ns[i - 1] and ns[i] > ns[i + 1]:
+                res += 1
+            elif ns[i] < ns[i - 1] and ns[i] < ns[i + 1]:
                 res += 1
         return res
 

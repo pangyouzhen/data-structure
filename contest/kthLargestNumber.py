@@ -1,10 +1,8 @@
 from typing import List
 import heapq
-import pysnooper
 
 
 class Solution:
-    # @pysnooper.snoop()
     def kthLargestNumber(self, nums: List[str], k: int) -> str:
         nums = [int(i) for i in nums]
         diff_k = len(nums) - k

@@ -32,6 +32,7 @@ class Solutions:
         self.memo = [[-1] * (c + 1) for _ in range(n)]
         result = self.bestValue(w, v, n - 1, c)
         return result
+
     #  用1，...index 的物品填充 容量为c的物品
 
     def bestValue(self, w: List[int], v: List[int], index: int, c: int):
@@ -55,10 +56,10 @@ if __name__ == '__main__':
     C = 100
     #  书包总重量
     # wt = [2, 1, 3]
-    wt = [20,30,40,50,60]
+    wt = [20, 30, 40, 50, 60]
     #  每个物品的重量
     # val = [4, 2, 3]
-    val = [20,30,44,55,60]
+    val = [20, 30, 44, 55, 60]
     #  每个物品的价值'
     sol = Solution()
     print(sol.knapsack(N, C, wt, val))

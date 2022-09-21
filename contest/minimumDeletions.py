@@ -1,9 +1,7 @@
 from typing import List
-from pysnooper import snoop
 
 
 class Solution:
-    # @snoop()
     def minimumDeletions(self, nums: List[int]) -> int:
         l = len(nums)
         if l == 1:

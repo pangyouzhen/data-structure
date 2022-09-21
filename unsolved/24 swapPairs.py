@@ -12,7 +12,7 @@ class Solution:
         return newHead
 
 if __name__ == '__main__':
-    a = ListNode.list2node([1, 2, 3, 4, 5])
+    a = ListNode.from_list([1, 2, 3, 4, 5])
     print(a)
     sol = Solution()
     print(sol.swapPairs(a))

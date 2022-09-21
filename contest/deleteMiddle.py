@@ -23,7 +23,7 @@ class Solution:
         if l == 1:
             return None
         if l == 2:
-            return ListNode(    h.val)
+            return ListNode(h.val)
         dummy_head = ListNode(0)
         dummy_head.next = h
         while h:

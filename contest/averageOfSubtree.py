@@ -3,7 +3,7 @@ from typing import List
 from base.tree.tree_node import TreeNode
 
 # TODO
-class Solution():
+class Solution:
     def averageOfSubtree(self, root : TreeNode) -> int:
         if not root:
             return 0

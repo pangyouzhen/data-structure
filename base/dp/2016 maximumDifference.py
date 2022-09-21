@@ -1,6 +1,6 @@
 from typing import List
 
-class Solution():
+class Solution:
     def maximumDifference(self, nums: List[int]) -> int:
         l = len(nums)
         max_val = -1

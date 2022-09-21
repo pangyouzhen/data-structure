@@ -20,11 +20,12 @@ class Solution:
             # print(r, c)
             ans[r][c] = str(node.val)
             if node.left:
-                dfs(node.left, r + 1, c - 2 ** (height - 1 - r - 1))
+                dfs(node.left, r + 1, c - 2 ** (height - 1 - (r + 1)))
             if node.right:
-                dfs(node.right, r + 1, c + 2 ** (height - 1 - r - 1))
+                dfs(node.right, r + 1, c + 2 ** (height - 1 - (r + 1)))
 
         dfs(root, 0, (n - 1) // 2)
+
         return ans
 
 

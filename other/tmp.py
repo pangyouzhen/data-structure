@@ -1,74 +1,33 @@
-# Python3 program to print DFS traversal
-# from a given graph
-from collections import defaultdict
-# This class represents a directed graph using
-# adjacency list representation
-from typing import Dict, Optional, Tuple
+from typing import List
 
 
-class Graph:
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        s = sum(nums)
+        if len(nums) < 2:
+            return False
+        if s % 2 != 0:
+            return False
+        target = int(s / 2)
+        n = len(nums)
+        dp = [[False] * (target + 1) for i in range(n)]
+        for i in range(n):
+            dp[i][0] = True
 
-    # Constructor
-    def __init__(self):
-
-        # default dictionary to store graph
-        self.graph = defaultdict(list)
-
-    # function to add an edge to graph
-    def addEdge(self, u, v):
-        self.graph[u].append(v)
-
-    # A function used by DFS
-    def DFSUtil(self, v, visited):
-
-        # Mark the current node as visited
-        # and print it
-        visited.add(v)
-        print(v, end=' ')
-
-        # Recur for all the vertices
-        # adjacent to this vertex
-        for neighbour in self.graph[v]:
-            if neighbour not in visited:
-                self.DFSUtil(neighbour, visited)
-
-    # The function to do DFS traversal. It uses
-    # recursive DFSUtil()
-    def DFS(self, v):
-
-        # Create a set to store visited vertices
-        visited = set()
-
-        # Call the recursive helper function
-        # to print DFS traversal
-        self.DFSUtil(v, visited)
-
-# Driver code
+        dp[0][nums[0]] = True
+        for i in range(1, n):
+            for j in range(1, target + 1):
+                if j > nums[i]:
+                    dp[i][j] = dp[i - 1][j] | dp[i - 1][j - nums[i]]
+                else:
+                    dp[i][j] = dp[i - 1][j]
+        return dp[n - 1][target]
 
 
-# Create a graph given
-# in the above diagram
-g = Graph()
-g.addEdge(0, 1)
-g.addEdge(0, 2)
-g.addEdge(1, 2)
-g.addEdge(2, 0)
-g.addEdge(2, 3)
-g.addEdge(3, 3)
-print(g.graph)
-print("Following is DFS from (starting from vertex 2)")
-g.DFS(2)
-
-print('----------------')
-print('---------')
-def dfs(graph: Dict[int, Tuple], start: int, visted: Optional[Tuple]):
-    visted.add(start)
-    for next in graph[start]:
-        if next not in visted:
-            dfs(graph, next, visted)
-
-
-visited = set()
-dfs(g.graph, 2, visited)
-
-# This code is contributed by Neelam Yadav
+if __name__ == '__main__':
+    sol = Solution()
+    func = sol.canPartition
+    assert func([1, 5, 11, 5]) is True
+    assert func([1, 3, 4, 4]) is False
+    assert func([2, 2, 1, 1]) is True
+    assert func([1, 2, 5]) is False
