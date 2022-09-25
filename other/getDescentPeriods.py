@@ -1,6 +1,6 @@
 from typing import List
 from functools import lru_cache
-class Solution():
+class Solution:
     def getDescentPeriods(self, nums: List) -> int:
         l = len(nums)
         dp = [1] * l

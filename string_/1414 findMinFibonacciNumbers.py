@@ -1,6 +1,6 @@
 from typing import List
 from bisect import bisect
-class Solution():
+class Solution:
     def findMinFibonacciNumbers(self, k:int) -> int:
         fibs = [1,1]
         while True:

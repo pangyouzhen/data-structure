@@ -1,4 +1,3 @@
-from typing import List
 from collections import defaultdict
 from string import ascii_lowercase
 
@@ -20,12 +19,12 @@ class Solution:
             init_val = init_val + mod_val[i] - mod_val[i - k]
             # print(f"{i}", init_val)
             if init_val % modulo == hashValue:
-                return s[i-k+1:i+1]
+                return s[i - k + 1:i + 1]
 
 
 if __name__ == "__main__":
     func = Solution().subStrHash
-    s ="xxterzixjqrghqyeketqeynekvqhc"
+    s = "xxterzixjqrghqyeketqeynekvqhc"
     power = 15
     modulo = 94
     k = 4

@@ -1,7 +1,7 @@
 from collections import Counter
 from typing import List
 
-class Solution():
+class Solution:
     def longestNiceSubstring(self, s: str) -> str:
         if len(s) == 0:
             return ""
@@ -14,5 +14,5 @@ class Solution():
 
 if __name__ =="__main__":
     func = Solution().longestNiceSubstring
-    nums =[]
+    nums =""
     print(func(nums))

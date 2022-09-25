@@ -1,10 +1,7 @@
 import re
-import pysnooper
 
 
-# TODO
 class Solution:
-    @pysnooper.snoop()
     def countOfAtoms(self, formula: str) -> str:
         if "(" not in formula:
             return

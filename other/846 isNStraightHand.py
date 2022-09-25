@@ -2,7 +2,7 @@ from typing import List
 from collections import Counter
 
 
-class Solution():
+class Solution:
     def isNStraightHand(self, hand: List[int], groupSize: int) -> bool:
         l = len(hand)
         group = l / groupSize

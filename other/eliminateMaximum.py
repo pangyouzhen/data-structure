@@ -1,8 +1,4 @@
-import pysnooper
-
-
 class Solution(object):
-    # @pysnooper.snoop()
     def eliminateMaximum(self, dist, speed):
         val = [i / v for i, v in zip(dist, speed)]
         val.sort()

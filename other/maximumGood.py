@@ -1,6 +1,7 @@
 from typing import List
 
-class Solution():
+# TODO
+class Solution:
     def maximumGood(self, nums: List[List[int]]) ->int:
         l = len(nums)
         cols = [[]] * l

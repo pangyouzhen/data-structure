@@ -1,7 +1,7 @@
 from typing import List
 
 
-class Solution():
+class Solution:
     # TODO
     def stoneGameIX(self, stones: List[int]) -> bool:
         t = [i for i in stones if i%3 != 0]

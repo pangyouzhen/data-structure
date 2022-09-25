@@ -12,6 +12,6 @@ class Solution:
 
 if __name__ == '__main__':
     nums = [1, 2, 2, 1]
-    ln = ListNode.list2node(nums)
+    ln = ListNode.from_list(nums)
     sol = Solution()
     print(sol.isPalindrome(ln))

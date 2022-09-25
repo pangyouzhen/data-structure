@@ -1,9 +1,7 @@
 from typing import List
-from pysnooper import snoop
 
 
 class Solution:
-    # @snoop()
     def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
         res = 0
         for i in range(1, len(timeSeries)):

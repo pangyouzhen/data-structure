@@ -1,8 +1,4 @@
-import pysnooper
-
-
 class Solution:
-    # @pysnooper.snoop()
     def firstUniqChar(self, s: str) -> str:
         queue = []
         visited = []

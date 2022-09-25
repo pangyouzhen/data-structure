@@ -1,7 +1,7 @@
 from typing import List
 from collections import Counter
 
-class Solution():
+class Solution:
     def countElements(self, nums: List[int]) -> int:
         min_val = min(nums)
         max_val = max(nums)
