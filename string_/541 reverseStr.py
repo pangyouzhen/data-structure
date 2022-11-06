@@ -1,7 +1,7 @@
 from typing import List
 
 
-class Solution(object):
+class Solution:
     def reverseStr(self, s, k):
         a = list(s)
         for i in range(0, len(a), 2 * k):

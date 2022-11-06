@@ -7,4 +7,3 @@ class Solution:
 if __name__ == "__main__":
     func = Solution().percentageLetter
     nums = []
-    print(func(nums))

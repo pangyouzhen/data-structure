@@ -5,14 +5,12 @@ from base.linked_list.ListNode import ListNode
 
 class Solution:
     def reverseList(self, head: ListNode) -> Optional[ListNode]:
-        pre = None
-        curr = head
+        pre, curr = None, head
         while curr:
             temp = curr.next
             curr.next = pre
-            pre = curr
-            curr = temp
-        return pre
+            pre, curr = curr, temp
+        return
 
     def reverseList2(self, head: ListNode) -> ListNode:
         # 终止条件

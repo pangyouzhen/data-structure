@@ -4,7 +4,7 @@ from base.tree.tree_node import TreeNode
 
 
 # TODO
-class Solution():
+class Solution:
     # 注意这里和235题目的区别，这里不是二叉搜索树
     def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> Optional[TreeNode]:
         if root is None:

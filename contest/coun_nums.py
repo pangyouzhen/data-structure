@@ -1,6 +1,6 @@
 from typing import List
 
-class Solution():
+class Solution:
     def continue_nums(self, text: List[str]) -> str:
         pre = text[0] 
         res = []

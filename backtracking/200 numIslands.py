@@ -3,28 +3,28 @@ from typing import List
 
 # 回溯法+方向判断
 class Solution:
-    # 联通图的个数-染色问题- 其实也可以看作是树形结构
     def numIslands(self, grid: List[List[str]]) -> int:
-        n_rows = len(grid)
-        if n_rows == 0:
-            return 0
-        n_columns = len(grid[0])
-        nums_islands = 0
-        for i in range(n_rows):
-            for j in range(n_columns):
-                if grid[i][j] == "1":
-                    nums_islands += 1
-                    self.dfs(grid, i, j)
-        return nums_islands
+        m = len(grid)
+        n = len(grid[0])
+        # 遍历过为True，未遍历未False
+        grid_flag = [[False] * n for i in range(m)]
+        directions = [[-1, 0], [1, 0], [0, 1], [0, -1]]
+        res = 0
 
-    def dfs(self, grid, i, j):
-        print(i,j)
-        # 这里是关键，如果遍历过了就重置为0，这里没有终止条件？
-        grid[i][j] = 0
-        nr, nc = len(grid), len(grid[0])
-        for x, y in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
-            if 0 <= x < nr and 0 <= y < nc and grid[x][y] == "1":
-                self.dfs(grid, x, y)
+        def dfs(grid, i, j):
+            if 0 <= i < m and 0 <= j < n:
+                if grid[i][j] == "1" and grid_flag[i][j] is False:
+                    grid_flag[i][j] = True
+                    for k, v in directions:
+                        dfs(grid, i + k, j + v)
+
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == "1" and grid_flag[i][j] is False:
+                    res += 1
+                    dfs(grid, i, j)
+
+        return res
 
 
 if __name__ == '__main__':
