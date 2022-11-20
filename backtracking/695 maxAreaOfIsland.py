@@ -1,30 +1,30 @@
 from typing import List
 
-# TODO
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         m = len(grid)
         n = len(grid[0])
-        # 遍历过为True，未遍历未False
-        grid_flag = [[False] * n for i in range(m)]
         directions = [[-1, 0], [1, 0], [0, 1], [0, -1]]
         res = 0
 
         def dfs(grid, i, j, area):
-            if 0 <= i < m and 0 <= j < n:
-                if grid[i][j] == 1 and grid_flag[i][j] is False:
-                    grid_flag[i][j] = True
-                    area += 1
-                    for k, v in directions:
-                        dfs(grid, i + k, j + v, area)
-
+            if not(0 <= i < m and 0 <= j < n and grid[i][j] == 1):
+                return 0
+            grid[i][j] = 2
+            area = 1
+            for k, v in directions:
+                area += dfs(grid, i + k, j + v, area)
+            return area
+                
         for i in range(m):
             for j in range(n):
-                if grid[i][j] == 1 and grid_flag[i][j] is False:
+                if grid[i][j] == 1:
+                    # 这里最关键的是传入的 area 如何传出来, 肯定是return， 但是怎么return是问题
                     area = 1
-                    dfs(grid, i, j, area)
+                    area = dfs(grid, i, j, area)
                     if area > res:
                         res = area
+                area = 0
         return res
 
 
