@@ -1,9 +1,7 @@
 from typing import List
-from pysnooper import snoop
 
 
 class Solution:
-    # @snoop()
     # 暴力解法
     def dailyTemperatures_(self, temperatures: List[int]) -> List[int]:
         if not temperatures:
@@ -19,7 +17,6 @@ class Solution:
         return res
 
     # 单调栈应用场景: 每个数右边第一个比它大的数
-    @snoop()
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         l = len(temperatures)
         ans = [0] * l

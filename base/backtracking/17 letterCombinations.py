@@ -1,6 +1,4 @@
 from typing import List
-from pysnooper import snoop
-
 
 class Solution:
     def __init__(self):
@@ -16,14 +14,12 @@ class Solution:
         }
         self.all_ans = []
 
-    @snoop()
     def letterCombinations(self, digits: str) -> List[str]:
         if len(digits) == 0:
             return []
         self.letterCombinations_memo(digits, 0, "")
         return self.all_ans
 
-    @snoop()
     # digits="23",ind=0,one_ans=[]
     # 这里最终返回的是-> List[str]，所以每一个元素应该是str,所以one_ans应该是str
     def letterCombinations_memo(self, digits: str, ind: int, one_ans: str) -> None:

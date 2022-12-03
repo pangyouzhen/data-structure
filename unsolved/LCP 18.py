@@ -1,6 +1,5 @@
 from typing import List
 from bisect import bisect_right
-from pysnooper import snoop
 
 
 class Solution:
@@ -13,7 +12,6 @@ class Solution:
                     res += 1
         return res
 
-    @snoop()
     # 使用bisect库维护有序列表
     def breakfastNumber(self, staple: List[int], drinks: List[int], x: int) -> int:
         staple.sort(reverse=True)

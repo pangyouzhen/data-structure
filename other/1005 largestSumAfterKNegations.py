@@ -1,10 +1,8 @@
 from typing import List
 from bisect import insort
-from pysnooper import snoop
 
 
 class Solution:
-    # @snoop()
     def largestSumAfterKNegations(self, nums: List[int], k: int) -> int:
         nums.sort()
         while k > 0:
