@@ -1,7 +1,7 @@
 from typing import List
 
 
-class Solution():
+class Solution:
     def maxIncreaseKeepingSkyline(self, grid: List[List[int]]) -> int:
         l = len(grid)
         cols = []

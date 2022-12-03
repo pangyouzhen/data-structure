@@ -1,7 +1,7 @@
 from typing import List
 
 
-class Solution():
+class Solution:
     def slowestKey(self, releaseTimes: List, keysPressed: str) -> str:
         max_val = 0
         last = 0

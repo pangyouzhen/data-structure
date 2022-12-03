@@ -3,7 +3,7 @@ from typing import List
 from base.tree.tree_node import TreeNode
 
 
-class Solution():
+class Solution:
     def numColor(self, root: TreeNode) -> int:
         self.colors = []
         self.num_color(root) 

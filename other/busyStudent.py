@@ -2,13 +2,10 @@ from typing import List
 
 
 class Solution:
-    # TODO
     def busyStudent(self, startTime: List[int], endTime: List[int], queryTime: int) -> int:
         count_ = 0
         for start, end in zip(startTime, endTime):
-            if queryTime > end or queryTime < start:
-                pass
-            else:
+            if start <= queryTime <= end:
                 count_ += 1
         return count_
 

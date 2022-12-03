@@ -1,7 +1,7 @@
 from typing import List
 
 # TODO 
-class Solution():
+class Solution:
     def maximumSubsequenceCount(self, text: str,pattern:str) -> int:
         pre = pattern[0] 
         res = []
