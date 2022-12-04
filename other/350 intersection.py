@@ -9,7 +9,7 @@ class Solution:
         res = []
         a_key = set(a.keys())
         b_key = set(b.keys())
-        common_key = a_key.intersection(b_key)
+        common_key = a_key & b_key
         for i in common_key:
             res.extend(min(a[i], b[i]) * [i])
         return res
