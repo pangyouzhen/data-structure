@@ -1,8 +1,6 @@
 from typing import List
-from pysnooper import snoop
 
 class Solution:
-    # @snoop()
     # def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
     #     self.breaks = []
     #
@@ -15,7 +13,6 @@ class Solution:
     #         for j in [goal - i, goal + i, goal ^ i]:
     pass
 
-    # @snoop()
     # TODO 广度优先算法，没写出来
     def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
         goals = {goal}

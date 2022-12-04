@@ -1,7 +1,7 @@
 from typing import List
 from collections import defaultdict
 
-class Solution():
+class Solution:
     def checkString(self, s:str) -> bool:
         if not s:
             return True

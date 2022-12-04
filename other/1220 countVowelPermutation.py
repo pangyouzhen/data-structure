@@ -1,7 +1,7 @@
 from typing import List
 
 # TODO
-class Solution():
+class Solution:
     def countVowelPermutation(self, n: int) -> int:
         pass
 

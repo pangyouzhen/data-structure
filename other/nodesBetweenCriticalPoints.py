@@ -10,5 +10,5 @@ class Solution:
 
 if __name__ == '__main__':
     func = Solution().nodesBetweenCriticalPoints
-    head = ListNode.list2node([5, 3, 1, 2, 5, 1, 2])
+    head = ListNode.from_list([5, 3, 1, 2, 5, 1, 2])
     print(head)

@@ -4,11 +4,9 @@ from typing import List
 from base.tree.tree_node import TreeNode
 
 
-# from pysnooper import snoop
 
 
 class Solution:
-    # @snoop()
     # def sumNumbers2(self, root: TreeNode) -> int:
     #     """
     #     从根节点到叶子节点的数字之和

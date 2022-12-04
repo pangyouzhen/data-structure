@@ -1,4 +1,3 @@
-from pysnooper import snoop
 
 
 class Solution:
@@ -27,7 +26,6 @@ class Solution:
     # 暴力解法-暴力解法会超时，但是暴力解法相比较滑动窗口，剪枝了重复计算
     # 比如 abcdef 中，k =3时，abc每个字母都得判断是不是元音字母，移动到下一个时候
     # bcd中的bc还得判断是否时元音字母
-    @snoop()
     def maxVowels_(self, s: str, k: int) -> int:
         l = len(s)
         # 为什么这里是l-k+1, 因为滑动窗口最后k-1个是没法计算的，那么总的元素是l -(k-1) 为l-k+1个元素

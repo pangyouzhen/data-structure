@@ -1,6 +1,5 @@
 from typing import List
 
-import pysnooper
 
 
 class Solution:
@@ -12,7 +11,6 @@ class Solution:
         self.permute_rec_memo(nums, one_ans)
         return self.res
 
-    # @pysnooper.snoop()
     # 这里最终返回的是-> List[str]，所以每一个元素应该是str,所以one_ans应该是List[str]
     def permute_rec_memo(self, nums: List[int], one_ans: List[int]):
         # 递归的终止条件
