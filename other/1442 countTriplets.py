@@ -1,36 +1,20 @@
 from typing import List
 from copy import deepcopy
 
-# TODO
+
 class Solution:
     def countTriplets(self, arr: List[int]) -> int:
         n = len(arr)
-        res = []
         for i in range(0, n):
+            a = 1
+            a = arr[i] ^ a
             for j in range(i + 1, n):
+                a = a ^ arr[j]
                 for k in range(j, n):
-                    res.append((i, j, k))
-        print(res)
-        c = 0
-        for i, j, k in res:
-            a = 0
-            b = 0
-            i_copy = deepcopy(i)
-            j_copy = deepcopy(j)
-            k_copy = deepcopy(k)
-            while i_copy < j_copy:
-                a = arr[i_copy] ^ a
-                i_copy += 1
-            while j_copy <= k_copy:
-                b = arr[j_copy] ^ b
-                j_copy += 1
-            if a == b:
-                # print(i, j, k)
-                c += 1
-        return c
+                    b 
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     arr = [2, 3, 1, 6, 7]
     # arr = [1, 1, 1, 1, 1]
     # timeout
