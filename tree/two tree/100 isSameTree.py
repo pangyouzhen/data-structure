@@ -5,13 +5,8 @@ class Solution:
     def isSameTree(self, p: TreeNode, q: TreeNode):
         if p is None and q is None:
             return True
-        elif p is not None and q is not None:
-            if p.val != q.val:
-                return False
-            else:
-                left = self.isSameTree(p.left, q.left)
-                right = self.isSameTree(p.right, q.right)
-                return left & right
+        elif p and q and p.val == q.val:
+            return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
         else:
             return False
 

@@ -2,6 +2,7 @@ from itertools import combinations
 from typing import List
 
 # TODO
+# 这不是回溯，这是0-1背包问题
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
         s = sum(nums)
