@@ -25,6 +25,8 @@ class TreeNode:
                  for val in string.strip('[]{}').split(',')]
         kids = nodes[::-1]
         root = kids.pop()
+        # nodes：["root","left","right","left_left","left_right","right_left","right_right"]
+        # kids: ['right_right', 'right_left', 'left_right', 'left_left', 'right', 'left', 'root']
         for node in nodes:
             if node:
                 if kids:

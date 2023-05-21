@@ -28,7 +28,6 @@ class Solution:
                 i += 1
         return '' if res[1] > len(s) else s[res[0]:res[1] + 1]
 
-
 if __name__ == '__main__':
     sol = Solution()
     print(sol.minWindow("ADOBECODEBANC", "ABC"))

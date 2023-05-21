@@ -1,21 +1,22 @@
-# time out
-from typing import List
-from functools import lru_cache
-
-
 class Solution:
+    # TODO
     def countPrimes(self, n):
-        if n < 2:
-            return 0
-        s = [1] * n
-        s[0] = s[1] = 0
-        for i in range(2, int(n ** 0.5) + 1):
-            if s[i] == 1:
-                s[i*i:n:i] = [0] * len(s[i*i:n:i])
-        return sum(s)
-
-
-if __name__ == '__main__':
+        is_primes = [1 for i in range(n)]
+        primes = [0 for i in range(n)]
+        count = 0
+        for i in range(2,n):
+            if is_primes[i] == 1:
+                primes[count] = i
+                count += 1
+            j = 0
+            while primes[j] * i < n:
+                is_primes[primes[j] * i] = 0
+                if i % primes[j] == 0:
+                    break
+                j += 1
+        return count
+    
+if __name__ == "__main__":
     sol = Solution()
 
     print(sol.countPrimes(10))

@@ -1,39 +1,36 @@
-from bisect import bisect
+import bisect
 from typing import List
 
 
 class Solution:
     def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
-        ind = bisect(arr, x)
-        res = []
-        left = ind - 1
-        right = ind
-        while len(res) <= k:
-            if left < 0:
-                res.extend(arr[right:right + k - len(res)])
-                res.sort()
-                return res
-            if right >= len(arr):
-                res.extend(arr[left + len(res) - k: left])
-                res.sort()
-                return res
-            if abs(arr[left] - x) < abs(arr[right] - x):
-                res.append(arr[left])
-                left -= 1
-            elif abs(arr[left] - x) > abs(arr[right] - x):
-                res.append(arr[right])
-                right += 1
+        l = len(arr)
+        if k >= l:
+            return arr
+        l = bisect.bisect_left(arr,x)
+        r = bisect.bisect_right(arr,x)
+        if k <= (r - l):
+            return arr[l:l + k]
+        if r == l:
+            return arr[-k:]
+        res = arr[l:r]
+        k -= r - l
+        while k > 0:
+            if abs(x - arr[l - 1]) <= abs(x - arr[r]):
+                res.append(arr[l - 1])
+                l -= 1
             else:
-                res.append(arr[left])
-                res.append(arr[right])
-                left -= 1
-                right += 1
+                res.append(arr[r])
+                r += 1
+            k -= 1
         res.sort()
-        return res[:k]
+        return res
 
 
-if __name__ == '__main__':
-    arr = [1, ]
+if __name__ == "__main__":
+    arr = [
+        1,
+    ]
     k = 1
     x = 1
     func = Solution().findClosestElements
