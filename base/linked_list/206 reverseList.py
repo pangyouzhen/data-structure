@@ -13,14 +13,14 @@ class Solution:
         return
 
     def reverseList2(self, head: ListNode) -> ListNode:
-        # 终止条件
-        if head is None or head.next is None:
-            return head
-        last = self.reverseList2(head.next)
-        head.next.next = head
-        head.next = None
-        return last
-
+        def recur(cur, pre):
+            if not cur:
+                return pre     # 终止条件
+            res = recur(cur.next, cur) # 递归后继节点
+            cur.next = pre             # 修改节点引用指向
+            return res                 # 返回反转链表的头节点
+        
+        return recur(head, None)       # 调用递归并返回
 
 if __name__ == '__main__':
     nums = [1, 2, 3, 4, 5]

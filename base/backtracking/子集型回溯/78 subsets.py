@@ -4,25 +4,17 @@ from itertools import chain, combinations
 
 
 class Solution:
-    def __init__(self):
-        self.res = []
-
     def subsets(self, nums: List[int]) -> List[List[int]]:
+        all_ans = []
         one_ans = []
-        start = 0
-        self.nums_len = len(nums)
-        self.subsets_memo(nums, start, one_ans)
-        return self.res
-
-    def subsets_memo(self, nums: List[int], start: int, one_ans: List[int]):
-        # 纵向，因为是取所有的子集，所以这里的没有终止条件
-        self.res.append(one_ans[:])
-        for i in range(start, self.nums_len):
-            print(f"for i in range({start}, {self.nums_len}):")
-            one_ans.append(nums[i])
-            self.subsets_memo(nums, i + 1, one_ans)
-            one_ans.pop()
-        return
+        def dfs(nums,ind,one_ans):
+            all_ans.append(one_ans[:])
+            for i in range(ind,len(nums)):
+                one_ans.append(nums[i])
+                dfs(nums,i+1,one_ans)
+                one_ans.pop()
+        dfs(nums,0,one_ans)
+        return all_ans        
 
     # python 没有内置的subset计算，但是可以从下面函数中得到
     def powerset(self, iterable: Iterable):

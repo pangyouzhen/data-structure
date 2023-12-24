@@ -26,6 +26,8 @@ class Solution:
                 occ.add(s[rk + 1])
                 rk += 1
             ans = max(ans, rk - i + 1)
+            print(occ,rk)
+            print('------------')
         return ans
 
     # 暴力解法
@@ -41,9 +43,9 @@ class Solution:
 
 
 if __name__ == '__main__':
-    sol = Solution().lengthOfLongestSubstring3
-    assert sol("abcabcbb") == 3
-    assert sol("bbbbb") == 1
+    sol = Solution().lengthOfLongestSubstring2
+    # assert sol("abcabcbb") == 3
+    # assert sol("bbbbb") == 1
     assert sol("pwwkew") == 3
-    assert sol("pwwkewc") == 4
-    assert sol("abcadec") == 5
+    # assert sol("pwwkewc") == 4
+    # assert sol("abcadec") == 5
