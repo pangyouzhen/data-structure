@@ -9,9 +9,9 @@ class Solution:
             a = 1
             a = arr[i] ^ a
             for j in range(i + 1, n):
-                a = a ^ arr[j]
+                b = arr[j]
                 for k in range(j, n):
-                    b 
+                    
 
 
 if __name__ == "__main__":
